@@ -54,7 +54,7 @@ body
 		color white
 		background-size cover
 		position top center
-		background-repeat no-repeat
+		background-repeat repeat-y
 		@media (max-width: 570px)
 			background-size auto
 		#toolbar
@@ -1239,6 +1239,11 @@ a, svg g, svg path
 		.item
 			margin-bottom 30px
 			full-width()
+			img
+				max-width 100%
+			&:first-of-type
+				img
+					max-width 120%
 			h3
 				float left
 				padding-top 10px
@@ -1430,6 +1435,8 @@ a, svg g, svg path
 					height 66px
 		.item
 			margin-top 40px
+			img
+				max-width 100%
 			h3
 				font-size 24px
 				line-height 26px

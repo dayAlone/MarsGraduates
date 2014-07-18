@@ -59,7 +59,7 @@ body.color {
   -moz-background-size: cover;
   background-size: cover;
   position: top center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
 }
 @media (max-width: 570px) {
   body.color {
@@ -1725,6 +1725,12 @@ svg path:hover {
   float: left;
   width: 100%;
 }
+#page.academy .item img {
+  max-width: 100%;
+}
+#page.academy .item:first-of-type img {
+  max-width: 120%;
+}
 #page.academy .item h3 {
   float: left;
   padding-top: 10px;
@@ -1979,6 +1985,9 @@ svg path:hover {
 }
 #page.career .item {
   margin-top: 40px;
+}
+#page.career .item img {
+  max-width: 100%;
 }
 #page.career .item h3 {
   font-size: 24px;
