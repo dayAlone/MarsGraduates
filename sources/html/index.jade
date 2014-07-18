@@ -1,0 +1,122 @@
+include includes/header
+<body class="index">
+include includes/nav
+include includes/toolbar
+//
+	#toolbar
+		.container
+			.row
+				.col-md-2.col-xs-3
+					a.home(href="#")
+						include ../../public_html/layout/images/svg/home.svg
+					.select
+						a.trigger(href="#")
+							| Россия
+							include ../../public_html/layout/images/svg/arrow-bottom.svg
+				.col-md-8.col-xs-6.logo-frame
+					a.logo(href="/")
+						include ../../public_html/layout/images/svg/logo.svg
+				.col-md-2.col-xs-3
+					a.nav-trigger(href="#")
+						include ../../public_html/layout/images/svg/trigger.svg
+					.social
+						a(href="#").mars
+							include ../../public_html/layout/images/svg/marscom.svg
+						a(href="#")
+							include ../../public_html/layout/images/svg/insta.svg
+						a(href="#")
+							include ../../public_html/layout/images/svg/vk.svg
+						a(href="#")
+							include ../../public_html/layout/images/svg/fb.svg
+						a(href="#")
+							include ../../public_html/layout/images/svg/youtube.svg
+						a(href="#")
+							include ../../public_html/layout/images/svg/in.svg
+
+#main
+	.container
+		.col
+			.title
+				a(href="/about.html") О нас
+			.content
+				a(href="#") Mars Inside
+					br
+					span.flag 
+						| Видео Mars СНГ
+						include ../../public_html/layout/images/svg/flag.svg
+
+				a(href="#") Наши 5 Принципов
+
+				a(href="#") История Mars
+
+				a(href="#") Бренды и сегменты Mars
+
+				a(href="#") Подразделения
+		.frame
+			.col.big
+				.title
+					a(href="/career.html") Карьера
+				.content
+					a.open.leadreship.big(href="#")
+						include ../../public_html/layout/images/svg/leader1.svg
+						span Leadreship <br>Development <br>Program
+						span.flag 
+							span
+								| Внимание, <br>открыт набор!
+							include ../../public_html/layout/images/svg/flag.svg
+					a.open.internship.big(href="#")
+						include ../../public_html/layout/images/svg/intership.svg
+						span Mars <br>Internship <br>Program
+						span.flag 
+							span
+								| Внимание, <br>открыт набор!
+							include ../../public_html/layout/images/svg/flag.svg
+			.col.big
+				.title
+					a(href="#") Mars academy
+				.content
+					a.big(href="#") 
+						span Лекции и мастер-классы
+					a.big(href="#") 
+						span Конференции
+					a.big(href="#") 
+						span Бизнес-игры <br>и кейс-чемпионаты
+		.col
+			.title
+				a(href="#") Ближайшие события
+			.content
+				#cal-day
+					.day
+						a.arrow.left(href="#") 
+							include ../../public_html/layout/images/svg/arrow-left.svg
+						a.arrow.right(href="#") 
+							include ../../public_html/layout/images/svg/arrow-right.svg
+						span.text 20
+						span.week в четверг
+						span.month марта
+					a.cal
+						| Календарь событий
+						include ../../public_html/layout/images/svg/arrow-3.svg
+					a.event
+						span.city МСК
+						span.type Бизнес-игра
+						br
+						span.name Running business in Russia
+						span.reg Регистрация
+					a.event.training
+						span.city СПБ
+						span.type Тренинг
+						br
+						span.name Running business in Russia
+						span.reg Регистрация
+					a.flag(href="#")
+						| Внимание, открыт <br>набор на mip и ldp!
+						include ../../public_html/layout/images/svg/flag.svg
+					a.star
+						include ../../public_html/layout/images/svg/star.svg
+						.text ВИКТОРИНА <br>С СУПЕР-ПРИЗОМ!
+#brands
+	.container
+		img(src="/layout/images/brands.png")
+
+include includes/footer		

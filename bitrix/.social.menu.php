@@ -1,0 +1,53 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"marscom", 
+		"http://www.mars.com/cis/ru/index.aspx", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"insta", 
+		"http://instagram.com/mars_russia", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"vk", 
+		"https://vk.com/mars_cis", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"fb", 
+		"https://www.facebook.com/mars.cis", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"youtube", 
+		"https://www.youtube.com/user/Mars", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"in", 
+		"http://www.linkedin.com/company/mars/careers", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"gp", 
+		"https://plus.google.com/112416986288845956470/posts", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

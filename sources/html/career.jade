@@ -1,0 +1,249 @@
+include includes/header
+<body class="color" style="background-image:url(/layout/images/career-bg.jpg);background-color: #242855" data-spy="scroll" data-target=".scrollspy" data-offset="170">
+include includes/nav
+include includes/toolbar
+
+#page.career
+	.container
+		.content
+			.scrollspy
+				ul.nav
+					li
+						a(href="#top")
+							include ../../public_html/layout/images/svg/simple-key.svg
+					li
+						a(href="#leader").small
+					li
+						a(href="#intern").small
+							
+			a.anchor(name="top", id="top")
+			h1 КАРЬЕРА
+				include ../../public_html/layout/images/svg/key.svg
+			h4.center.toggle 5 причин работать в Mars
+			.reasons
+				.item
+					.title 1&nbsp;&nbsp;Развитие
+					.text С первого дня работы тебя ждут разнообразные тренинги, обратная связь от коллег и коучинг!
+				.item
+					.title 2&nbsp;&nbsp;Забота
+					.text Мы чувствуем себя частью семейного бизнеса и подходим к работе со всей ответственностью
+				.item
+					.title 3&nbsp;&nbsp;Открытость
+					.text Здесь каждый может связаться с каждым на любом уровне и в любое время.
+				.item
+					.title 4&nbsp;&nbsp;Культура
+					.text Мы крупнейший в мире семейный бизнес, это дает нам свободу и независимость.
+				.item(data-merge="2")
+					.title 5&nbsp;&nbsp;Самореализация
+					.text Если тебе не терпится достичь профессиональных высот, проявить
+				.item
+			p.center.description
+				| В компании Mars важную роль играет подготовка собственных кадров. Мы помогаем молодым<br> специалистам делать первые шаги по карьерному пути. Для студентов действует <br>оплачиваемая стажировка Mars Internship Program, а для выпускников – Leadership<br> Development Program, программа развития менеджеров компании.
+			.sections
+				a(href="#leader")
+					include ../../public_html/layout/images/svg/leader1.svg
+					span.text Leadership 
+					span.text Development Program
+
+				a(href="#intern")
+					include ../../public_html/layout/images/svg/intership.svg
+					span.text Mars 
+					span.text Internship Program
+			.row.elm.item
+				a.anchor(name="leader", id="leader")
+				.col-md-5.col-xs-5
+					img(src="/layout/images/sputnik.png")
+				.col-md-7.col-xs-7
+					h3 
+						span Leadership
+						span Development Program
+					p Leadership Development Program - программа развития, которая помогает талантливым сотрудникам становиться настоящими лидерами бизнеса. Программа длится от 2 до 4 лет. Вас ждет уникальный опыт работы в международных проектах, командировки и тренинги, общение с топ-менеджерами компании. Раскройте свой потенциал и станьте руководителем в Mars!
+					.flag
+						| Внимание <br>открыт набор
+						include ../../public_html/layout/images/svg/flag.svg
+					a.more(href="#modalLeader", data-toggle="modal", data-target="#modalLeader") Подробнее
+			.row.elm.item
+				a.anchor(name="intern", id="intern")
+				.col-md-5.col-xs-5
+					img(src="/layout/images/tarelka.png")
+				.col-md-7.col-xs-7
+
+					h3 
+						span Mars Internship Program
+					p Mars Internship Program – это не просто возможность испытать на практике полученные во время учебы знания, это шанс стать частью легендарной команды профессионалов Mars. Хотите глубже познакомиться с выбранной профессией, попробовать себя в решении реальных бизнес-задач и получить массу полезных практических навыков за одно лето? В Mars ваши возможности почти безграничны.
+					a.more(href="#modalDevelop", data-toggle="modal", data-target="#modalDevelop") Подробнее
+			a.top(href="#")
+				include ../../public_html/layout/images/svg/totop.svg
+
+#modalDevelop.modal.fade(role="dialog")
+	.modal-dialog.modal-lg
+		.modal-content
+			button(type="button", class="close", data-dismiss="modal", aria-hidden="true")
+				include ../../public_html/layout/images/svg/close.svg
+			h1 Mars Internship Program
+			.row
+				.col-md-8.col-xs-7
+					.block.d-1
+						h3 Направления
+						ul
+							li Отдел Информационных технологий
+							li Производство и Логистика
+							li Финансовый отдел
+							li Отдел персонала
+							li Маркетинг
+							li Отдел Исследований и Разработок
+							li Отдел Закупок
+
+					.block.d-2
+						h3 Условия
+						ul
+							li Летняя оплачиваемая стажировка 2-3  месяца
+							li Постоянная оплачиваемая стажировка до 1 года (для старшекурсников)
+							li Ученический договор
+							li Корпоративное обучение
+							li Интересные и ответственные проекты
+							li Выделенный наставник, отвечающий за ваше развитие на Программе
+					.block.d-3
+						h3 Компетенции
+						ul
+							li Лидерство
+							li Честность
+							li Стремление достичь результата в работе
+							li Способность быстро обучаться
+							li Умение строить отношения сотрудничества
+							li Умение планировать, расставлять приоритеты
+				.col-md-4.col-xs-5
+					.scroll
+						.frame
+							h2 Вакансии
+							.item
+								h3 Стажер в отдел Research & Development
+								p Mars Global Petcare / Mars Petcare Russia
+								a(href="#") Подать заявку
+							.item
+								h3 Стажер в отдел Research & Development
+								p Mars Global Petcare / Mars Petcare Russia
+								a(href="#") Подать заявку
+							.item
+								h3 Стажер в отдел Research & Development
+								p Mars Global Petcare / Mars Petcare Russia
+								a(href="#") Подать заявку
+							.item
+								h3 Стажер в отдел Research & Development
+								p Mars Global Petcare / Mars Petcare Russia
+								a(href="#") Подать заявку
+							.item
+								h3 Стажер в отдел Research & Development
+								p Mars Global Petcare / Mars Petcare Russia
+								a(href="#") Подать заявку
+							.item
+								h3 Стажер в отдел Research & Development
+								p Mars Global Petcare / Mars Petcare Russia
+								a(href="#") Подать заявку
+
+#modalLeader.modal.fade(role="dialog")
+	.modal-dialog.modal-lg
+		.modal-content
+			button(type="button", class="close", data-dismiss="modal", aria-hidden="true")
+				include ../../public_html/layout/images/svg/close.svg
+			h1 Leadership Development Program
+			.row
+				.col-md-8.col-xs-7
+					.scroll
+						.frame
+							.block.b-1
+								h3 Направления
+								ul
+									li Chocolate
+									li Petcare
+									li Wrigley
+
+							.block.b-2
+								h3 Требования к кандидатам
+								ul
+									li Выпускник 2011 – 2014 года
+									li Знание английского языка
+									li Готовность к переезду и командировкам
+							.block.b-3
+								h3 Компетенции
+								ul
+									li Лидерство
+									li Честность
+									li Стремление достичь результата в работе
+									li Способность быстро обучаться
+									li Умение строить отношения сотрудничества
+									li Умение планировать, расставлять приоритеты
+							.block.b-4
+								h3 Условия
+								ul
+									li Постоянный трудовой договор
+									li Полная занятость
+									li Высокий уровень заработной оплаты
+									li Медицинская страховка
+									li Корпоративное обучение
+									li Оплата питания
+							h3 Зачем мне это?
+							p Цель Leadership Development Program (LDP) — подготовить <strong>будущих лидеров</strong> бизнеса Mars уже сегодня. Это идеальный способ заложить <strong>фундамент твоей карьеры</strong> в сфере бизнес-лидерства. Всего за <strong>2-4 года</strong> ты сможешь пройти путь от выпускника до менеджера и поработать в различных отделах компании: маркетинг, финансы, продажи, исследования и разработки, производство, HR, информационные технологии, закупки и др. Кроме того, у тебя будет возможность получить опыт в разных бизнес-сегментах Mars (Сhocolate, Petcare, Wrigley) или стать частью центральной команды и отвечать за все сегменты одновременно.
+
+							h3 Что меня ждёт?
+							p У тебя будет <strong>индивидуальный план развития</strong>. Он составляется с учётом потребностей бизнеса и твоих пожеланий. Каждый год ты будешь получать назначение и работать в новом отделе, благодаря чему сможешь приобрести <strong>разносторонний практический опыт</strong> и понять, как выстроен бизнес Mars. 
+
+							p С первого дня ты начнёшь работать над ключевыми проектами компании как на локальном, так и на международном уровне, руководить командами, принимать ответственные решения и влиять на результаты бизнеса. <strong>Интересные и трудные задачи</strong> позволят тебе брать новые <strong>высоты профессионализма и личного развития</strong>.  Кроме того, LDP предполагает различные формы обучения: внешние и  внутренние тренинги совместно с менеджерами компании, встречи со старшими лидерами, воркшопы и международные проекты.
+
+							h3 Чего ждут от меня?
+							p На этой программе мы растим <strong>будущих CEO</strong>, поэтому стать участником Leadership Development Program — это большая ответственность. Мы ждём от тебя непрерывного развития и обучения, усердия, стремления к достижению результата, профессиональному и личностному росту. Индивидуальный план развития поможет тебе справиться с поставленными задачами.
+
+							h3 На какую поддержку я могу рассчитывать?
+							p Тебе будут помогать Куратор (старший менеджер) и товарищ, недавний выпускник LDP. По итогам твоей работы будут составляться <strong>отзывы</strong>: в середине и в конце срока каждого назначения на должность. Благодаря им мы сможем оценить <strong>твой прогресс</strong>, а также, ориентируясь на потребности бизнеса, обсудить с тобой <strong>направление развития твоей карьеры</strong> и спланировать следующее и наиболее подходящее для тебя назначение. 
+
+							p Ключевое слово в названии программы — «развитие»: LDP — это начало долгосрочного развития твоей карьеры в компании Mars.
+
+							p <strong>Спеши подать заявку, места ограничены!</strong>
+							h3 Ключевые факты о Leadership Development Program:
+							.row.list
+								.col-md-2.col-xs-3
+									.money
+										include ../../public_html/layout/images/svg/money.svg
+									.chart
+										include ../../public_html/layout/images/svg/chart.svg
+								.col-md-6.first.col-xs-9
+									h4 Преимущества
+									ul
+										li конкурентная заработная плата;
+										li расширенный соц пакет; 
+										li гибкий график работы;<br><br>
+
+										li быстрый карьерный рост;
+										li индивидуальная программа развития;
+										li профессиональный опыт от старших лидеров; 
+										li работа в различных отделах и бизнес сегментах компании в течение 2-4х лет;
+										li участие в зарубежных проектах; 
+										li специализированное обучение и тренинги
+								.col-md-4
+									h4 Требования:
+									ul.big
+										li выпускник 2011-2014 года;
+										li хорошее знание английского языка; 
+										li готовность к переезду и командировкам;
+										li полный рабочий день.
+
+									h4 Длительность: 
+									p 2-4 года
+
+									h4 Где: 
+									p Россия
+							h3 Истории успеха участников Leadership Development Program:
+							.row
+								.col-md-4.right
+									a(href="https://vk.com/doc-25625432_209635496", target="_blank")
+										img(src="/layout/images/leader-1.png")
+								.col-md-4.center
+									a(href="https://vk.com/doc-25625432_269909622", target="_blank")
+										img(src="/layout/images/leader-2.png")
+								.col-md-4
+									a(href="https://vk.com/doc-25625432_212658406", target="_blank")
+										img(src="/layout/images/leader-3.png")
+				.col-md-4.col-xs-5
+					include ../../public_html/layout/images/svg/leader-programm.svg
+
+include includes/footer		

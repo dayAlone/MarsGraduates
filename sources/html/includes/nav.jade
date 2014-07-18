@@ -1,0 +1,38 @@
+
+#nav
+	a.trigger(href="#")
+		include ../../../public_html/layout/images/svg/trigger.svg
+	a(href="#") Главная
+	a(href="#") О нас 
+	a(href="#") Карьера
+	a(href="#") Mars <br>Academy
+	a(href="#") Календарь <br>событий
+	.footer
+		.social
+			a(href="#")
+				include ../../../public_html/layout/images/svg/insta.svg
+			a(href="#")
+				include ../../../public_html/layout/images/svg/vk.svg
+			a(href="#")
+				include ../../../public_html/layout/images/svg/fb.svg
+			a(href="#")
+				include ../../../public_html/layout/images/svg/youtube.svg
+			a(href="#")
+				include ../../../public_html/layout/images/svg/in.svg
+		a(href="#") Задать вопрос
+		a(href="#") Подписаться
+
+#question(href="#")
+	.text Задать<br>вопрос
+	a.vk
+		include ../../../public_html/layout/images/svg/vk.svg
+	a.mail
+		include ../../../public_html/layout/images/svg/mail.svg
+	.sign ?
+#maillist
+	.text Подписаться
+	form
+		input(type="email", placeholder="Эл. почта")
+		input(type="submit", value="")
+	a(href="#")
+		include ../../../public_html/layout/images/svg/mail.svg

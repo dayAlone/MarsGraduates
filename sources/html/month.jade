@@ -1,0 +1,120 @@
+include includes/header
+<body>
+include includes/nav
+include includes/toolbar
+
+#page.month
+	.container
+		.content
+			.title
+				.row
+					.col-md-3.col-xs-3
+						a.select
+							| выбрать город
+							include ../../public_html/layout/images/svg/arrow-right.svg
+					.col-md-6.center.col-xs-6
+						a(href="#").arrow.left
+							include ../../public_html/layout/images/svg/arrow-left.svg
+						span.month
+							span.name Март
+							span.year 2014
+						a(href="#").arrow.right
+							include ../../public_html/layout/images/svg/arrow-right.svg
+			.table.th
+				.cell Пн
+				.cell Вт
+				.cell Ср
+				.cell Чт
+				.cell Пт
+				.cell Сб
+				.cell Вс
+			.table
+				.cell.inactive
+				.cell.inactive
+				.cell.inactive
+				.cell.inactive
+				.cell.inactive
+				.cell.end
+					.num 1
+				.cell.end
+					.num 2
+			.table
+				.cell
+					.num 3
+				.cell
+					.num 4
+				.cell
+					.num 5
+				.cell
+					.num 6
+				.cell
+					.num 7
+				.cell.end
+					.num 8
+				.cell.end
+					.num 9
+			.table
+				.cell
+					.num 10
+				.cell.event
+					.num 11
+					.event.violet
+						.city МСК
+						.type Мастер-класс
+						.name «Роль отдела R&D в FMCG: наука и инновации в комании MARS»
+						a.more(href="#") еще одно событие
+				.cell
+					.num 12
+				.cell.event
+					.num 13
+					.event.green
+						.city СПБ
+						.type Тренинг
+						.name «Роль отдела финансов в FMCG. Market Finance»
+				.cell
+					.num 14
+				.cell.end
+					.num 15
+				.cell.end
+					.num 16
+			.table
+				.cell
+					.num 17
+				.cell
+					.num 18
+				.cell
+					.num 19
+				.cell
+					.num 20
+				.cell
+					.num 21
+				.cell.end
+					.num 22
+				.cell.end
+					.num 23
+			.table
+				.cell
+					.num 24
+				.cell
+					.num 25
+				.cell
+					.num 26
+				.cell
+					.num 27
+				.cell
+					.num 28
+				.cell.end
+					.num 29
+				.cell.end
+					.num 30
+			.table
+				.cell
+					.num 31
+				.cell.inactive
+				.cell.inactive
+				.cell.inactive
+				.cell.inactive
+				.cell.end.inactive
+				.cell.end.inactive
+
+include includes/footer

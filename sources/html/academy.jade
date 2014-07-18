@@ -1,0 +1,170 @@
+include includes/header
+<body class="color" style="background-image:url(/layout/images/academy-bg.jpg); background-color: #186f9a"  data-spy="scroll" data-target=".scrollspy" data-offset="170">
+include includes/nav
+include includes/toolbar
+
+#page.academy
+	.container
+		.content
+			.scrollspy
+				ul.nav
+					li
+						a(href="#top")
+							include ../../public_html/layout/images/svg/simple-shield.svg
+					li
+						a(href="#conference") 1
+					li
+						a(href="#lectures") 2
+					li
+						a(href="#merketing").small
+					li
+						a(href="#finance").small
+					li
+						a(href="#tech").small
+					li
+						a(href="#leader").small
+					li
+						a(href="#games") 3
+			a.anchor(name="top", id="top")
+			h1 MARS ACADEMY
+				include ../../public_html/layout/images/svg/shield.svg
+			p.center Mars Academy создана с целью передачи студентам практических знаний и навыков работы в сфере FMCG (Fast Moving Consumer Goods, или отрасль потребительских товаров). Образовательные мероприятия проходят во многих городах России как в формате крупных конференций, так и в формате отдельных мастер-классов. 
+
+			h4.center ПОДРОБНЕЕ
+			.sections
+				a(href="#conference")
+					span.num 1
+					br
+					span.text Конференции
+				a(href="#lectures")
+					span.num 2
+					br
+					span.text Лекции<br>и мастер-классы
+				a(href="#games")
+					span.num 3
+					br
+					span.text Бизнес-игры<br>и кейс-чемпионаты
+			.elm
+				a(name="conference", id="conference").anchor
+				h2.count КОНФЕРЕНЦИИ
+					span.num 1
+				p.offset Конференции – это образовательный курс для студентов и выпускников, который проходит раз в полгода во многих городах России. Его задача – рассказать о специфике устройства, функционирования и карьерных траекториях в FMCG-отрасли (Fast Moving Consumer Goods) в целом и компании Mars в частности. Спикеры курса – руководители и специалисты компании; мероприятия проходят в формате конференции или бизнес-игры. Этот курс – отличный способ сориентироваться в одной из крупнейших отраслей экономики и выбрать свой карьерный путь.
+				a(name="lectures", id="lectures").anchor
+			.elm
+				h2.count.big ЛЕКЦИИ <br>И МАСТЕР-КЛАССЫ
+					span.num 2
+				p.offset Тебя интересует, как запустить новый продукт и организовать его движение от фабрики до полок магазинов? Как построить правильную коммуникацию с потребителем и сделать бренд сильным и уникальным? Секретами маркетинга и продаж с тобой поделятся профессионалы Mars, работающие с такими звёздами как SNICKERS®, M&M’S®, PEDIGREE®, ORBIT®. Не упусти шанс узнать подробности на лекциях и мастер-классах направления «Маркетинг и Продажи».
+				.parts
+					a(href="#merketing")
+						.text
+							span Маркетинг
+							span и Продажи
+							include ../../public_html/layout/images/svg/moto.svg
+					a(href="#finance")
+						.text
+							span Финансы
+							span и Закупки
+							include ../../public_html/layout/images/svg/calc.svg
+					a(href="#tech")
+						.text
+							span Технологии
+							span и Производство
+							include ../../public_html/layout/images/svg/tools.svg
+					a(href="#leader")
+						.text
+							span Развитие
+							span Лидерства
+							include ../../public_html/layout/images/svg/leader.svg
+				a(name="merketing", id="merketing").anchor
+				.item.orange
+					.row
+						.col-md-5.col-xs-5
+							img(src="/layout/images/academy-1.png")
+						.col-md-7.col-xs-7
+							h3 МАРКЕТИНГ И ПРОДАЖИ
+							h5 Уроки профессионалов
+							p Тебя интересует, как запустить новый продукт и организовать его движение от фабрики до полок магазинов? Как построить правильную коммуникацию с потребителем и сделать бренд сильным и уникальным? Секретами маркетинга и продаж с тобой поделятся профессионалы Mars, работающие с такими звёздами как SNICKERS®, M&M’S®, PEDIGREE®, ORBIT®. Не упусти шанс узнать подробности на лекциях и мастер-классах направления «Маркетинг и Продажи».
+							h6 Ближайшие события по направлению:
+							.events
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+				a(name="finance", id="finance").anchor
+				.item.green
+					.row
+						.col-md-5.col-xs-5
+							img(src="/layout/images/academy-2.png")
+						.col-md-7.col-xs-7
+							h3 финансы и закупки
+							h5 Уроки эффективности
+							p Все, что ты хотел знать о финансах и закупках, но не знал, у кого спросить! Как организованы финансовые потоки в международной корпорации и как устроена система закупок? Как Mars адаптируется к финансовым особенностям локальных рынков? За что любят и ненавидят финансистов, уважают и боятся специалистов отдела закупок? Самое увлекательное и полезное о столпах FMCG-индустрии — из первых рук!
+							h6 Ближайшие события по направлению:
+							.events
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+				a(name="tech", id="tech").anchor
+				.item.violet
+					.row
+						.col-md-5.col-xs-5
+							img(src="/layout/images/academy-3.png")
+						.col-md-7.col-xs-7
+							h3 ТЕХНОЛОГИИ И ПРОИЗВОДСТВО
+							h5 От исследования до упаковки
+							p Ты узнаешь, как устроено эффективное производство и как глобальные стандарты работают на локальных рынках. Какие технологии использует Mars и почему так много внимания уделяется научным разработкам. Все этапы технологического процесса, от исследований до готового продукта — ни один нюанс не укроется от тебя благодаря захватывающим лекциям и мастер-классам специалистов Mars. 
+							h6 Ближайшие события по направлению:
+							.events
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+				a(name="leader", id="leader").anchor
+				.item.yellow
+					.row
+						.col-md-5.col-xs-5
+							img(src="/layout/images/academy-4.png")
+						.col-md-7.col-xs-7
+							h3 РАЗВИТИЕ ЛИДЕРСТВА
+							h5 Стратегия и тактика роста
+							p Компания Mars стала одним из гигантов глобального FMCG-рынка во многом благодаря своим лидерам, которых готовит не первое десятилетие. Как ставить прорывные цели, которые органично вплетаются в жизнь компании? Как создать эффективную команду, живущую одним делом?<br>Быть лидером — это искусство и опыт, которым мы готовы поделиться на лекциях в рамках направления «Развитие лидерства».
+							h6 Ближайшие события по направлению:
+							.events
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+								a.item(href="#")
+									.type Лекции
+									.city СПБ
+									.title Running business in Russia
+									.reg Регистрация
+			.elm
+				a(name="games", id="games").anchor
+				h2.count.big Бизнес-игры <br>и кейс-чемпионаты
+					span.num 3
+				p.offset Тебя интересует, как запустить новый продукт и организовать его движение от фабрики до полок магазинов? Как построить правильную коммуникацию с потребителем и сделать бренд сильным и уникальным? Секретами маркетинга и продаж с тобой поделятся профессионалы Mars, работающие с такими звёздами как SNICKERS®, M&M’S®, PEDIGREE®, ORBIT®. Не упусти шанс узнать подробности на лекциях и мастер-классах направления «Маркетинг и Продажи».
+			a.top(href="#")
+				include ../../public_html/layout/images/svg/totop.svg
+
+include includes/footer	

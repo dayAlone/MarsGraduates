@@ -1,0 +1,252 @@
+include includes/header
+<body data-spy="scroll" data-target=".scrollspy" data-offset="170">
+include includes/nav
+
+include includes/toolbar
+
+#page.about
+	.container
+		.content
+			.scrollspy
+				ul.nav
+					li
+						a(href="#top").text
+							| О нас
+					li
+						a(href="#inside")
+							| 1
+					li
+						a(href="#pr")
+							| 2
+					li
+						a(href="#history")
+							| 3
+					li
+						a(href="#brands")
+							| 4
+					li
+						a(href="#scheme")
+							| 5
+			.elm
+				a.anchor(name="top", id="top")
+				h1 О нас
+				p.center
+					a.video(href="#")
+						img(src="/layout/images/video.jpg", width="560")
+					
+				.sections
+					a(href="#inside")
+						span 1
+						br
+						| Mars Inside
+					a(href="#pr")
+						span 2
+						br
+						| Наши 5 Принципов
+					a(href="#history")
+						span 3
+						br
+						| История Mars
+					a(href="#brands")
+						span 4
+						br
+						| Бренды и сегменты <br>Mars
+					a(href="#scheme")
+						span 5
+						br
+						| Подразделения  
+				a(name="inside", id="inside").anchor
+			.elm
+				h2.count Mars Inside
+					span.num 1
+					.social
+						.title Больше фотографий <br>о нашей жизни:
+						a(href="#")
+							include ../../public_html/layout/images/svg/insta.svg
+						a(href="#")
+							include ../../public_html/layout/images/svg/vk.svg
+				.carousel
+					img(src="/layout/images/tmp/a-1.jpg")
+					img(src="/layout/images/tmp/a-2.jpg")
+					img(src="/layout/images/tmp/a-3.jpg")
+					.arrow.left
+						include ../../public_html/layout/images/svg/arrow-left2.svg
+					.arrow.right
+						include ../../public_html/layout/images/svg/arrow-right2.svg
+				a(name="pr", id="pr").anchor
+				h2.count Наши 5 принципов
+					span.num 2
+				.principles
+					.item
+						include ../../public_html/layout/images/svg/best.svg
+						h3.green 1 Качество
+						p «Потребитель — это наш босс, качество — это суть нашей работы, а хороший товар по доступной цене — это наша цель».
+					.item
+						include ../../public_html/layout/images/svg/see.svg
+						h3.violet 2 ОТВЕТСТВЕННОСТЬ
+						p «Как личности мы требуем от себя полной ответственности. Как сотрудники мы несём ответственность и за то, что делают другие».
+					.item
+						include ../../public_html/layout/images/svg/support.svg
+						h3.orange 3 ВЗАИМОВЫГОДНОСТЬ
+						p «Взаимная выгода — это общая выгода, а общая выгода поможет выдержать испытание временем».
+					.item
+						include ../../public_html/layout/images/svg/effective.svg
+						h3.green 4 эффективность
+						p «Нам нужна свобода, чтобы строить своё будущее, нам нужна прибыль, чтобы оставаться свободными».
+					.item
+						include ../../public_html/layout/images/svg/freedom.svg
+						h3.blue 5 СВОБОДА
+						p «Взаимная выгода — это общая выгода, а общая выгода поможет выдержать испытание временем».
+						
+				a(name="history", id="history").anchor
+			.elm
+				h2.count История mars
+					span.num 3
+				.history
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_1911.jpg")
+							.col-md-8.col-xs-8
+								h3 
+
+									span 1911
+								p Фрэнк С. Марс начинает производство и продажу шоколадных батончиков со сливочным кремом у себя на кухне в г. Такома (штат Вашингтон, США).
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_1923.jpg")
+							.col-md-8.col-xs-8
+								h3 Январь 
+
+									span 1923
+								p После трех лет научных исследований на рынке появляется уникальный шоколадный батончик MILKY WAY®, который сразу завоевывает огромный успех у потребителей.
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_1935_b.jpg")
+							.col-md-8.col-xs-8
+								h3 Ноябрь 
+
+									span 1935
+								p Компания Mars входит в бизнес Petcare в результате приобретения британской компании Chappel Brothers, Ltd., производящей баночный корм для собак под маркой CHAPPIE®
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_1941.jpg")
+							.col-md-8.col-xs-8
+								h3 Ноябрь 
+
+									span 1941
+								p Появление на рынке бренда M&M’S®, стоимость которого сейчас превышает миллиард долларов
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_1982_c.jpg")
+							.col-md-8.col-xs-8
+								h3 Июнь 
+
+									span 1982
+								p M&M'S - первая конфета в космосе. Американские астронавты обратились с просьбой включить  M&M's в программу их питания на орбите.
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_1995_b.jpg")
+							.col-md-8.col-xs-8
+								h3 Июнь 
+
+									span 1991
+								p Mars приходит в Россию и начинает реализацию продуктов питания, кондитерских изделий и кормов для домашних животных .
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_1911.jpg")
+							.col-md-8.col-xs-8
+								h3 Декабрь 
+
+									span 1995
+								p Вводится в эксплуатацию первая в России шоколадная фабрика по выпуску батончиков MARS® в г. Ступино Московской области
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_2008.jpg")
+							.col-md-8.col-xs-8
+								h3 Декабрь 
+
+									span 2008
+								p В состав компании Mars, Incorporated в качестве бизнес сегмента, производящего жевательную резинку и кондитерские изделия, входит компания Wrigley. Приобретенная Wrigley в 2007 году российская шоколадная компания "Одинцовская кондитерская фабрика", которой принадлежит шоколадный бренд A.Korkunov®, вливается в сегмент Mars Chocolate
+					.item
+						.row
+							.col-md-4.col-xs-4
+								img(src="/layout/images/mars_timeline_2013.jpg")
+							.col-md-8.col-xs-8
+								h3 Декабрь 
+
+									span 2013
+								p Сегодня в Mars в России и СНГ работает более 7 000 сотрудников, а по всему миру это число превышает отметку в 72 000.  Век спустя мы все также частный семейный бизнес, но масштабы у нас вполне галактические!
+				.history-page
+					a(href="#", data-id="0").active 1911
+					a(href="#", data-id="1") 1923
+					a(href="#", data-id="2") 1935
+					a(href="#", data-id="3") 1941
+					a(href="#", data-id="4") 1982
+					a(href="#", data-id="5") 1991
+					a(href="#", data-id="6") 1995
+					a(href="#", data-id="7") 2008
+					a(href="#", data-id="8") 2013
+			.elm
+				a(name="brands", id="brands").anchor
+				h2.count Бренды и сегменты mars
+					span.num 4
+				.brands
+					.item
+						.title.brown Шоколад (Chocolate)
+							.icon
+								include ../../public_html/layout/images/svg/arrow-right2.svg
+						p На российском рынке шоколада Mars входит в тройку лидеров с долей рынка в 17%. 
+						p.slide
+							img(src="/layout/images/brands-chock.jpg")
+					.item
+						.title.green Продукты питания для домашних животных (Petcare)
+							.icon
+								include ../../public_html/layout/images/svg/arrow-right2.svg
+						p Mars является одним из крупнейших мировых производителей кормов для животных. <br>При этом в России Mars - безоговорочный лидер – на долю компании приходится 60% продаж. 
+						p.slide
+							img(src="/layout/images/brands-pet.jpg")
+					.item
+						.title.blue Жевательная резинка (Wrigley)
+							.icon
+								include ../../public_html/layout/images/svg/arrow-right2.svg
+						p Wrigley со штаб-квартирой в Чикаго (штат Иллинойс, США) является одним из крупнейших в мире производителей жевательной резинки и сладостей, доставляя потребителям простые удовольствия. <br>В Wrigley работает более 17 000 сотрудников в 48 странах. 
+						p.slide
+							img(src="/layout/images/brands-gym.jpg")
+					.item
+						.title.orange Продукты питания (Food)
+							.icon
+								include ../../public_html/layout/images/svg/arrow-right2.svg
+						p Mars Food (штаб-квартира в Брюсселе, Бельгия) производит продукты питания, созданные в соответствии с местными традициями по всему миру. <br>В Mars Food работает более 1 700 сотрудников в 10 странах. 
+						p.slide
+							img(src="/layout/images/brands-food.jpg")
+			.elm
+				a(name="scheme", id="scheme").anchor
+				h2.count Подразделения
+					span.num 5
+				.scheme-description
+					span Маркетинг<br>(Marketing) 
+					span Научно-исследовательская<br> работа (Research and<br> Development)      
+					span Финансы <br>(S&F)
+					span Управление персоналом <br>(People & Organization)
+					span Отдел поставок <br>(Supply)
+				p.center.scheme
+					include ../../public_html/layout/images/svg/scheme.svg
+				.scheme-description
+					span Продажи <br>(Sales)
+					span Информационные технологии (Information Service)
+					span Закупки <br>(Commercial)
+					span Корпоративные отношения (Corporate Affairs)
+					span Логистика <br>(Logistics)
+			a.top(href="#")
+				include ../../public_html/layout/images/svg/totop.svg
+
+
+include includes/footer

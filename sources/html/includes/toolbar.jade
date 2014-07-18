@@ -1,0 +1,71 @@
+#toolbar
+	.container
+		.row
+			.col-md-2.col-xs-3
+				a.home(href="#")
+					include ../../../public_html/layout/images/svg/home.svg
+				.select
+					a.trigger(href="#")
+						| Россия
+						include ../../../public_html/layout/images/svg/arrow-bottom.svg
+			.col-md-8.col-xs-6.logo-frame
+				a.logo(href="/")
+					include ../../../public_html/layout/images/svg/logo.svg
+			.col-md-2.col-xs-3
+				a.nav-trigger(href="#")
+					include ../../../public_html/layout/images/svg/trigger.svg
+				.social
+					a(href="#").marscom
+						include ../../../public_html/layout/images/svg/marscom.svg
+					a(href="#")
+						include ../../../public_html/layout/images/svg/insta.svg
+					a(href="#")
+						include ../../../public_html/layout/images/svg/vk.svg
+					a(href="#")
+						include ../../../public_html/layout/images/svg/fb.svg
+					a(href="#")
+						include ../../../public_html/layout/images/svg/youtube.svg
+					a(href="#")
+						include ../../../public_html/layout/images/svg/in.svg
+		ul
+			li
+				a.main(href="/index.html")
+					include ../../../public_html/layout/images/svg/home.svg
+			li
+				a(href="/about.html").active О нас
+			li
+				a(href="/career.html") Карьера
+			li
+				a(href="/academy.html") Mars Academy
+			li
+				a(href="/month.html") Ближайшие<br>события
+				#cal-day
+					.day
+						a.arrow.left(href="#") 
+							include ../../../public_html/layout/images/svg/arrow-left.svg
+						a.arrow.right(href="#") 
+							include ../../../public_html/layout/images/svg/arrow-right.svg
+						span.text 20
+						span.week в четверг
+						span.month марта
+					a.cal
+						| Календарь событий
+						include ../../../public_html/layout/images/svg/arrow-3.svg
+					a.event
+						span.city МСК
+						span.type Бизнес-игра
+						br
+						span.name Running business in Russia
+						span.reg Регистрация
+					a.event.training
+						span.city СПБ
+						span.type Тренинг
+						br
+						span.name Running business in Russia
+						span.reg Регистрация
+					a.flag(href="#")
+						| Внимание, открыт <br>набор на mip и ldp!
+						include ../../../public_html/layout/images/svg/flag.svg
+					a.star
+						include ../../../public_html/layout/images/svg/star.svg
+						.text ВИКТОРИНА <br>С СУПЕР-ПРИЗОМ!

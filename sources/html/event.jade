@@ -1,0 +1,137 @@
+include includes/header
+<body class="event">
+include includes/nav
+include includes/toolbar
+
+#event(style="background-image: url(/layout/images/event.jpg)")
+	.container
+		.content
+			.section.orange Маркетинг и продажи
+			.type Семинар
+			.name «Жизненно важные навыки: обещание покупателям»
+			.description
+				| Время: 14:00<br>
+				| Место: НГТУ (просп.Карла Маркса, 20, корп.1), ауд.402 / <strong>Новосибирск</strong>
+			a.reg(href="#reg") Регистрация
+			.social
+				a(href="#")
+					include ../../public_html/layout/images/svg/vk.svg
+				a(href="#")
+					include ../../public_html/layout/images/svg/fb.svg
+				br
+				span поделиться
+#page.event
+	.container
+		.content
+			.description
+				p На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.
+			h2 Спикеры
+			.speakers
+				.item
+					.image(style="background-image: url(/layout/images/speaker.jpg)")
+					.block
+						.name Мария Гершман
+						.info На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.
+				.item
+					.image(style="background-image: url(/layout/images/speaker.jpg)")
+					.block
+						.name Мария Гершман
+						.info На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.
+				.item
+					.image(style="background-image: url(/layout/images/speaker.jpg)")
+					.block
+						.name Мария Гершман
+						.info На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.
+			.row
+				.col-md-6
+					.row
+						.col-xs-6.col-md-12
+							h2 Расписание
+							.schedule
+								.time 13:30
+								p начало регистрации
+								.time 14:00
+								p лекция
+								.time 16:00 - 16:30
+								p сессия вопросов и ответов
+						.col-xs-6.col-md-12
+							h2 Партнёры
+							ul.partners
+								li
+									a.trigger(href="#") Генеральные карьерные партнёры
+										include ../../public_html/layout/images/svg/arrow-right.svg
+								li
+									a.trigger(href="#") Кейс-клубы
+										include ../../public_html/layout/images/svg/arrow-right.svg
+								li
+									a.trigger(href="#") Генеральные информационные партнёры
+										include ../../public_html/layout/images/svg/arrow-right.svg
+								li
+									a.trigger(href="#") Информационные партнёры
+										include ../../public_html/layout/images/svg/arrow-right.svg
+				.col-md-6.registration
+					a(name="reg").anchor
+					h2 Регистрация
+					p Чтобы зарегистрироваться на это событие, заполните анкету. Информация о Вас будет доступна только организаторам этого события, и больше никому. <br> <span style="color: red">Все поля обязательны для заполнения. Регистрация бесплатна.</span>
+					form
+						.row
+							.col-md-12.col-xs-6
+								.row
+									.col-md-3
+										label(for="#email") E-mail
+									.col-md-9
+										input(type="email", id="email", name="email")
+								.row
+									.col-md-4
+										label(for="#last_name") Фамилия
+									.col-md-8
+										input(type="text", id="last_name", name="last_name")
+								.row
+									.col-md-2
+										label(for="#first_name") Имя
+									.col-md-10
+										input(type="text", id="first_name", name="first_name") 
+								.row
+									.col-md-4
+										label(for="#second_name") Отчество
+									.col-md-8
+										input(type="text", id="second_name", name="second_name")
+								label(for="#phone") Мобильный телефон
+								input(type="text", id="phone", name="phone")
+								label(for="#work_place") Организация/вуз/место работы
+								input(type="text", id="work_place", name="work_place")
+							.col-md-12.col-xs-6
+								.row
+									.col-md-6
+										label(for="#teach") Образование
+									.col-md-6
+										select(type="text", id="teach", name="teach")
+											option Выбрать
+										a.trigger
+								.row
+									.col-md-5
+										label(for="#facult") Факультет
+									.col-md-7
+										input(type="text", id="facult", name="facult")
+								.row
+									.col-md-3
+										label(for="#course") Курс
+									.col-md-9
+										select(type="text", id="course", name="course")
+											option Выбрать
+										a.trigger
+								.row
+									.col-md-8
+										label(for="#year") Год окончания вуза
+									.col-md-4
+										input(type="text", id="year", name="year")
+								label(for="#info") Откуда вы узнали <br>про мероприятие?
+								input(type="text", id="info", name="info")
+						.row
+							.col-md-1.col-xs-1
+								input(type="checkbox", name="maillist", checked)
+							.col-md-11.col-xs-9
+								label(for="#maillist") Я хочу получать анонсы событий <br>и программ Mars
+						input(type="submit", value="Зарегистрироваться")
+						p Регистрируясь на это событие, вы принимаете <a href="#">Пользовательское соглашение</a> и подтверждаете ваше согласие на <a href="#">обработку персональных данных</a>.
+include includes/footer

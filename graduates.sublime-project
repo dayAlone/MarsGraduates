@@ -1,0 +1,17 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "bitrix"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "bitrix/local/templates/mars_graduates"
+		}
+	]
+}

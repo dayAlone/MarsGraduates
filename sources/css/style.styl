@@ -1,0 +1,2782 @@
+@import "nib"
+
+full-width()
+	float left
+	width 100%
+
+@font-face
+	font-family 'MainFont'
+	src url("/layout/fonts/MarsfontMedium.eot")
+	src url("/layout/fonts/MarsfontMedium.eot") format("embedded-opentype"), url('/layout/fonts/MarsfontMedium.woff') format('woff'), url('/layout/fonts/MarsfontMedium.ttf') format('truetype'), url("/layout/fonts/MarsfontMedium.svg") format("svg")
+	font-weight bold
+
+@font-face
+	font-family 'MainFont'
+	src url("/layout/fonts/MarsfontLight.eot")
+	src url("/layout/fonts/MarsfontLight.eot") format("embedded-opentype"), url('/layout/fonts/MarsfontLight.woff') format('woff'), url('/layout/fonts/MarsfontLight.ttf') format('truetype'), url("/layout/fonts/MarsfontLight.svg") format("svg")
+	font-weight normal
+
+@font-face
+	font-family 'MainFont'
+	src url("/layout/fonts/MarsfontRegular.eot")
+	src url("/layout/fonts/MarsfontRegular.eot") format("embedded-opentype"), url('/layout/fonts/MarsfontRegular.woff') format('woff'), url('/layout/fonts/MarsfontRegular.ttf') format('truetype'), url("/layout/fonts/MarsfontRegular.svg") format("svg")
+	font-weight 500
+
+@font-face 
+	font-family: "slick"
+	src: url("/layout/fonts/slick.eot"); src: url("/layout/fonts/slick.eot?#iefix") format("embedded-opentype"), url("/layout/fonts/slick.woff") format("woff"), url("/layout/fonts/slick.ttf") format("truetype"), url("/layout/fonts/slick.svg#slick") format("svg")
+	font-weight: normal
+	font-style: normal;
+
+b(name=null, position=null, color=null, size=null)
+	background color url(/layout/images/name) position
+	if size
+		background-size size
+
+.fotorama__arr,.fotorama__fullscreen-icon,.fotorama__video-close,.fotorama__video-play
+	background-image url(/layout/plugins/fotorama.png)
+	@media (-webkit-min-device-pixel-ratio:1.5),(min-resolution:144dpi)
+		background-image url(/layout/images/plugins/fotorama@2x.png)
+
+html
+	min-height 100%
+	height 100%
+body
+	font-family 'MainFont', 'Helvetica Neue', 'Arial', sans-serif
+	height 100%
+	&.career
+		background-image url("/layout/images/career-bg.jpg")
+		background-color #242855
+	&.academy
+		background-image url("/layout/images/academy-bg.jpg")
+		background-color #186f9a
+	&.color
+		color white
+		background-size cover
+		position top center
+		background-repeat no-repeat
+		@media (max-width: 570px)
+			background-size auto
+		#toolbar
+			background-size cover
+			position top center
+			background-repeat no-repeat
+			@media (max-width: 570px)
+				background-size auto
+			.nav-trigger
+				svg
+					path
+						fill white
+			
+		#page .content a.top
+			svg
+				path
+					stroke white
+	&.event
+		#toolbar
+			.event, .star, .flag
+				display none
+h1, h2, h3, h4, h5
+	font-weight normal
+
+.center
+	text-align center
+
+a, svg g, svg path
+	transition-property(color, opacity, border, fill, stroke)
+	transition-duration(.3s)
+	&:focus
+		outline 0
+		text-decoration none
+	&:hover
+		text-decoration none
+
+.container
+	max-width 1000px
+
+#toolbar
+	full-width()
+	position fixed
+	z-index 100
+	background rgba(255,255,255,.98)
+	.index &
+		padding-bottom 0
+		#cal-day
+			display none
+		ul
+			border-bottom 1px solid black
+			margin-bottom 0
+			padding-bottom 0
+			.main
+				display none
+			li
+				&:first-of-type
+					border 0
+				border-left 1px solid black
+				padding-bottom 5px
+				padding-top 10px
+				margin-top -10px
+				&:last-child
+					border-right 1px solid black
+				a.active
+					font-weight normal
+				
+	.color &
+		background transparent
+		ul li > a, .social a
+			color white
+			svg
+				path
+					fill white
+			&:hover
+				svg
+					path
+						fill #20bcfc
+		.logo, .home
+			svg
+				g
+					fill white
+				
+	z-index 3
+	margin-bottom 30px
+	padding 20px 0 0px
+	.select
+		full-width()
+		width 100%
+		.trigger
+			full-width()
+			position relative
+			height 23px
+			line-height 26px
+			background #339bc2
+			color white
+			font-weight bold
+			padding-left 10px
+			&:hover
+				background #00bbff
+			svg
+				position absolute
+				right 10px
+				top 8px
+				path
+					stroke white
+	.logo
+		position relative
+		max-width 100%
+	.social
+		width 250px
+		text-align right
+		float right
+		a
+			text-align center
+			max-width 24px
+			margin 0 1px
+			display inline-block 
+			&.marscom
+				max-width 90px
+				svg
+					max-width 90px
+			&:last-child
+				margin-right 0
+			svg
+				max-width 24px
+				max-height 24px
+	.home
+		display none
+	.nav-trigger
+		display none
+		float right
+	ul
+		full-width()
+		margin-top 30px
+		list-style none
+		position relative
+		padding 0
+		li
+			position relative
+			float left
+			text-align center
+			line-height 50px
+			&:first-child
+				width 0
+			&:nth-child(2)
+				width 20%
+			&:nth-child(3), &:nth-child(4)
+				width 30%
+			&:last-child
+				width 20%
+			> a
+				display inline-block
+				vertical-align middle
+				line-height 24px
+				&.main
+					position absolute
+					left -50px
+					top -4px
+				svg
+					width 35px
+					display inline-block
+					vertical-align middle
+				text-transform uppercase
+				font-size 30px
+				color black
+				&.active
+					font-weight bold
+				&:hover
+					color #20bcfc
+					svg
+						g
+							fill #20bcfc
+	#cal-day
+		left 0
+		top 100%
+		left 50%
+		transform translateX(-50%)
+		position absolute
+	@media (max-width: 1024px)
+		padding-bottom 13px
+		ul
+			display none
+		.nav-trigger
+			display block
+		.social
+			display none
+		.logo
+			margin 0 auto
+		.logo-frame
+			text-align center
+	@media (max-width: 480px)
+		margin-bottom 15px
+		.logo-frame
+			padding 0
+		.select
+			display none
+		.home
+			display block
+			svg
+				width 25px
+				height 25px
+		.logo
+			full-width()
+			svg
+				max-width 110%
+				margin-left -5%
+		.nav-trigger
+			svg
+				width 25px
+
+#main
+	overflow hidden
+	full-width()
+	padding-top 135px
+	.frame
+		float left
+		width 60%
+		.col
+			border-right 0px !important
+	.col
+		transition-property(height, border)
+		transition-duration(.3s)
+		float left
+		width 20%
+		min-height 499px
+		padding 0 14px
+		border-left 1px solid black
+		&.big
+			width 50%
+		&:last-of-type
+			border-right 1px solid black
+		.title
+			height 72px
+			padding 0 15px
+			line-height 72px
+			border-bottom 1px solid black
+			margin 0 -15px 0 -15px
+			text-align center
+			display none
+			a
+				color black
+				display inline-block
+				line-height 28px
+				vertical-align: middle
+				text-transform: uppercase
+				font-size 30px
+				&:hover
+					color #00bbff
+		.content
+			full-width()
+			padding 15px 0 15px
+			a
+				display inline-block
+				color black
+				font-size 18px
+				margin-bottom 20px
+				&:last-of-type
+					margin-bottom 0
+				&.flag, .flag
+					float left
+					position relative
+					margin-top -3px
+					margin-bottom -5px
+					background-color #f4c94c
+					background linear-gradient(right, #efc12f 25%, #f5c93d 100%) 
+					font-size 11px
+					font-weight 500
+					color white
+					text-transform: uppercase
+					padding 4px 3px 0 7px
+					svg
+						top 0
+						left 100%
+						height 100%
+						width 50%
+						position absolute
+						transform translate(0, 0)
+						path
+							height 100%
+							fill #efc12f
+					.win &
+						line-height 13px
+						padding-bottom 3px
+				&.flag
+					font-size 14px
+					line-height 14px
+					width 89%
+					margin-top 1px
+					padding 8px 5px 3px
+					.win &
+						padding-bottom 6px
+				&.big
+					full-width()
+					
+					color white
+					font-size 23px
+					line-height 24px
+					padding 6px 0 3px 6px
+					position relative
+					margin-bottom 10px
+					background linear-gradient(right, #0b3360 0%, #175092 100%) 
+					min-height 70px
+					line-height 72px
+					&.leadership
+						background linear-gradient(right, #e58ba2 0%, #713582 100%)
+					&.internship, &.leadership
+						padding-bottom 13px
+						padding-left 60px
+						padding-top 6px
+						padding-bottom 1px
+						&.open
+							padding-bottom 13px
+							margin-bottom 50px
+					&.internship
+						background linear-gradient(right, #9f449d 0%, #5495c8 100%) 
+					> span
+						line-height 22px
+						display inline-block
+						vertical-align middle
+					> svg
+						position absolute
+						width 45px
+						height 45px
+						left 5px
+						top 50%
+						transform translateY(-50%)
+					.flag
+						position absolute
+						left 0
+						top 95%
+						font-size 16px
+						padding 7px 5px 3px 7px
+						span
+							line-height 16px
+							display block
+						.win &
+							padding-bottom 4px
+					.win &
+						padding-bottom 11px
+						line-height 70px
+				&.cal
+					full-width()
+					font-size 13px
+					line-height 34px
+					height 30px
+					padding 0 8px
+					text-transform uppercase
+					font-weight bold
+					color white
+					background #f3c74a
+					position relative
+					margin-bottom 10px
+					svg
+						position absolute
+						right 0px
+						top 7px
+						height 16px
+						width 16px
+					&:hover
+						background #ffc300
+					.win &
+						line-height 31px
+				&.event
+					full-width()
+					position relative
+					background #943283
+					color white
+					padding 4px 8px 2px
+					line-height 14px
+					margin-bottom 18px
+					.win &
+						padding-bottom 4px
+					.city
+						position absolute
+						top 10px
+						z-index 1
+						right 4px
+						font-size 26px
+						opacity .4
+					.type
+						position relative
+						z-index 2
+						font-size 14px
+						opacity .6
+					.name
+						full-width()
+						position relative
+						z-index 2
+						font-weight bold
+						font-size 14px
+						line-height 12px
+						padding-bottom 4px
+					.reg
+						position absolute
+						top 100%
+						font-weight bold
+						margin-top -10px
+						right 0
+						background #edbf3f
+						height 17px
+						padding 0 5px
+						line-height 19px
+						font-size 12px
+					&.violet
+						background #4aa743
+					&.yellow
+						background #f09746
+					&.green
+						background #4ea648
+					&.orange
+						background #e46143
+				&.star
+					full-width()
+					font-weight bold
+					padding-left 38px
+					position relative
+					margin-top 25px
+					font-size 14px
+					.text
+						line-height 16px
+						color #e6613d
+						.color &
+							color white
+					svg
+						position absolute
+						left 0
+						margin-top -2px
+						width 30px
+						top 50%
+						transform translateY(-50%)
+						.color &
+							path
+								fill white
+		#cal-day
+			margin-top 0
+		.day
+			full-width()
+			position relative
+			height 155px
+			background-color #2b9bc3 
+			background linear-gradient(bottom, #218da9 0%, #218da9 49.51%, #2b9bc3 50%, #2b9bc3 100%)
+			.week, .month
+				position absolute
+				top 0
+				width 100%
+				height 35px
+				left 0
+				text-align center
+				font-size 21px
+				color white
+				opacity .6
+				line-height 35px
+			.month
+				top auto
+				bottom 0
+			.text
+				position absolute
+				left 0
+				color white
+				text-align center
+				top 0
+				width 100%
+				height 100%
+				line-height 175px
+				font-size 115px
+				.win &
+					line-height 155px
+			.arrow
+				position absolute
+				z-index 3
+				background #f3c74a
+				text-align center
+				line-height 31px
+				width 24px
+				height 32px
+				top 50%
+				margin-top -14px
+				left -7px
+				&:hover
+					background #ffc300
+				svg
+					display inline-block
+					vertical-align middle
+					width 90%
+					height 90%
+				&.right
+					left auto
+					right -7px
+	@media (max-width: 1024px)
+		padding-top 60px
+		.col
+			.title
+				display block
+	@media (max-width: 988px)
+		padding-top 60px
+		.col
+			width 25%
+			min-height 0
+			.title
+				display block
+				a
+					font-size 28px
+			&:last-of-type
+				border-left 0 !important
+		a
+			.flag
+				br
+					display none
+		.frame
+			width 50%
+			border-right 1px solid black
+			border-left 1px solid black
+			.col.big
+				width 100%
+				height auto !important
+				border-right 0
+				border-left 0
+				&:last-child
+					border-top 1px solid black
+	@media (max-width: 570px)
+		.col
+			.title
+				height 35px
+				line-height 35px
+		.frame
+			width 100%
+			.col.big
+				width 50%
+				.title
+					border-bottom 0
+					text-align left
+					padding-top 10px
+				&:first-child
+					border-top 1px solid black
+				&:last-child
+					border-left 1px solid black !important
+		.container
+			position relative
+		.container > .col
+			text-align: center
+			&:first-child
+				height 35px !important
+				min-height 0
+				width 26%
+				.title
+					border-bottom 0
+				.content
+					display none
+			&:last-child
+				position absolute
+				top 1px
+				min-height 35px
+				right 15px
+				border-bottom 0px
+				width 70%
+				.title
+					border-bottom 0px
+					border-left 1px solid black
+
+				.content
+					display none
+	@media (max-width: 480px)
+		.container
+			.col:first-child, >.col:last-child, .col:last-child, .frame
+				width 100%
+				text-align left
+				position relative
+				padding 0
+				right 0
+				left 0
+				border 0px !important
+				.title
+					text-align left 
+					border 0
+			.col:first-child
+				border-bottom 1px solid black !important
+			.col:last-child
+				height auto !important
+
+			.frame
+				border-bottom 1px solid black !important
+				margin-bottom 10px
+				.col.big
+					padding 0
+					&:first-child
+						a.big
+							min-height 30px
+							line-height 30px
+							margin-bottom 28px
+							width 48%
+							svg
+								width 30px
+								height 30px
+							padding-left: 42px
+							span
+								font-size 17px
+								line-height 17px
+							&:first-child
+								margin-right: 4%
+							.flag
+								padding 2px 4px 0
+								width 100px
+								span
+									font-size 11px	
+									line-height 14px
+					&:last-child
+						border 0px !important
+						a.big
+							min-height 40px
+							line-height 37px
+							padding-top 3px
+							font-size 17px
+							&:last-child
+								margin-bottom 0
+							br
+								display none
+
+#event
+	full-width()
+	height 390px
+	background-position center center
+	background-color #021e48
+	background-repeat no-repeat
+	margin-top 151px
+	@media (max-width: 770px)
+		background-position 33% 0
+	.content
+		padding-top 20px
+		color white
+		position relative
+		full-width()
+		height 390px
+		.section
+			padding 5px 15px 0
+			margin-bottom 10px
+			float left
+			font-size 24px
+			font-weight 500
+			text-transform uppercase
+			color white
+			&.orange
+				background #e6603d
+			&.green
+				background #46a73e
+			&.violet
+				background #963085
+		.type
+			font-size 24px
+			color white
+			float left
+			clear left
+		.name
+			float left
+			clear left
+			font-weight 500
+			font-size 28px
+			color white
+			width 50%
+			line-height 30px
+			margin-bottom 30px
+		.description
+			float left
+			width 30%
+			font-size 18px
+			clear left
+		a.reg
+			float left
+			clear left
+			background #eec040
+			font-weight bold
+			font-weight 500
+			padding 5px 10px 0
+			margin-top 10px
+			color white
+			font-size 18px
+		.social
+			position absolute
+			left 0
+			bottom 7px
+			font-weight bold
+			a
+				float left
+				svg
+					width 25px
+					height 25px
+					margin-right 5px
+					path
+						fill white
+	@media (max-width: 1024px)
+		margin-top 60px
+		.content
+			margin 0 auto
+			float none
+	@media (max-width: 768px)
+		.content
+			.name
+				width 60%
+			.description
+				width 45%
+	@media (max-width: 480px)
+		height 440px
+		background-position left top
+		.content
+			height 440px
+			.name
+				width 100%
+			.description
+				width 100%
+
+#panel
+	position absolute
+	width 100%
+	top 0
+	left 0
+
+#cal-day
+	text-align left
+	margin-top 20px
+	full-width()
+	max-width 160px
+	margin-left 2px
+	a
+		@extend #main .col .content a
+	.day
+		@extend #main .col .day
+	
+
+#nav
+	position fixed
+	right 0
+	width 235px
+	height 100%
+	right -235px
+	&.open
+		right 0
+	transition-property(all)
+	transition-duration(.3s)
+	z-index 30
+	background rgba(51,155,194,.92)
+	padding 20px 25px
+	.trigger
+		margin-bottom 20px
+		svg
+			path
+				fill white
+	.footer
+		left 0
+		width 100%
+		padding 0 20px
+		position absolute
+		bottom 20px
+		a
+			font-size 25px
+			margin-bottom 20px
+			&:last-of-type
+				margin-bottom 0
+		.social
+			full-width()
+			margin-bottom 20px
+			@media (max-width: 1024px)
+				margin-bottom: 10px
+			a
+				float left
+				margin-bottom 0
+				margin 2px 5px
+				clear none
+				&.marscom
+					margin-right 20px
+					svg
+						width: 130px
+						@media (max-width: 570px)
+							margin-right 80px
+							width 85px
+				svg
+					width 40px
+					height 40px
+					path
+						fill white
+	a
+		float left
+		clear both
+		color white
+		font-size 31px
+		text-transform uppercase
+		line-height 33px
+		margin-bottom 40px
+	@media (max-width: 1024px)
+		a
+			font-size 28px
+			margin-bottom 25px
+	@media (max-width: 768px)
+		a
+			font-size 31px
+			margin-bottom 40px
+	@media (max-width: 320px)
+		.trigger
+			margin-top -5px
+
+			svg
+				height 15px
+				width 25px
+		a
+			font-size 27px
+			line-height 27px
+			margin-bottom 15px
+			br
+				display none
+		.footer
+			
+			.social
+				margin-bottom 4px
+				a
+					svg
+						width 25px
+						height 25px
+			a
+				margin-left 5px
+				font-size 18px
+				line-height 18px
+				margin-bottom 4px
+	@media (max-height: 320px)
+		.trigger
+			margin-bottom 10px
+		a
+			font-size 19px
+			line-height 17px
+			margin-bottom 10px
+			br
+				display none
+		.footer
+			bottom 10px
+			.social
+				margin-bottom 4px
+				a
+					svg
+						width 25px
+						height 25px
+			a
+				margin-left 5px
+				font-size 16px
+				line-height 18px
+				margin-bottom 4px
+
+#question
+	transition-property(all)
+	transition-duration(.3s)
+	background #4aa743
+	position fixed
+	font-weight bold
+	text-transform uppercase
+	width 139px
+	height 49px
+	color white
+	z-index 32
+	padding 7px 6px 0px 6px
+	font-size 20px
+	line-height 20px
+	left -110px
+	top 250px
+	&.open
+		left 0
+	.vk, .mail
+		position absolute
+		left 84px
+		top 5px
+		svg
+			width 24px
+			height 20px
+	.vk
+		svg
+			path
+				fill white
+	.mail
+		top 25px
+	.sign
+		right 5px
+		cursor pointer
+		top 20px
+		font-weight 300
+		font-size 50px
+		position absolute
+		.win &
+			top 15px
+	@media (max-width: 1024px)
+		display none
+
+#maillist
+	transition-property(all)
+	transition-duration(.3s)
+	background #1a52a1
+	position fixed
+	top 310px
+	z-index 30
+	padding 7px 50px 0px 6px
+	color white
+	height 50px
+	left -120px
+	&.open
+		left 0
+	.text
+		font-weight bold
+		text-transform uppercase
+		font-size 16px
+		letter-spacing 1px
+	input
+		appearance none
+		border 0
+		padding 0
+		margin 0
+		display block
+		height 15px
+		border-radius 0 !important
+		&[type=email]
+			width 95px
+			font-size 11px
+			float left
+			font-weight bold
+			line-height 12px
+			padding 0 3px
+		&[type=submit]
+			margin 0
+			float right
+			margin-top 0px
+			margin-left 3px
+			width 15px
+			b('svg/checkbox.svg', no-repeat center center, white, 80% auto)
+	svg
+		position absolute
+		top 8px
+		right 8px
+		width 35px
+		height 35px
+	@media (max-width: 1024px)
+		display none
+
+#brands
+	overflow hidden
+	margin-top 20px
+	full-width()
+	.container
+		text-align center
+	img
+		max-width 100%
+
+#page
+	full-width()
+	position relative
+	z-index 1
+	padding-top 150px
+	.elm
+		full-width()
+		&:nth-of-type(3)
+			.count
+				.num
+					text-indent -16px
+	.content
+		.scrollspy
+			ul
+				margin 0
+				padding 0
+				list-style none
+			position fixed
+			left 50%
+			z-index 2000000
+			margin-left 230px
+			text-align center
+			@media (max-width: 1024px)
+				display none
+			li
+				line-height 8px
+				&.active
+					a
+						opacity 1
+				&:first-of-type
+					a
+						width auto
+						text-transform uppercase
+						border 0
+						svg
+							max-width 53px
+							max-height 15px
+			a
+				color #339bc2
+				opacity .5
+				border 1px solid #339bc2
+				width 19px
+				display inline-block
+				height 19px
+				font-size 13px
+				line-height 19px
+				margin 2px 0
+				font-weight 500
+				border-radius 20px
+				padding 0
+				display inline-block
+				&.text
+					font-size 15px
+				.win &
+					line-height 13px
+				&.small
+					width 7px
+					line-height 18px
+					height 7px
+					margin 1px 0 1px 0px
+					
+				.color &
+					color white
+					border-color white
+				svg
+					min-width 24px
+					min-height 19px
+				&:hover
+					background transparent
+					opacity 1
+
+		h2.count
+			span
+				.win &
+					line-height 137px
+		min-height 20px
+		full-width()
+		width 700px
+		a.anchor
+			full-width()
+		a.top
+			float left
+			clear both
+			svg
+				margin 40px 0
+				width 52px
+				height 50px
+				path
+					stroke #1a203c
+		h4
+			full-width()
+			font-size 22px
+			text-transform uppercase
+			margin-top 20px
+		h2.count
+			full-width()
+			font-size 48px
+			text-transform uppercase
+			margin-left 65px
+			margin-top 95px
+			position relative
+			.social
+				font-size 15px
+				display inline-block
+				vertical-align middle
+				margin-top -5px
+				margin-left 20px
+				text-transform none
+				.title
+					float left
+					margin-top 10px
+					font-weight 500
+				a
+					float right
+					margin 0 4px
+					svg
+						width 49px
+						height 49px
+			.num
+				position absolute
+				font-size 130px
+				width 147px
+				height 147px
+				color #abd7e6
+				border 5px solid #abd7e6
+				text-align center
+				bottom -15px
+				left -95px
+				z-index -1
+				line-height 164px
+				border-radius 100px
+	&.academy
+		h1
+			font-size 94px
+			full-width()
+			margin-top 60px
+			margin-bottom 0px
+			text-align center
+			position relative
+			text-transform uppercase
+			svg
+				width 500px
+				height 310px
+				opacity .17
+				position absolute
+				top -38px
+				left -200px
+		.scrollspy
+			ul
+				li:last-of-type
+					a
+						margin-top 4px
+		.sections
+			full-width()
+			margin-top 20px
+			margin-left 15px
+			text-align center
+			a
+				display inline-block
+				vertical-align top
+				font-weight 500
+				color white
+				margin 0 20px
+				font-size 14px
+				line-height 18px
+				&:first-of-type
+					span.num
+						text-indent -3px
+				&:nth-child(3)
+					span.num
+						text-indent 2px
+				span.num
+					background #339bc2
+					color #add7e6
+					font-weight normal
+					width 40px
+					height 40px
+					display inline-block
+					margin-bottom 5px
+					border-radius 20px
+					line-height 45px
+					font-size 35px
+					.win &
+						line-height 40px
+				span.text
+					display inline-block
+					margin-top 3px
+					line-height 15px
+		h4
+			font-weight 500
+		h2.count
+			.num
+				background #339bc2
+				border-color #339bc2
+				color #6eb9d4
+			&.big
+				.num
+					bottom 37px
+		p.offset
+			padding-left 70px
+			font-size 15px
+		.parts
+			full-width()
+			padding-left 70px
+			padding-top 30px
+			padding-bottom 30px
+			text-align center
+			a
+				margin 0 30px
+				display inline-block
+				position relative
+				&:first-of-type
+					span
+						background #e6603c
+					svg
+						right -40px
+						top -5px
+				&:nth-child(2)
+					span
+						background #4aa743
+				&:nth-child(3)
+					span
+						background #943283
+				&:nth-child(4)
+					span
+						background #f2983b
+				span
+					float left
+					padding 4px 5px 1px 16px
+					clear left
+					color white
+					line-height 14px
+				svg
+					right -10px
+					top -10px
+					opacity .2
+					position absolute
+		.item
+			margin-bottom 30px
+			full-width()
+			h3
+				float left
+				padding-top 10px
+				padding-right 4px
+				line-height 18px
+				text-transform uppercase
+				font-weight 500
+			h5
+				float left
+				clear left
+				font-weight bold
+				margin-top 0
+			h6
+				full-width()
+				text-transform uppercase
+				font-size 12px
+				font-weight 500
+			p
+				full-width()
+				margin-bottom 3px
+			.events
+				full-width()
+				.item
+					position relative
+					width 45%
+					margin-right 20px
+					color white
+					padding 2px 5px
+					.title
+						font-weight bold
+						line-height 16px
+						width 88%
+						padding-bottom 4px
+					.reg
+						position absolute
+						font-weight 500
+						background #f0c343
+						font-weight bold
+						font-size 12px
+						padding 2px 5px 0
+						bottom -13px
+						right 0
+						
+					.city
+						position absolute
+						top 2px
+						right 5px
+						font-size 26px
+			&.orange
+				img
+					margin-right -30px
+				h3
+					background-color #e6603d
+				.events
+					.item
+						background #e6603c
+						.type, .city
+							color #fdbf2d
+			&.green
+				h3
+					background-color #4aa743
+				.events
+					.item
+						background #4aa743
+						.type, .city
+							color #65e35c
+			&.violet
+				h3
+					background-color #943283
+				.events
+					.item
+						background #943283
+						.type, .city
+							color #de42c1
+			&.yellow
+				h3
+					background-color #f2983c
+				.events
+					.item
+						background #f2983c
+						.type, .city
+							color #fee834
+			img
+				float right		
+	&.career
+		h1
+			font-size 94px
+			full-width()
+			margin-top 60px
+			margin-bottom 50px
+			text-align center
+			position relative
+			text-transform uppercase
+			svg
+				width 500px
+				height 161px
+				opacity .17
+				position absolute
+				top -38px
+				left -50px	
+		h4
+			cursor pointer
+			margin-top -20px
+			margin-bottom 20px
+			position relative
+			z-index 20
+			&:hover
+				text-decoration underline
+		.description
+			full-width()
+			font-size 15px
+			margin-bottom 25px
+		.reasons
+			full-width()
+			display none
+			margin-top -40px
+			margin-bottom 40px
+			text-align center
+			font-weight 500
+			li
+				margin 0 0px
+				&.slick-active
+					button
+						background white
+			.owl-dots
+				full-width()
+				text-align center
+				margin-top 30px
+				.owl-dot
+					border 1px solid white
+					display inline-block
+					background transparent
+					width 10px
+					margin 0 3px
+					border-radius 10px
+					height 10px
+					padding 0
+					&.active
+						background white
+					&:last-of-type
+						display none
+					&:before
+						display none
+			.title
+				font-size 24px
+			.text
+				full-width()
+				width 70%
+				margin-left 15%
+
+		.sections
+			text-align center
+			margin-bottom 50px
+			a
+				display inline-block
+				position relative
+				line-height 15px
+				margin 20px 20px
+				&:first-of-type
+					span.text
+						&:first-of-type
+							background linear-gradient(left, #560c74 0%, #b76595 100%) 
+						&:last-of-type
+							background linear-gradient(left, #560c74 0%, #e48aa2 100%)
+				&:last-of-type
+					svg
+						right -60px
+					span.text
+						&:first-of-type
+							background linear-gradient(left, #46a7d1 0%, #6984bb 100%) 
+						&:last-of-type
+							background linear-gradient(left, #46a7d1 0%, #9e459d 100%)
+				span.text
+					background #7e3f85
+					color white
+					position relative
+					z-index 2
+					float left
+					clear left
+					padding 2px 4px 0 10px
+					 
+				svg
+					position absolute
+					z-index 3
+					top -15px
+					right -40px
+					opacity .3
+					width 152px
+					height 66px
+		.item
+			margin-top 40px
+			h3
+				font-size 24px
+				line-height 26px
+				text-transform uppercase
+				full-width()
+				margin-top 0
+				margin-bottom 20px
+				span
+					float left
+					clear both
+					background white
+					color #773b8b
+					padding-top 5px
+			p
+				full-width()
+			img
+				float right
+			.flag
+				float left
+				line-height 16px
+				padding 7px 10px 4px
+				font-size 14px
+				text-transform uppercase
+				font-weight 500
+				background #eec040
+				position relative
+				svg
+					position absolute
+					height 100%
+					top 0
+					left 100%
+					width 50%
+					path
+						fill #eec040
+			a.more
+				float left
+				clear left
+				color white
+				margin-top 15px
+				text-transform uppercase
+				font-size 16px
+				margin-bottom 20px
+	&.about
+		h1
+			font-size 94px
+			margin-top 0
+			text-transform uppercase
+			margin-left 65px
+		img
+			max-width 100%
+		.sections
+			full-width()
+			text-align center
+			a
+				display inline-block
+				vertical-align top
+				margin 0 10px
+				font-size 14px
+				font-weight 500
+				color black
+				line-height 16px
+				&:first-of-type
+					span
+						text-indent -3px
+				&:nth-child(3)
+					span
+						text-indent 2px
+				&:nth-child(4)
+					span
+						text-indent -1px
+				span
+					border 2px solid #339bc2
+					width 40px
+					height 40px
+					font-weight normal
+					display inline-block
+					margin-bottom 5px
+					border-radius 20px
+					line-height 42px
+					color #339bc2
+					font-size 35px
+					.win &
+						line-height 36px
+		.principles
+			full-width()
+			svg
+				height 60px
+				width 60px
+			h3
+				text-transform uppercase
+				font-weight bold
+				margin-bottom 0
+				margin-top 0
+				font-size 24px
+				&.violet
+					color #943283
+				&.green
+					color #4aa743
+				&.orange
+					color #e6633d
+				&.blue
+					color #339bc2
+			p
+				width 85%
+				font-weight 500
+				margin-bottom 0
+		.slick-prev, .slick-next
+			width 25px
+			height 33px
+			&:before
+				display none
+		.slick-next
+			right 25px
+			background #f0c445 url(/layout/images/svg/arrow-right.svg) center center no-repeat
+			background-size auto 90%
+		.slick-prev
+			left -50px
+			background #f0c445 url(/layout/images/svg/arrow-left.svg) center center no-repeat
+			background-size auto 90%
+		.slick-track
+			transition-property(height)
+			transition-duration(.3s)
+		.history
+			margin-top 10px
+			full-width()
+			img
+				max-width 100%
+			.item
+				p
+					width 85%
+					font-weight 500
+				h3
+					font-weight bold
+					text-transform uppercase
+					span
+						color #f2c749
+		.history-page
+			full-width()
+			margin-top -20px
+			text-align left
+			margin-left -20px
+			min-height 30px
+			line-height 30px
+			margin-bottom 30px
+			a
+				font-size 14px
+				font-weight 500
+				color black
+				margin 0 20px
+				&.active
+					font-size 20px 
+					color #f0c344
+					font-weight bold
+		.scheme
+			svg
+				width: 690px
+				height: 371px		
+		.scheme-description
+			full-width()
+			
+			width: 740px
+			margin-left -10px
+			&:last-of-type
+				margin-bottom 40px
+				span
+					vertical-align top
+			span 
+				display inline-block
+				width 19.5%
+				font-weight 500
+				line-height 16px
+				text-align center
+		.brands
+			full-width()
+			padding-left 68px
+			.item
+				full-width()
+				margin-bottom 10px
+				&.open
+					.icon
+						transform rotate(90deg)
+					
+				&:last-child
+					margin-bottom 0
+				p:first-of-type
+					width 95%
+					font-weight 500
+				.slide
+					text-align center
+					margin-bottom 20px
+					display none
+					animation-duration .5s
+					img
+						max-width 100%
+						margin-left 0px
+						max-height 56px
+				.title
+					font-size 18px
+					font-weight bold
+					cursor pointer
+					position relative
+					&.brown
+						color #4a2f05
+					&.green
+						color #4aa743
+					&.blue
+						color #339bc2
+					&.orange
+						color #e6603c
+					.icon
+						transition-property(all)
+						transition-duration(.3s)
+						background #eec141
+						position absolute
+						width 30px
+						height 30px
+						left -38px
+						top -4px
+						line-height 32px
+						text-align center
+						border-radius 20px
+						svg
+							margin-left 2px
+							display inline-block
+							vertical-align middle
+							path
+								-webkit-filter none
+								filter none
+							stroke-width 2px
+		.carousel
+			full-width()
+			margin-top 30px
+			height 250px
+			margin-bottom 0px
+			img
+				border 6px solid white
+				border-radius 4px
+				cursor pointer
+				box-shadow 2px 4px 23px rgba(8,10,14,.69)
+				max-width 450px
+			.arrow
+				position absolute
+				z-index 40
+				top 98px
+				
+				&.left
+					left 145px
+				&.right
+					top 100px
+					right 145px
+				cursor pointer
+				svg
+					width 34px
+					height 64px
+	&.month
+		full-width()
+		.content
+			width 760px
+		#cities_list
+			width 143px
+			left 23px
+			padding-top 5px
+			display none
+			top 8px
+			position absolute
+			padding-top 28px
+			padding-bottom 5px
+			background white
+			box-shadow(-2px 1px 12px 1px rgba(46,118,146,.43))
+			a
+				padding 0 7px
+				color black
+				font-size 16px
+				full-width()
+				line-height 25px
+				&:hover
+					background #399cc0
+					color white
+		.title
+			full-width()
+			background #339bc2
+			height 40px
+			position relative
+			z-index 30
+			line-height 39px
+			color white
+			.select
+				display inline-block
+				height 25px
+				line-height 28px
+				position relative
+				z-index 20
+				padding 0 17px 0 7px
+				font-size 18px
+				color black
+				background white
+				vertical-align middle
+				margin-left 8px
+				cursor pointer
+				@media (max-width: 768px)
+					font-size 17px
+					line-height 27px
+				.win &
+					line-height 24px
+				svg
+					position absolute
+					top 3px
+					right 4px
+					vertical-align middle
+					path
+						stroke #f1c546
+			.month
+				display inline-block
+				vertical-align middle
+				text-transform uppercase
+				position relative
+				top 2px
+				font-size 25px
+				font-weight 500
+				.win &
+					top 0px
+				.year
+					font-weight normal
+					margin-left 5px
+			a.arrow
+				display inline-block
+				margin 0 10px
+				width 20px
+				height 26px
+				background #f0c445
+				vertical-align middle
+				svg
+					path
+						stroke-width 3px
+		.table
+			full-width()
+			border-bottom 2px solid #cfdfe6
+			border-right 2px solid #cfdfe6
+			margin-bottom 0
+			&:last-of-type
+				margin-bottom 40px
+			&.th
+				background #e3eef3
+				border-top 2px solid #cfdfe6
+				.cell
+					
+					padding 5px 5px 0
+					color #b9ced6
+					font-size 18px
+					font-weight bold
+					min-height 30px
+					line-height 30px
+			.cell
+				&.inactive
+					background #e3eef3
+					&:last-of-type
+						box-shadow 2px 0 0 0 #e3eef3
+						@media (max-width: 768px)
+							box-shadow 4px 0 0 0 #e3eef3
+				&.end
+					.num
+						color #9ab0b8
+				&:hover
+					.num
+						color #399cc0
+					&.event
+						.num
+							color white !important
+					.event
+						.name
+							color white
+						
+						&.green
+							background #46a73e
+							.city, .type, .more
+								color #6eec65	
+						&.violet
+							background #952e84
+							.city, .type, .more
+								color #f45ed9
+						&.orange
+							background #e46143
+							.city, .type, .more
+								color #ffbcb3	
+						&.yellow
+							background #f09746
+							.city, .type, .more
+								color #ffd0b5
+				min-height 105px
+				float left
+				margin-bottom 0
+				width 14.285714285714286%
+				border-left 2px solid #cfdfe6
+				position relative
+				.event
+					padding 5px 5px 3px
+					min-height 105px
+					height 100%
+					full-width()
+					transition-property(all)
+					transition-duration(.3s)
+					.city, .type, .more, .name
+						transition-property(all)
+						transition-duration(.3s)
+					&.violet
+						.city, .type, .more
+							color #952e84
+					&.green
+						.city, .type, .more
+							color #46a73e
+					&.orange
+						.city, .type, .more
+							color #e46143	
+					&.yellow
+						.city, .type, .more
+							color #f09746
+					.city
+						font-weight bold
+						font-size 18px
+						float left
+						line-height 18px
+					.type
+						full-width()
+						font-size 11px
+						font-weight bold
+						margin-top -3px
+						line-height 13px
+					.name
+						font-size 12px
+						color #a9bcc2
+						line-height 11px
+						float left
+						font-weight 500
+					.more
+						font-size 10px
+						text-transform uppercase
+						text-decoration underline
+						float left
+						clear left
+						font-weight bold
+				.num
+					position absolute
+					transition-property(all)
+					transition-duration(.3s)
+					font-size 18px
+					font-weight bold
+					top 5px
+					right 5px
+	&.event
+		padding-top 40px
+		.description
+			margin-bottom 30px
+			p
+				font-size 18px
+		.speakers
+			margin-bottom 30px
+			.row
+				position relative
+			.item
+				full-width()
+				position relative
+				.image
+					float left
+					width 206px
+					height 206px
+					background-position center center
+					background-size cover
+					background-color #eec040
+					border-radius 100px
+				.name
+					full-width()
+					font-size 36px
+				.info
+					full-width()
+					font-size 16px
+					font-weight 500
+				.block
+					position absolute
+					right 0
+					top 50%
+					width 67%
+					transform translateY(-50%)
+			button
+				width 17px
+				height 42px
+				background url(/layout/images/svg/speakers-left.svg) center center no-repeat
+				background-size cover
+				margin-top -20px
+				margin-left -10px
+				&.slick-next
+					background url(/layout/images/svg/speakers-right.svg) center center no-repeat
+					background-size cover
+					margin-left 0
+					margin-right -10px
+				&:before
+					display none
+			@media (max-width: 770px)
+				max-width 90%
+				margin-left 5%
+		.schedule
+			full-width()
+			margin-bottom 30px
+			padding-top 13px
+			margin-top -8px
+			border-left 1px solid black
+			padding-left 5px
+			.time
+				font-size 36px
+				line-height 26px
+				float left
+				margin-left -1px
+			p
+				full-width()
+				margin-left 3px
+				font-size 18px
+				margin-bottom 20px
+				&:last-of-type
+					margin-bottom 0
+		h2
+			font-weight bold
+			font-size 30px
+			margin-bottom 20px
+		.partners
+			full-width
+			list-style none
+			padding-left 0
+			a.trigger
+				font-size 18px
+				color black
+				svg
+					display inline-block
+					vertical-align middle
+					height 11px
+					position relative
+					top -1px
+					margin-left 5px
+					path
+						stroke #2a8da8
+						stroke-width 4px
+		.registration
+			h2
+				margin-bottom 14px
+			> p
+				line-height 18px
+				font-weight 500
+		form
+			p
+				full-width()
+				a
+					font-weight bold
+					color black
+			label
+				line-height 32px
+				min-height 30px
+				font-size 25px
+				white-space no-wrap
+				font-weight normal
+				full-width()
+				span
+					color red
+			.row
+				position relative
+			input, select
+				full-width()
+				padding 0 5px
+				font-size 18px
+				border 0
+				background #e1e1e1
+				margin-bottom 10px
+				appearance none
+				height 30px
+				line-height 33px
+				border-radius 0
+				&:focus
+					outline 0
+			.icheckbox
+				background #339bc2
+				position relative
+				z-index 22
+				margin-top 5px
+				width 30px
+				height 30px
+				float left
+				&.checked
+					b('svg/check.svg', center center no-repeat, #339bc2, 60% auto)
+			input[type="submit"]
+				margin-top 10px
+				float left
+				width auto
+				background #eec040
+				font-weight bold
+				padding 0 20px
+				color white
+				font-size 24px
+				height 40px
+				line-height 42px
+				margin-bottom 20px
+			label[for="#maillist"]
+				font-size 16px
+				line-height 15px
+				margin-left 10px
+				margin-top 5px
+				@media (max-width: 770px)
+					margin-left -20px
+			select
+				width 100%
+				position relative
+				.win &
+					line-height 16px
+			a.trigger
+				width 20px
+				height 20px
+				content ""
+				background white
+				position absolute
+				right 20px
+				pointer-events none
+				bottom 15px
+				opacity .7
+				background url(/layout/images/svg/arrow-bottom.svg) center center no-repeat
+				background-size 100% auto
+				@media (max-width: 770px)
+					bottom -60px
+			
+	@media (max-width: 1024px)
+		padding-top 70px
+		.content
+			margin 0 auto
+			float none
+		&.about
+			.history, .principles
+				margin-left 44px
+				width 97.8%
+	@media (max-width: 768px)
+		overflow hidden
+		.scrollspy
+			display none
+		.content
+			width 100%
+		&.month
+			.content
+				width 100%
+				.table
+					&.th
+						.cell
+							min-height 30px
+					.cell
+						min-height 105px
+		&.about
+				.scheme-description
+					margin-left -3px
+				.carousel
+					margin-left 0px
+				.history-page
+					margin-left -10px
+	@media (max-width: 570px)
+		&.event
+			.speakers
+				width 86%
+				margin-left 7%
+				.item
+					.block
+						width 45%
+						margin-right 14%
+						.info
+							font-size 14px
+		&.about
+			.content
+				h1
+					margin-left 0
+					font-size 55px
+				iframe
+					max-width 100%
+				.carousel
+					margin-top 0
+					height 230px
+					img
+						max-width 300px
+					.arrow
+						top 80px
+					.arrow.left
+						left 110px
+					.arrow.right
+						top 87px
+						right 110px
+				.sections
+					a
+						font-size 12px
+						margin-bottom 10px
+						line-height 13px
+				h2
+					font-size 40px
+					margin-top 40px
+					.num
+						width 100px
+						height 100px
+						font-size 90px
+						line-height 110px
+						border-width 3px
+						left -80px
+					.social
+						margin-left 0px
+						margin-top 0px
+						.title
+							font-size 12px
+							margin-top 2px
+						a
+							svg
+								width 30px
+								height 30px
+				.principles, .history
+					button
+						&.slick-next
+							right 33px
+						&.slick-prev
+							left -44px
+				.principles
+					.item
+						p
+							width 85%
+				.history
+					.row
+						> div
+							img
+								max-width 100%
+							h3
+								margin-top 0
+						
+				.history-page
+					margin-left 0
+					a
+						margin 0 13px
+				.scheme-description
+					width 102%
+					margin-left 3px
+					span
+						font-size 10px
+						line-height 10px
+				.scheme
+					margin-bottom 0px
+					svg
+						margin-top 0px
+						width: 500px
+						height 270px
+				.brands
+					.item
+						img
+							max-width 540px
+							margin-left -68px
+		&.academy
+			h1
+				svg
+					left -160px
+			.item
+				img
+					max-width 140%
+				h3
+					margin-top 0
+			.parts
+				padding-left 0
+				a
+					margin-left 0px
+					&:nth-child(2)
+						margin-left 23px
+	
+		&.month
+			overflow visible
+			.content
+				.inactive
+						display none
+				.title
+					.col-md-3
+						width 40%
+						padding-right 0
+					.col-md-6
+						width 60%
+						padding 0
+						padding-right 20px
+						text-align right
+						.month
+							font-size 15px
+					a.select
+						font-size 10px
+						svg
+							width 10px
+							height 10px
+							top 8px
+							margin-left 3px
+							path
+								stroke-width 4px
+					#cities_list
+						a
+							font-size 14px
+					a.arrow
+						margin 0 5px
+						text-align center
+				.table
+					border-bottom 0
+					&.th
+						display none
+					.cell
+						display none
+						&.event
+							display block
+							width 100%
+							min-height 0
+							border-bottom 2px solid #cfdfe6
+			.content
+				width 100%
+				.table
+					&.th
+						.cell
+							min-height 30px
+					.cell
+						min-height 170px
+						.event+.event
+							border-top 2px solid #cfdfe6
+						.event
+							min-height 0
+							.more
+								display none
+							&.hidden
+								display block !important
+								visibility visible !important
+		&.career
+			h1
+				margin-top 35px
+			p.description
+				br
+					display none
+			.sections
+				margin-bottom 0
+	@media (max-width: 480px)
+		&.academy
+			.parts
+				width 95%
+				margin-bottom -10px
+				margin-left 20px
+				a
+					margin-bottom 15px
+				a[href="#marketing"]
+					margin-right 65px
+				a[href="#tech"]
+					margin-right 60px
+		&.event
+			.speakers
+				width 86%
+				margin-left 7%
+				.item
+					.image
+						background-size cover
+					.block
+						position relative
+						top 0
+						transform none
+						float left
+						clear both
+						padding 0
+						width 100%
+
+			form
+				label
+					white-space normal
+		&.about
+			.content
+				h1
+					margin-left 0
+				.sections
+						a
+							font-size 10px
+							line-height 10px
+				.carousel
+					.arrow.left
+						left 90px
+					.arrow.right
+						right 90px
+				.history
+					.row
+						> div
+							width 100%
+							img
+								max-width 50%
+							h3
+								margin-top 10px
+				.brands
+					.item
+						img
+							max-width 452px
+				.scheme-description
+					width 107%
+					margin-left -10px
+				.scheme
+					svg
+						margin-top 0px
+						width: 450px
+						height 240px
+	@media (max-width: 320px)
+		&.career, &.academy
+			h1
+				font-size 60px
+				svg
+					width 100%
+			h2.count
+				margin-left 40px
+				font-size 30px
+			p.offset
+				padding-left 10px
+			.parts
+				width 100%
+				margin-left 0
+				padding-left 0
+				a
+					margin 0 20px
+					margin-bottom 20px
+			.item
+				.row
+					> div
+						width 100%
+						.events
+							.item
+								margin-right 15px
+		&.academy
+			h1
+				svg
+					left 0
+			.sections
+				padding-left 0
+				margin-left 0
+				a
+					max-width 33%
+					font-size 12px
+					line-height 12px
+					margin 0 5px
+					&:first-of-type
+						margin-left 0
+					&:last-of-type
+						margin-right 0
+			.parts
+				margin-left -5px
+				a[href="#marketing"]
+					margin-left 15px
+					margin-right 60px
+				a[href="#tech"]
+					margin-right 30px
+					margin-left 15px
+		&.career
+			h1
+				margin-top 15px
+			.reasons
+				margin-bottom 15px
+			.description
+				font-size 14px
+				br
+					display none
+			.sections
+				margin-bottom 0
+				a
+					&:first-of-type
+						margin-left 0
+					&:last-of-type
+						margin-right 0
+					margin 20px 15px
+					.text
+						font-size 12px
+			.elm
+				margin-left 0px
+			.item
+				> div
+					width 100%
+					img
+						max-width 70%
+						float left
+				&.leadership
+					img
+							max-width 110%
+							margin-bottom -135px
+							margin-left -60px
+							float left
+		
+		&.about
+			.content
+				iframe
+					height 160px
+				h2
+					width 90%
+					font-size 32px
+					margin-left 43px
+					.num
+						left -70px
+						bottom -10px
+				.principles
+					width 96%
+					.item
+						h3
+							font-size 21px
+						p
+							width 70%
+					button
+						&.slick-prev
+							left -43px
+						&.slick-next
+							right 32px
+				.history
+					width 96%
+					.item
+						p
+							width 74%
+							font-size 12px
+					button
+						&.slick-prev
+							left -43px
+						&.slick-next
+							right 32px
+				.history-page
+					width 106%
+					margin-left -8px	 
+					a
+						margin 0 4px
+						font-size 11px
+						&.active
+							font-size 15px
+				.brands
+					padding-left 40px
+					.item
+						img
+							max-width 285px
+							margin-left -40px
+				.scheme
+					margin-bottom 0
+					svg
+						width 290px
+						height 170px
+				.scheme-description
+					width 109%
+					span
+						font-size 8px
+				.carousel
+					.arrow.left
+						left 5px
+					.arrow.right
+						right 5px
+
+.modal-content
+	border-radius 0
+	padding 30px
+	.close
+		opacity 1
+		top 15px
+		width 30px
+		height 30px
+		right 15px
+		position absolute
+		
+		svg
+			width 30px
+			height 30px
+			path
+				fill #993b8b
+				#modalDevelop &
+					fill #2b9ac4
+
+.ps-scrollbar-y-rail
+	right 10px !important
+	display block !important
+	opacity 1 !important
+	background #d0a5ca !important
+	top 0 !important
+	border-radius 0 !important
+	width 3px
+	.ps-scrollbar-y
+		border-radius 0
+		background #993b8b !important
+
+.modal
+	color black
+	.scroll
+		float left
+		width 97%
+		height 520px
+		overflow hidden
+	.block
+		float left
+		background #794194
+		border-radius 10px
+		padding 20px 20px
+		color white
+		margin 0 15px 15px 0
+		h3
+			color white
+			margin-top 0
+		ul
+			margin-bottom 0
+	h3
+		font-weight bold
+		color #993b8b
+		font-size 19px
+		full-width()
+	h4
+		font-weight bold
+		font-size 17px
+		
+		full-width()
+	ul
+		padding-left 20px
+		float left
+	p
+		full-width()
+		max-width 95%
+		line-height 17px
+		font-size 13px
+	
+#modalInternship
+	h1
+		font-size 32px
+		margin-top -10px
+		text-transform uppercase
+		color #a63d86
+		padding-top 0
+		font-weight 500
+	.scroll
+		margin-top 0px
+		height 520px
+	.ps-scrollbar-y-rail
+		margin-top 0px
+		background #91d9f2 !important
+		.ps-scrollbar-y
+			background #2b9ac4 !important
+	h2
+		text-transform uppercase
+		margin-top 0
+		font-size 21px
+		font-weight bold
+		margin-bottom 10px
+	li
+		line-height 14px
+		margin-bottom 6px
+	.item
+		full-width()
+		margin-bottom 20px
+		font-weight 500
+		&:last-of-type
+			margin-bottom 0
+		h3 
+			margin-top 0
+			color #2b9ac4
+			margin-bottom 5px
+		a
+			background #f0c445
+			line-height 20px
+			font-size 13px
+			font-weight bold
+			color white
+			float left
+			clear left
+			padding 3px 10px 0
+	.block
+		font-weight 500
+		&.d-1
+			width 43%
+			margin-top 100px
+			background #703b86
+		&.d-2
+			width 51%
+			background #8d428e
+			float right
+		&.d-3
+			background #403365
+			width 51%
+			margin-bottom 0
+			float right
+	@media (max-width: 1024px)
+		.block
+			width 100% !important
+			margin-top 0 !important
+			float left !important
+			margin-bottom 15px
+	@media (max-width: 768px)
+		.row
+			> div
+				width 100%
+
+#modalLeadership
+	h1
+		font-size 32px
+		margin-top -10px
+		text-transform uppercase
+		color #a63d86
+		padding-top 0
+		font-weight 500
+	.block	
+		font-weight 500
+		&.b-1
+			width 34%
+		&.b-2
+			width 63%
+			margin-right 0
+			background #ad64a3
+		&.b-3
+			width 52%
+			background #973d8b
+		&.b-4
+			width 45%
+			background #622684
+			margin-right 0
+	p
+		font-weight 500
+	.first
+		ul, h4
+			margin-left -20px
+	.money
+		float left
+		margin-top 55px
+	.chart
+		float left
+		margin-top 30px
+	ul
+		&.big
+			width 100%
+		li
+			font-size 13px
+			font-weight 500
+	.list
+		svg
+			max-width 55px
+			float left
+	.row
+		img
+			max-width 110%
+		svg
+			float right
+			width 280px
+			margin-right -10px
+			max-height 548px
+	@media (max-width: 1024px)
+		.block
+			width 100% !important
+		.row
+			img
+				max-width 90%
+			svg
+				width 100%
+	@media (max-width: 768px)
+		.row
+			> div
+				width 100%
+
+
+#day_events
+	.close
+		top 10px
+		right 5px
+		svg
+			width 20px
+			height 20px
+			path
+				fill #40a5ca
+	.modal-content
+		full-width()
+		padding 20px
+	.modal-dialog
+		width 420px
+	.title
+		full-width()
+		border-bottom 2px solid #dfe8eb
+		margin-bottom 10px
+		.day
+			line-height 46px
+			font-weight 500
+			font-size 48px
+			display inline-block
+			color #339bc2
+		.month
+			font-size 22px
+			text-transform uppercase
+		.week
+			float right
+			line-height 22px
+			margin-top 20px
+			font-size 22px
+			text-transform uppercase
+	.item+.item
+		padding-top 10px
+	.item
+		full-width()
+		position relative
+		font-weight 500
+		border-bottom 2px solid #dfe8eb
+		padding-bottom 8px
+		.city
+			font-size 18px
+			line-height 16px
+			font-weight 500
+			text-transform uppercase
+		.type
+			font-size 12px
+		.name
+			font-size 13px
+			color #9ab0b8
+			line-height 14px
+			full-width()
+		a.reg
+			background #f4c94c
+			padding 6px 10px 3px
+			color white
+			position absolute
+			right 0
+			bottom 12px
+		&.green
+			.city, .type
+				color #4ea648
+		&.violet
+			.city, .type
+				color #933682
+		&.orange
+			.city, .type
+				color #e46143
+		&.yellow
+			.city, .type
+				color #f09746
+
+.slick-loading .slick-list 
+	background none
+	
+#page.text
+	full-width()
+	margin-bottom 50px
+	.bold
+		> * 
+			font-weight: bold !important
+		
+	.regular
+		> * 
+			font-weight: 500 !important
+	.light
+		> * 
+			font-weight: normal !important
+
+
+
+
+
+
+
+
+
+
+
+
+
+
