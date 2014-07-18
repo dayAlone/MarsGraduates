@@ -2,3 +2,4 @@ bitrix/bitrix/
 bower_components
 node_modules
 public_html
+bitrix/config.codekit
