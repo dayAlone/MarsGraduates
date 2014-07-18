@@ -11098,6 +11098,7 @@ svg path:hover {
   margin: 0;
   display: block;
   height: 15px;
+  color: #000;
   -webkit-border-radius: 0 !important;
   border-radius: 0 !important;
 }
