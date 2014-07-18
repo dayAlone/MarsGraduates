@@ -115,7 +115,7 @@ $(document).ready ->
 	$('a.video').click (e)->
 		$(this)
 			.hide()
-			.after('<iframe width="560" height="315" src="//www.youtube.com/embed/9AvhB0UenJE?autoplay=1" frameborder="0" allowfullscreen></iframe>')
+			.after('<iframe width="560" height="315" src="//www.youtube.com/embed/uEeb8DQEtRA?autoplay=1" frameborder="0" allowfullscreen></iframe>')
 		
 
 		e.preventDefault()
