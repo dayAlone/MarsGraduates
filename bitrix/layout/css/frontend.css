@@ -13025,6 +13025,26 @@ svg path:hover {
     margin-left: -60px;
     float: left;
   }
+  #page.event .speakers {
+    max-width: 78%;
+    margin-left: 11%;
+  }
+  #page.event .speakers .item .block {
+    width: 93%;
+  }
+  #page.event .speakers .item .block .name {
+    line-height: 33px;
+    margin-bottom: 10px;
+  }
+  #page.event .col-xs-6 {
+    width: 100%;
+  }
+  #page.event form label[for="#maillist"] {
+    margin-left: 10px;
+  }
+  #page.event form label[for="#maillist"] br {
+    display: none;
+  }
   #page.about .content iframe {
     height: 160px;
   }
