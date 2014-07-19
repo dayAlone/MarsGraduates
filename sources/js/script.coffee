@@ -45,6 +45,36 @@ size = ()->
 		offset = $("##{direction}").offset().top
 		$('html, body').animate({'scrollTop' : offset - $('#toolbar').height() - 10 },300)
 
+	
+	$('.speakers, .principles, .history').unslick()	if $('body').hasClass 'loaded'
+
+	$('.speakers').slick
+		infinite: false
+
+	$('.principles').slick
+		infinite: true
+		slidesToShow: 2
+		slidesToScroll: 1
+		responsive: [
+			breakpoint: 570
+			settings:
+				slidesToShow: 1
+				slidesToScroll: 1
+		]
+
+	history = $('.history').slick
+		infinite: false
+		onInit: ()->
+			if($(window).width()<=570)
+				$('.history .slick-track').height($('.history .slick-active .row').height())
+		onAfterChange : (e)->
+			$(".history-page a").removeClass 'active'
+			if($(window).width()<=570)
+				$('.history .slick-track').height($('.history .slick-active .row').height())
+			$(".history-page a[data-id='#{e.currentSlide}']").addClass('active')
+
+	$('body').addClass 'loaded'
+
 ###
 	$('a .flag svg').width ()->
 		return $(this).height()/1.6666666667
@@ -149,19 +179,7 @@ $(document).ready ->
 			
 		e.preventDefault()
 
-	$('.speakers').slick
-		infinite: false
 
-	history = $('.history').slick
-		infinite: false
-		onInit: ()->
-			if($(window).width()<=570)
-				$('.history .slick-track').height($('.history .slick-active .row').height())
-		onAfterChange : (e)->
-			$(".history-page a").removeClass 'active'
-			if($(window).width()<=570)
-				$('.history .slick-track').height($('.history .slick-active .row').height())
-			$(".history-page a[data-id='#{e.currentSlide}']").addClass('active')
 	
 	$('.brands .title').click (e)->
 		$(this).parent().toggleClass('open')
@@ -177,19 +195,7 @@ $(document).ready ->
 		history.slickGoTo($(this).data('id'))
 		e.preventDefault()
 
-	settings = 
-		infinite: true
-		slidesToShow: 2
-		slidesToScroll: 1
-		responsive: [
-			breakpoint: 570
-			settings:
-				slidesToShow: 1
-				slidesToScroll: 1
-		]
-
-	$('.principles').slick(settings)
-
+	
 	$('.reasons').owlCarousel
 		merge:true
 		mouseDrag : false
