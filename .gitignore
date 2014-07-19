@@ -5,3 +5,5 @@ public_html
 bitrix/config.codekit
 
 log.txt
+
+*.html
