@@ -13043,8 +13043,13 @@ svg path:hover {
     width: 93%;
   }
   #page.event .speakers .item .block .name {
+    font-size: 33px;
+    margin-top: 10px;
     line-height: 33px;
     margin-bottom: 10px;
+  }
+  #page.event .speakers .item .block .info {
+    font-size: 12px;
   }
   #page.event .col-xs-6 {
     width: 100%;
