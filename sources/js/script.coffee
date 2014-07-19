@@ -45,7 +45,7 @@ size = ()->
 		offset = $("##{direction}").offset().top
 		$('html, body').animate({'scrollTop' : offset - $('#toolbar').height() - 10 },300)
 
-	
+
 	$('.speakers, .principles, .history').unslick()	if $('body').hasClass 'loaded'
 
 	$('.speakers').slick
@@ -134,7 +134,26 @@ initDay = ()->
 		e.preventDefault()
 
 $(document).ready ->
-	
+
+	$('.scheme svg g[id^="scheme-"]').hover ()->
+		$(".scheme-description span[data-id='#{$(this).attr('id')}']").addClass 'hover'
+	, ()->
+		$(".scheme-description span").removeClass 'hover'
+
+	$('.scheme svg g[id^="scheme-"]').click ()->
+		x = $(this)
+		$('.scheme svg g[id^="scheme-"]').removeClass 'active'
+		$('.scheme .description .item').removeClass 'active'
+		x.addClass 'active'
+		$(".scheme .description .item[data-id='#{$(this).attr('id')}']").addClass 'active'
+
+		$('.scheme').addClass 'open'
+	$(document).on 'click', (e)->
+		if $('.scheme').hasClass('open') && $('.scheme').length > 0 && $(e.target).parents('.scheme').length == 0
+			$('.scheme').removeClass 'open'
+			$('.scheme svg g[id^="scheme-"]').removeClass 'active'
+			$('.scheme .description .item').removeClass 'active'
+			
 	$('.cell a.more').click (e)->
 		date = $(this).data('date')
 		$.get "/include/day.php?date=#{date}", (data)->

@@ -1676,13 +1676,66 @@ a, svg g, svg path
 					color #f0c344
 					font-weight bold
 		.scheme
+			full-width()
+			position relative
 			svg
 				width: 690px
-				height: 371px		
+				height: 371px
+				g[id^='scheme-']
+					cursor pointer
+			&.open
+				opacity 1
+				.frame
+					opacity 1
+				g[id^='scheme-']
+					opacity .1
+					&.active
+						opacity 1
+				svg
+					g#stroke, g#logo
+						opacity 0
+			.description
+				position absolute
+				pointer-events none
+				width 690px
+				height 371px
+				top 0
+				left 0
+				line-height 371px
+				.item
+					display none
+					.title
+						full-width()
+						font-weight bold
+						font-size 18px
+						color #953383
+						margin-bottom 5px
+					.text
+						font-size 16px
+					&.active 
+						padding 0 20px
+						text-align left
+						display inline-block
+						line-height 20px
+						vertical-align middle
+
+			.frame
+				opacity 0
+				transition-property(opacity)
+				transition-duration(.3s)
+				pointer-events none
+				width 689px
+				height 371px
+				box-shadow 0 0 5px rgba(10,17,18,.54)
+				display block
+				position absolute
+				top 0
+				left 5px
+				border-radius 60px
 		.scheme-description
 			full-width()
 			
-			width: 740px
+			width: 720px
 			margin-left -10px
 			&:last-of-type
 				margin-bottom 40px
@@ -1694,6 +1747,9 @@ a, svg g, svg path
 				font-weight 500
 				line-height 16px
 				text-align center
+				&.hover
+					font-weight 500
+					color #943283
 		.brands
 			full-width()
 			padding-left 68px
@@ -2175,6 +2231,9 @@ a, svg g, svg path
 					margin-left -3px
 				.carousel
 					margin-left 0px
+				.scheme
+					.frame
+						left 15px
 				.history-page
 					margin-left -10px
 	@media (max-width: 570px)
@@ -2277,6 +2336,23 @@ a, svg g, svg path
 						margin-top 0px
 						width: 500px
 						height 270px
+					.frame
+						width 94%
+						border-radius 40px
+						height 272px
+						
+					.description
+						line-height 272px
+						width 100%
+						.item			
+							width 100%	
+							padding 0 25px		
+							line-height 14px
+							.title
+								font-size 16px
+							.text
+								font-size 12px
+								line-height 11px
 				.brands
 					.item
 						img
@@ -2545,6 +2621,7 @@ a, svg g, svg path
 					.num
 						left -70px
 						bottom -10px
+
 				.principles
 					width 96%
 					.item
@@ -2582,15 +2659,32 @@ a, svg g, svg path
 						img
 							max-width 285px
 							margin-left -40px
+
 				.scheme
-					margin-bottom 0
+					margin-bottom -5px
 					svg
 						width 290px
 						height 170px
+					.frame
+						width 100%
+						border-radius 27px
+						left 0
+						top 7px
+						height 156px
+					.description
+						line-height 156px
+						.item
+							padding 0 10px
+							line-height 8px
+							.title
+								font-size 11px
+							.text
+								font-size 8px
 				.scheme-description
-					width 109%
+					width 107%
 					span
 						font-size 8px
+						width 19%
 				.carousel
 					.arrow.left
 						left 5px

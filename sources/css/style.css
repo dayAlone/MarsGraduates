@@ -2312,14 +2312,104 @@ svg path:hover {
   color: #f0c344;
   font-weight: bold;
 }
+#page.about .scheme {
+  float: left;
+  width: 100%;
+  position: relative;
+}
 #page.about .scheme svg {
   width: 690px;
   height: 371px;
 }
+#page.about .scheme svg g[id^='scheme-'] {
+  cursor: pointer;
+}
+#page.about .scheme.open {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#page.about .scheme.open .frame {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#page.about .scheme.open g[id^='scheme-'] {
+  opacity: 0.1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=10)";
+  filter: alpha(opacity=10);
+}
+#page.about .scheme.open g[id^='scheme-'].active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+#page.about .scheme.open svg g#stroke,
+#page.about .scheme.open svg g#logo {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+}
+#page.about .scheme .description {
+  position: absolute;
+  pointer-events: none;
+  width: 690px;
+  height: 371px;
+  top: 0;
+  left: 0;
+  line-height: 371px;
+}
+#page.about .scheme .description .item {
+  display: none;
+}
+#page.about .scheme .description .item .title {
+  float: left;
+  width: 100%;
+  font-weight: bold;
+  font-size: 18px;
+  color: #953383;
+  margin-bottom: 5px;
+}
+#page.about .scheme .description .item .text {
+  font-size: 16px;
+}
+#page.about .scheme .description .item.active {
+  padding: 0 20px;
+  text-align: left;
+  display: inline-block;
+  line-height: 20px;
+  vertical-align: middle;
+}
+#page.about .scheme .frame {
+  opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -webkit-transition-property: opacity;
+  -moz-transition-property: opacity;
+  -o-transition-property: opacity;
+  -ms-transition-property: opacity;
+  transition-property: opacity;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  pointer-events: none;
+  width: 689px;
+  height: 371px;
+  -webkit-box-shadow: 0 0 5px rgba(10,17,18,0.54);
+  box-shadow: 0 0 5px rgba(10,17,18,0.54);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 5px;
+  -webkit-border-radius: 60px;
+  border-radius: 60px;
+}
 #page.about .scheme-description {
   float: left;
   width: 100%;
-  width: 740px;
+  width: 720px;
   margin-left: -10px;
 }
 #page.about .scheme-description:last-of-type {
@@ -2334,6 +2424,10 @@ svg path:hover {
   font-weight: 500;
   line-height: 16px;
   text-align: center;
+}
+#page.about .scheme-description span.hover {
+  font-weight: 500;
+  color: #943283;
 }
 #page.about .brands {
   float: left;
@@ -3032,6 +3126,9 @@ svg path:hover {
   #page.about .carousel {
     margin-left: 0px;
   }
+  #page.about .scheme .frame {
+    left: 15px;
+  }
   #page.about .history-page {
     margin-left: -10px;
   }
@@ -3153,6 +3250,28 @@ svg path:hover {
     margin-top: 0px;
     width: 500px;
     height: 270px;
+  }
+  #page.about .content .scheme .frame {
+    width: 94%;
+    -webkit-border-radius: 40px;
+    border-radius: 40px;
+    height: 272px;
+  }
+  #page.about .content .scheme .description {
+    line-height: 272px;
+    width: 100%;
+  }
+  #page.about .content .scheme .description .item {
+    width: 100%;
+    padding: 0 25px;
+    line-height: 14px;
+  }
+  #page.about .content .scheme .description .item .title {
+    font-size: 16px;
+  }
+  #page.about .content .scheme .description .item .text {
+    font-size: 12px;
+    line-height: 11px;
   }
   #page.about .content .brands .item img {
     max-width: 540px;
@@ -3530,17 +3649,39 @@ svg path:hover {
     margin-left: -40px;
   }
   #page.about .content .scheme {
-    margin-bottom: 0;
+    margin-bottom: -5px;
   }
   #page.about .content .scheme svg {
     width: 290px;
     height: 170px;
   }
+  #page.about .content .scheme .frame {
+    width: 100%;
+    -webkit-border-radius: 27px;
+    border-radius: 27px;
+    left: 0;
+    top: 7px;
+    height: 156px;
+  }
+  #page.about .content .scheme .description {
+    line-height: 156px;
+  }
+  #page.about .content .scheme .description .item {
+    padding: 0 10px;
+    line-height: 8px;
+  }
+  #page.about .content .scheme .description .item .title {
+    font-size: 11px;
+  }
+  #page.about .content .scheme .description .item .text {
+    font-size: 8px;
+  }
   #page.about .content .scheme-description {
-    width: 109%;
+    width: 107%;
   }
   #page.about .content .scheme-description span {
     font-size: 8px;
+    width: 19%;
   }
   #page.about .content .carousel .arrow.left {
     left: 5px;

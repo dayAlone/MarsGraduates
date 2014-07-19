@@ -22369,6 +22369,27 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
 
   $(document).ready(function() {
     var x;
+    $('.scheme svg g[id^="scheme-"]').hover(function() {
+      return $(".scheme-description span[data-id='" + ($(this).attr('id')) + "']").addClass('hover');
+    }, function() {
+      return $(".scheme-description span").removeClass('hover');
+    });
+    $('.scheme svg g[id^="scheme-"]').click(function() {
+      var x;
+      x = $(this);
+      $('.scheme svg g[id^="scheme-"]').removeClass('active');
+      $('.scheme .description .item').removeClass('active');
+      x.addClass('active');
+      $(".scheme .description .item[data-id='" + ($(this).attr('id')) + "']").addClass('active');
+      return $('.scheme').addClass('open');
+    });
+    $(document).on('click', function(e) {
+      if ($('.scheme').hasClass('open') && $('.scheme').length > 0 && $(e.target).parents('.scheme').length === 0) {
+        $('.scheme').removeClass('open');
+        $('.scheme svg g[id^="scheme-"]').removeClass('active');
+        return $('.scheme .description .item').removeClass('active');
+      }
+    });
     $('.cell a.more').click(function(e) {
       var date;
       date = $(this).data('date');

@@ -208,11 +208,104 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
       </div>
       <div class="elm"><a name="scheme" id="scheme" class="anchor"></a>
         <h2 class="count">Подразделения<span class="num">5</span></h2>
-        <div class="scheme-description"><span>Маркетинг<br>(Marketing) </span><span>Научно-исследовательская<br> работа (Research and<br> Development)      </span><span>Финансы <br>(S&F)</span><span>Управление персоналом <br>(People & Organization)</span><span>Отдел поставок <br>(Supply)</span></div>
+        <div class="scheme-description">
+          <span data-id="scheme-1">Маркетинг<br>(Marketing) </span>
+          <span data-id="scheme-2">Научно-исследовательская<br> работа (Research and<br> Development)      </span>
+          <span data-id="scheme-3">Финансы <br>(S&F)</span>
+          <span data-id="scheme-4">Управление персоналом <br>(People & Organization)</span>
+          <span data-id="scheme-5">Отдел поставок <br>(Supply)</span></div>
         <p class="center scheme">
           <?=svg('scheme')?>
+          <span class="frame"></span>
+          <span class="description">
+            <span class="item" data-id="scheme-1">
+              <span class="title">
+                Marketing
+              </span>
+              <span class="text">
+                Отдел маркетинга создает всемирно известные бренды. Здесь у вас есть свобода думать креативно и масштабно, развивать идеи и находить новые способы взаимодействия с потребителем.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-2">
+              <span class="title">
+                Research&Development
+              </span>
+              <span class="text">
+                Отдел Исследований и Разработок стоит у истоков наших бизнес-процессов. Именно здесь рождаются новые рецепты и совершенствуются уже полюбившиеся. Отдел ведет инновационную деятельность: от оценки клиентов и определения их потребностей до разработки неизменно достойной восхищения продукции.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-3">
+              <span class="title">
+                Service&Finance
+              </span>
+              <span class="text">
+                Команда специалистов из отдела Финансов работает на передовой нашего бизнеса. Управление рисками, бухгалтерский учет, управление инвестициями, налоговый контроль - это лишь некоторые из функций, которые находятся в компетенции наших сотрудников из отдела Финансов.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-4">
+              <span class="title">
+                People&Organisation
+              </span>
+              <span class="text">
+                В Mars отдел управления персоналом называется People & Organization. Именно благодаря команде P&O таланты приходят и остаются в Mars надолго. Наши профессионалы создают условия для роста, обучения и развития наших сотрудников. Они - их поддержка и дружеское плечо в процессе продвижения по карьерной лестнице.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-5">
+              <span class="title">
+                Supply
+              </span>
+              <span class="text">
+                Работа отдела поставок начинается с клиента и идет в обратном направлении. Его цель – постоянно производить и надежно поставлять продукцию, которая отвечает требованиям клиентов и превосходит их ожидания.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-6">
+              <span class="title">
+                Sales
+              </span>
+              <span class="text">
+                Команда Sales работает над стратегией продвижения продукта на рынок, взаимодействует с клиентами, другими словами, развивает бизнес Mars. Именно они обеспечивают доступность нашей продукции для потребителя. Их задача - сделать так, чтобы покупатель сделал правильный выбор.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-7">
+              <span class="title">
+                Mars IS
+              </span>
+              <span class="text">
+                Mars Information Services (Mars IS) – это огромное ИТ-подразделение компании Mars Inc., поддерживающие бизнес всей корпорации. Сотрудники Mars IS предоставляют полный спектр ИТ-услуг, начиная с обслуживания сетей и заканчивая сложными системами планирования бизнес-ресурсов.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-8">
+              <span class="title">
+                Commercial
+              </span>
+              <span class="text">
+                Команда Commercial поддерживая взаимоотношения с поставщиками, отраслевыми и нормативными органами. Сотрудники коммерческого отдела занимаются не только закупкой сырья, услуг и материалов, но и многим другим, например, разработкой упаковки.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-9">
+              <span class="title">
+                Corporate Affairs
+              </span>
+              <span class="text">
+                Роль отдела корпоративных отношений - поддерживать репутацию и способствовать росту Mars как семейной компании, основывающей свою работу на Пяти Принципах. В сферу ответственности отдела входя различные виды коммуникаций: как внутренние, с сотрудниками компании, так и внешние.
+              </span>
+            </span>
+            <span class="item" data-id="scheme-10">
+              <span class="title">
+                Logistics
+              </span>
+              <span class="text">
+                Логистика – это часть нашей функции поставок. Это неотъемлемое звено цепи, в которую также входит проектирование и производство. Эта отрасль стремительно развивается и ставит сложнейшие задачи по управлению ростом.
+              </span>
+            </span>
+          </span>
         </p>
-        <div class="scheme-description"><span>Продажи <br>(Sales)</span><span>Информационные технологии (Information Service)</span><span>Закупки <br>(Commercial)</span><span>Корпоративные отношения (Corporate Affairs)</span><span>Логистика <br>(Logistics)</span></div>
+        <div class="scheme-description">
+        <span data-id="scheme-6">Продажи <br>(Sales)</span>
+        <span data-id="scheme-7">Информационные технологии (Information Service)</span>
+        <span data-id="scheme-8">Закупки <br>(Commercial)</span>
+        <span data-id="scheme-9">Корпоративные отношения (Corporate Affairs)</span>
+        <span data-id="scheme-10">Логистика <br>(Logistics)</span></div>
       </div>
       <a href="#" class="top"><?=svg('totop')?></a>
     </div>

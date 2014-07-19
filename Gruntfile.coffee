@@ -37,6 +37,7 @@ module.exports = (grunt)->
 							'./bower_components/velocity/jquery.velocity.js'
 							'./bower_components/velocity/velocity.ui.js'
 							'./bower_components/jquery.cookie/jquery.cookie.js'
+							'./bower_components/Snap.js/dist/snap.svg.js'
 							'<%= path.sources %>/js/script.js'
 						]
 
@@ -74,6 +75,10 @@ module.exports = (grunt)->
 					removeViewBox: false
 					}, {
 					removeUselessStrokeAndFill: false
+					}, {
+					cleanupIDs: false
+					}, {
+					removeComments: true
 					}, {
 					convertPathData: { 
 					    straightCurves: false
