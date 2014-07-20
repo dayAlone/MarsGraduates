@@ -15,6 +15,19 @@ sizeMain = ()->
 			
 			console.log Math.max.apply(Math,mainColHeightList), mainColHeightList
 
+scrollHeight = ()->
+	
+	$('#page.academy, #page.career, #page.about').removeAttr 'style'
+
+	if($('body').width() > 800)
+		$('#page.academy, #page.career, #page.about').height ()->
+			w = $(window).height()
+			t = $('#toolbar').height()+40
+			i = $('#page .elm:last-of-type()').height()
+			p = $('#page').height()
+			return p + (w-i)-t - $('a.top').height()
+	
+
 size = ()->
 	
 	sizeMain()
@@ -26,17 +39,8 @@ size = ()->
 	$('.history .slick-track').height($('.history .slick-active .row').height())
 	$('#page.academy, #page.career, #page.about').removeAttr 'style'
 
+	scrollHeight()
 
-	if($('body').width() > 800)
-		$('#page.academy, #page.career, #page.about').height ()->
-			w = $(window).height()
-			t = $('#toolbar').height()+40
-			i = $('#page .elm:last-of-type()').height()
-			p = $('#page').height()
-			
-			console.log (w-i), w, i
-
-			return p + (w-i)-t - $('a.top').height()
 	if window.location.hash
 		direction = window.location.hash.split('#go-')[1]
 		window.location.hash = ""
@@ -53,6 +57,8 @@ size = ()->
 
 	$('.principles').slick
 		infinite: true
+		onInit: ()->
+			scrollHeight()
 		slidesToShow: 2
 		slidesToScroll: 1
 		responsive: [
@@ -65,6 +71,7 @@ size = ()->
 	history = $('.history').slick
 		infinite: false
 		onInit: ()->
+			scrollHeight()
 			if($(window).width()<=570)
 				$('.history .slick-track').height($('.history .slick-active .row').height())
 		onAfterChange : (e)->
@@ -146,14 +153,14 @@ $(document).ready ->
 		$('.scheme .description .item').removeClass 'active'
 		x.addClass 'active'
 		$(".scheme .description .item[data-id='#{$(this).attr('id')}']").addClass 'active'
-
 		$('.scheme').addClass 'open'
+
 	$(document).on 'click', (e)->
 		if $('.scheme').hasClass('open') && $('.scheme').length > 0 && $(e.target).parents('.scheme').length == 0
 			$('.scheme').removeClass 'open'
 			$('.scheme svg g[id^="scheme-"]').removeClass 'active'
 			$('.scheme .description .item').removeClass 'active'
-			
+
 	$('.cell a.more').click (e)->
 		date = $(this).data('date')
 		$.get "/include/day.php?date=#{date}", (data)->

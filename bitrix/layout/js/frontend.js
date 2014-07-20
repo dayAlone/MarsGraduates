@@ -22189,7 +22189,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
 
 }));
 ;(function() {
-  var animate, carousel, delay, initCalendar, initDay, loadMonth, size, sizeMain;
+  var animate, carousel, delay, initCalendar, initDay, loadMonth, scrollHeight, size, sizeMain;
 
   delay = function(ms, func) {
     return setTimeout(func, ms);
@@ -22211,6 +22211,20 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     }
   };
 
+  scrollHeight = function() {
+    $('#page.academy, #page.career, #page.about').removeAttr('style');
+    if ($('body').width() > 800) {
+      return $('#page.academy, #page.career, #page.about').height(function() {
+        var i, p, t, w;
+        w = $(window).height();
+        t = $('#toolbar').height() + 40;
+        i = $('#page .elm:last-of-type()').height();
+        p = $('#page').height();
+        return p + (w - i) - t - $('a.top').height();
+      });
+    }
+  };
+
   size = function() {
     var direction, history, offset;
     sizeMain();
@@ -22222,17 +22236,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     }
     $('.history .slick-track').height($('.history .slick-active .row').height());
     $('#page.academy, #page.career, #page.about').removeAttr('style');
-    if ($('body').width() > 800) {
-      $('#page.academy, #page.career, #page.about').height(function() {
-        var i, p, t, w;
-        w = $(window).height();
-        t = $('#toolbar').height() + 40;
-        i = $('#page .elm:last-of-type()').height();
-        p = $('#page').height();
-        console.log(w - i, w, i);
-        return p + (w - i) - t - $('a.top').height();
-      });
-    }
+    scrollHeight();
     if (window.location.hash) {
       direction = window.location.hash.split('#go-')[1];
       window.location.hash = "";
@@ -22251,6 +22255,9 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     });
     $('.principles').slick({
       infinite: true,
+      onInit: function() {
+        return scrollHeight();
+      },
       slidesToShow: 2,
       slidesToScroll: 1,
       responsive: [
@@ -22266,6 +22273,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     history = $('.history').slick({
       infinite: false,
       onInit: function() {
+        scrollHeight();
         if ($(window).width() <= 570) {
           return $('.history .slick-track').height($('.history .slick-active .row').height());
         }
