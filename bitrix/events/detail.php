@@ -22,10 +22,10 @@ $APPLICATION->SetPageProperty('body_class', "event");
           </div>
           <div class="col-xs-6">
             <div class="social">
-              <a href="#">
+              <a href="http://vkontakte.ru/share.php?url=" target="_blank">
                 <?=svg('vk')?>
               </a>
-              <a href="#">
+              <a href="http://www.facebook.com/sharer/sharer.php?u=" target="_blank">
                 <?=svg('fb')?>
               </a><br>
               <span>поделиться</span></div>
