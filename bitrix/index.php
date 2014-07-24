@@ -43,8 +43,8 @@ $APPLICATION->SetPageProperty('body_class', "index");
       <div class="col big">
         <div class="title"><a href="/academy/">Mars academy</a></div>
         <div class="content">
-	        <a href="/academy/#go-conference" class="big"><span>Лекции и мастер-классы</span></a>
-	        <a href="/academy/#go-lectures" class="big"><span>Конференции</span></a>
+	        <a href="/academy/#go-conference" class="big"><span>Конференции</span></a>
+	        <a href="/academy/#go-lectures" class="big"><span>Лекции и мастер-классы</span></a>
 	        <a href="/academy/#go-games" class="big"><span>Бизнес-игры <br>и кейс-чемпионаты</span></a>
         </div>
       </div>
