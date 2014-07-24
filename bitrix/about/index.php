@@ -5,6 +5,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
 <div id="page" class="about">
   <div class="container">
     <div class="content">
+      <?/*
       <div class="scrollspy">
         <ul class="nav">
           <li><a href="#top" class="text">О нас</a></li>
@@ -15,6 +16,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
           <li><a href="#scheme">5</a></li>
         </ul>
       </div>
+      */?>
       <div class="elm"><a name="top" id="top" class="anchor"></a>
         <h1>О нас</h1>
         <p class="center"><a href="#" class="video"><img src="/layout/images/video.jpg" width="560"></a></p>
@@ -195,7 +197,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
             <p>Wrigley со штаб-квартирой в Чикаго (штат Иллинойс, США) является одним из крупнейших в мире производителей жевательной резинки и сладостей, доставляя потребителям простые удовольствия. <br>В Wrigley работает более 17 000 сотрудников в 48 странах. </p>
             <p class="slide"><img src="/layout/images/brands-gym.jpg"></p>
           </div>
-          <div class="item">
+          <div class="item">#972f84
             <div class="title orange">Продукты питания (Food)
               <div class="icon">
                 <?=svg('arrow-right2')?>
@@ -211,7 +213,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         <div class="scheme-description">
           <span data-id="scheme-1">Маркетинг<br>(Marketing) </span>
           <span data-id="scheme-2">Научно-исследовательская<br> работа (Research and<br> Development)      </span>
-          <span data-id="scheme-3">Финансы <br>(S&F)</span>
+          <span data-id="scheme-3">Финансы <br>(Service&Finance )</span>
           <span data-id="scheme-4">Управление персоналом <br>(People & Organization)</span>
           <span data-id="scheme-5">Отдел поставок <br>(Supply)</span></div>
         <p class="center scheme">
@@ -219,7 +221,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
           <span class="frame"></span>
           <span class="description">
             <span class="item" data-id="scheme-1">
-              <span class="title">
+              <span class="title" style="color: #972f84;">
                 Marketing
               </span>
               <span class="text">
@@ -227,7 +229,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-2">
-              <span class="title">
+              <span class="title" style="color: #e86035;">
                 Research&Development
               </span>
               <span class="text">
@@ -235,7 +237,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-3">
-              <span class="title">
+              <span class="title" style="color: #46a83e;">
                 Service&Finance
               </span>
               <span class="text">
@@ -243,7 +245,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-4">
-              <span class="title">
+              <span class="title" style="color: #e86035;">
                 People&Organisation
               </span>
               <span class="text">
@@ -251,7 +253,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-5">
-              <span class="title">
+              <span class="title" style="color: #2895d2;">
                 Supply
               </span>
               <span class="text">
@@ -259,7 +261,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-6">
-              <span class="title">
+              <span class="title" style="color: #46a83e;">
                 Sales
               </span>
               <span class="text">
@@ -267,15 +269,15 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-7">
-              <span class="title">
-                Mars IS
+              <span class="title" style="color: #2895d2;">
+                Mars Information Service
               </span>
               <span class="text">
                 Mars Information Services (Mars IS) – это огромное ИТ-подразделение компании Mars Inc., поддерживающие бизнес всей корпорации. Сотрудники Mars IS предоставляют полный спектр ИТ-услуг, начиная с обслуживания сетей и заканчивая сложными системами планирования бизнес-ресурсов.
               </span>
             </span>
             <span class="item" data-id="scheme-8">
-              <span class="title">
+              <span class="title" style="color: #e86035;">
                 Commercial
               </span>
               <span class="text">
@@ -283,7 +285,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-9">
-              <span class="title">
+              <span class="title" style="color: #972f84;">
                 Corporate Affairs
               </span>
               <span class="text">
@@ -291,7 +293,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               </span>
             </span>
             <span class="item" data-id="scheme-10">
-              <span class="title">
+              <span class="title" style="color: #46a83e;">
                 Logistics
               </span>
               <span class="text">

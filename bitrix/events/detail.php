@@ -82,6 +82,7 @@ $APPLICATION->SetPageProperty('body_class', "event");
                 <p>сессия вопросов и ответов</p>
               </div>
             </div>
+            <?/*
             <div class="col-xs-6 col-md-12">
               <h2>Партнёры</h2>
               <ul class="partners">
@@ -91,6 +92,7 @@ $APPLICATION->SetPageProperty('body_class', "event");
                 <li><a href="#" class="trigger">Информационные партнёры<svg width="8" height="20" viewBox="0 0 8 20" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><title>arrow-right</title><path d="M1.5 18.5l4.428-8.418-4.428-8.418" sketch:type="MSShapeGroup" stroke="#fff" stroke-width="2" fill="none" fill-rule="evenodd"/></svg></a></li>
               </ul>
             </div>
+            */?>
           </div>
         </div>
         <div class="col-md-6 registration"><a name="reg" class="anchor"></a>

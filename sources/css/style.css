@@ -224,11 +224,13 @@ svg path:hover {
   width: 250px;
   text-align: right;
   float: right;
+  margin-right: 8px;
+  margin-top: 5px;
 }
 #toolbar .social a {
   text-align: center;
   max-width: 24px;
-  margin: 0 1px;
+  margin: 0 0px;
   display: inline-block;
 }
 #toolbar .social a.marscom {
@@ -242,7 +244,7 @@ svg path:hover {
 }
 #toolbar .social a svg {
   max-width: 24px;
-  max-height: 24px;
+  max-height: 17px;
 }
 #toolbar .home {
   display: none;
@@ -2045,15 +2047,15 @@ svg path:hover {
 #page.career .sections a {
   display: inline-block;
   position: relative;
-  line-height: 15px;
+  line-height: 18px;
   margin: 20px 20px;
 }
 #page.career .sections a:first-of-type span.text:first-of-type {
-  background: -webkit-linear-gradient(left, #560c74 0%, #b76595 100%);
-  background: -moz-linear-gradient(left, #560c74 0%, #b76595 100%);
-  background: -o-linear-gradient(left, #560c74 0%, #b76595 100%);
-  background: -ms-linear-gradient(left, #560c74 0%, #b76595 100%);
-  background: linear-gradient(to right, #560c74 0%, #b76595 100%);
+  background: -webkit-linear-gradient(left, #560c74 0%, #9f538b 100%);
+  background: -moz-linear-gradient(left, #560c74 0%, #9f538b 100%);
+  background: -o-linear-gradient(left, #560c74 0%, #9f538b 100%);
+  background: -ms-linear-gradient(left, #560c74 0%, #9f538b 100%);
+  background: linear-gradient(to right, #560c74 0%, #9f538b 100%);
 }
 #page.career .sections a:first-of-type span.text:last-of-type {
   background: -webkit-linear-gradient(left, #560c74 0%, #e48aa2 100%);
@@ -2084,6 +2086,7 @@ svg path:hover {
   color: #fff;
   position: relative;
   z-index: 2;
+  font-size: 16px;
   float: left;
   clear: left;
   padding: 2px 4px 0 10px;

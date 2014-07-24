@@ -6,6 +6,7 @@ $APPLICATION->SetPageProperty('body_class', "color career");
 <div id="page" class="career">
   <div class="container">
     <div class="content">
+      <?/*
       <div class="scrollspy">
         <?php
           $APPLICATION->IncludeComponent("bitrix:news.list", "career_nav", 
@@ -26,7 +27,9 @@ $APPLICATION->SetPageProperty('body_class', "color career");
              false
           );
       ?>
-      </div><a name="top" id="top" class="anchor"></a>
+      </div>
+      */?>
+      <a name="top" id="top" class="anchor"></a>
       <h1>
       	КАРЬЕРА
       	<?=svg("key")?>
@@ -34,23 +37,23 @@ $APPLICATION->SetPageProperty('body_class', "color career");
       <h4 class="center toggle">5 причин работать в Mars</h4>
       <div class="reasons">
         <div class="item">
-          <div class="title">1&nbsp;&nbsp;Развитие</div>
+          <div class="title">Развитие</div>
           <div class="text">С первого дня работы тебя ждут разнообразные тренинги, обратная связь от коллег и коучинг!</div>
         </div>
         <div class="item">
-          <div class="title">2&nbsp;&nbsp;Забота</div>
+          <div class="title">Забота</div>
           <div class="text">Мы чувствуем себя частью семейного бизнеса и подходим к работе со всей ответственностью</div>
         </div>
         <div class="item">
-          <div class="title">3&nbsp;&nbsp;Открытость</div>
+          <div class="title">Открытость</div>
           <div class="text">Здесь каждый может связаться с каждым на любом уровне и в любое время.</div>
         </div>
         <div class="item">
-          <div class="title">4&nbsp;&nbsp;Культура</div>
+          <div class="title">Культура</div>
           <div class="text">Мы крупнейший в мире семейный бизнес, это дает нам свободу и независимость.</div>
         </div>
         <div data-merge="2" class="item">
-          <div class="title">5&nbsp;&nbsp;Самореализация</div>
+          <div class="title">Самореализация</div>
           <div class="text">Если тебе не терпится достичь профессиональных высот, проявить</div>
         </div>
         <div class="item"></div>
