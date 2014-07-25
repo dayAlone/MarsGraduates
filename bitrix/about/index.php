@@ -304,7 +304,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         </p>
         <div class="scheme-description">
         <span data-id="scheme-6">Продажи <br>(Sales)</span>
-        <span data-id="scheme-7">Информационные технологии (Information Service)</span>
+        <span data-id="scheme-7">Информационные технологии (Mars Information Service)</span>
         <span data-id="scheme-8">Закупки <br>(Commercial)</span>
         <span data-id="scheme-9">Корпоративные отношения (Corporate Affairs)</span>
         <span data-id="scheme-10">Логистика <br>(Logistics)</span></div>

@@ -9776,7 +9776,7 @@ body.color {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
-  position: top center;
+  background-position: top center;
   background-repeat: repeat-y;
 }
 @media (max-width: 570px) {
@@ -11783,7 +11783,7 @@ svg path:hover {
   background: linear-gradient(to right, #560c74 0%, #e48aa2 100%);
 }
 #page.career .sections a:last-of-type svg {
-  right: -60px;
+  right: -30px;
 }
 #page.career .sections a:last-of-type span.text:first-of-type {
   background: -webkit-linear-gradient(left, #46a7d1 0%, #6984bb 100%);
