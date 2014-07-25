@@ -9952,7 +9952,7 @@ svg path:hover {
   display: inline-block;
 }
 #toolbar .social a.marscom {
-  max-width: 90px;
+  max-width: 60px;
 }
 #toolbar .social a.marscom svg {
   max-width: 90px;
@@ -9961,7 +9961,7 @@ svg path:hover {
   margin-right: 0;
 }
 #toolbar .social a svg {
-  max-width: 24px;
+  max-width: 18px;
   max-height: 17px;
 }
 #toolbar .home {
