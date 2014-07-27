@@ -63,14 +63,18 @@
     		<a href="#">Подписаться</a>
     	</div>
 	</div>
-	
 	<div id="toolbar">
 	  <div class="container">
 	    <div class="row">
 	      <div class="col-md-2 col-xs-3">
 	      	<a href="#" class="home"><?=svg('home')?></a>
 	        <div class="select">
-	        	<a href="#" class="trigger">Россия <?=svg('arrow-bottom')?></a></div>
+	        	<a href="#" class="trigger">Россия <?=svg('arrow-bottom')?></a>
+	        	<ul class="city-list">
+					<li><a href="http://www.mars-graduates.kz" target="_blank">Казахстан</a></li>
+					<li><a href="#" target="_blank">Украина</a></li>
+				</ul>
+	        </div>
 	      </div>
 	      <div class="col-md-8 col-xs-6 logo-frame">
 	      	<a href="/" class="logo"><?=svg('logo')?></a>

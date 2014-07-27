@@ -73,13 +73,14 @@ body.color #toolbar {
   -moz-background-size: cover;
   background-size: cover;
   position: top center;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
 }
 @media (max-width: 570px) {
   body.color #toolbar {
     -webkit-background-size: auto;
     -moz-background-size: auto;
     background-size: auto;
+    background-position-x: center;
   }
 }
 body.color #toolbar .nav-trigger svg path {
@@ -193,11 +194,24 @@ svg path:hover {
   float: left;
   width: 100%;
   width: 100%;
+  position: relative;
+}
+#toolbar .select.open .trigger {
+  background: #20bcfc;
+}
+#toolbar .select.open .trigger svg {
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  right: 3px;
 }
 #toolbar .select .trigger {
   float: left;
   width: 100%;
   position: relative;
+  z-index: 21;
   height: 23px;
   line-height: 26px;
   background: #339bc2;
@@ -212,9 +226,55 @@ svg path:hover {
   position: absolute;
   right: 10px;
   top: 8px;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 #toolbar .select .trigger svg path {
   stroke: #fff;
+}
+#toolbar .select .city-list {
+  float: left;
+  float: left;
+  width: 100%;
+  display: none;
+  background: #20bcfc;
+  margin-top: 23px;
+  z-index: 20;
+  position: absolute;
+  left: 0;
+  border-bottom: 0px !important;
+}
+#toolbar .select .city-list li {
+  position: relative !important;
+  width: 100% !important;
+  border: 0px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+#toolbar .select .city-list li a {
+  font-size: 14px;
+  line-height: 24px;
+  padding: 0 10px;
+  float: left;
+  width: 100%;
+  position: relative;
+  border: 0;
+  color: #fff;
+  text-transform: none;
+  text-align: left;
+  font-weight: bold;
+}
+#toolbar .select .city-list li a:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
 }
 #toolbar .logo {
   position: relative;
@@ -341,6 +401,8 @@ svg path:hover {
 @media (max-width: 480px) {
   #toolbar {
     margin-bottom: 15px;
+    padding: 14px 0 6px !important;
+    max-height: 60px;
   }
   #toolbar .logo-frame {
     padding: 0;
@@ -1501,6 +1563,9 @@ svg path:hover {
   -webkit-border-radius: 0 !important;
   border-radius: 0 !important;
 }
+#maillist input:focus {
+  outline: 0;
+}
 #maillist input[type=email] {
   width: 95px;
   font-size: 11px;
@@ -2090,6 +2155,11 @@ svg path:hover {
   float: left;
   clear: left;
   padding: 2px 4px 0 10px;
+}
+@media (max-width: 570px) {
+  #page.career .sections a span.text {
+    font-size: 13px;
+  }
 }
 #page.career .sections a svg {
   position: absolute;

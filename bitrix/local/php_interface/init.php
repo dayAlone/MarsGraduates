@@ -1,16 +1,65 @@
 <?
-	
+	AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnAfterIBlockElementHandler");
+	AddEventHandler("iblock", "OnAfterIBlockElementUpdate", "OnAfterIBlockElementHandler");
+
+	function OnAfterIBlockElementHandler(&$arFields)
+	{
+		if($arFields["IBLOCK_ID"]==1) {
+
+			$prop = array();
+
+			$raw = CIBlockProperty::GetList(Array("sort"=>"asc", "name"=>"asc"), Array("IBLOCK_ID"=>1, "CODE"=>"GROUP"));
+			while($data = $raw->Fetch())
+				$prop[$data['CODE']] = array_values($arFields["PROPERTY_VALUES"][$data['ID']])[0]["VALUE"];
+
+			$raw = CIBlockProperty::GetList(Array("sort"=>"asc", "name"=>"asc"), Array("IBLOCK_ID"=>1, "CODE"=>"DATE"));
+			while($data = $raw->Fetch())
+				$prop[$data['CODE']] = array_values($arFields["PROPERTY_VALUES"][$data['ID']])[0]["VALUE"];
+			
+			$date = date('d.m.Y', strtotime($prop["DATE"]));
+			$name = "[".$date."] ".$arFields['NAME'];
+
+			if(!$prop["GROUP"]) {
+				$group = new CGroup;
+				
+				$fields = Array(
+					"ACTIVE" => "Y",
+					"C_SORT" => 100,
+					"NAME"   => $name,
+					"STRING_ID" => $arFields['CODE']
+				  );
+				$NEW_GROUP_ID = $group->Add($fields);
+				if($NEW_GROUP_ID>0)
+					CIBlockElement::SetPropertyValuesEx($arFields['ID'], $arFields['IBLOCK_ID'], array("GROUP"=>$NEW_GROUP_ID));
+			}
+			else {
+				$raw = CGroup::GetByID($prop["GROUP"]);
+				$group = $raw->Fetch();
+				if($group['NAME']!=$name) {
+					$group = new CGroup;
+					$arFields = Array(
+					  "NAME" => $name,
+					 );
+					$group->Update($prop["GROUP"], $arFields);
+				}
+			}
+			
+		}
+	}
+
 	function svg($value='')
 	{
 		$path = $_SERVER["DOCUMENT_ROOT"]."/layout/images/svg/".$value.".svg";
 		return file_get_contents($path);
 	}
+
 	function body_class() {
 		global $APPLICATION;
 		if($APPLICATION->GetPageProperty('body_class')) {
 			return $APPLICATION->GetPageProperty('body_class');
 		}
 	}
+
 	function russian_month($date, $normal=false) {
 		if(!$date)
 			$date = date("n");
@@ -49,6 +98,7 @@
 		}
 		echo $m;
 	}
+
 	function russian_week($date, $normal=false) {
 		if(!$date)
 			$date = date("N");

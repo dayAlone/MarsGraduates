@@ -227,6 +227,33 @@
         suppressScrollX: true
       });
     });
+    $('.select .trigger').click(function(e) {
+      $(this).parents('.select').toggleClass('open');
+      if ($('.select').hasClass('open')) {
+        $('.select .city-list').velocity("transition.slideDownIn", {
+          duration: 400,
+          display: "block"
+        });
+      } else {
+        $('.select .city-list').velocity("transition.slideUpOut", {
+          duration: 400,
+          display: "none"
+        });
+      }
+      return e.preventDefault();
+    });
+    $('#maillist form').submit(function(e) {
+      $.post('/include/mail.php', {
+        EMAIL: $(this).find('input[type=email]').val()
+      }, function(data) {
+        if (data === "true") {
+          return alert("Вы успешно подписались на рассылку, теперь необходимо подтвердить адрес эл. почты");
+        } else {
+          return alert("Произошла ошибка: " + data);
+        }
+      });
+      return e.preventDefault();
+    });
     $(window).on('scroll touchmove gesturechange', function() {
       return $('body.color #toolbar').css({
         'background-position-y': -$(window).scrollTop()

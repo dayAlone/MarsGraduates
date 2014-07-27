@@ -5,7 +5,7 @@ $APPLICATION->SetPageProperty('body_class', "event");
 ?>
 <div id="event" style="background-image: url(/layout/images/event.jpg)">
 
-  <img src="/layout/images/academy-1-big.png" alt="" class="image">
+  <img src="/layout/images/academy-4-big.png" alt="" class="image">
   <div class="container">
     <div class="content">
       <div class="section orange">Маркетинг и продажи</div>

@@ -171,8 +171,6 @@ $(document).ready ->
 		$(this)
 			.hide()
 			.after('<iframe width="560" height="315" src="//www.youtube.com/embed/uEeb8DQEtRA?autoplay=1" frameborder="0" allowfullscreen></iframe>')
-		
-
 		e.preventDefault()
 
 	initCalendar()
@@ -184,6 +182,24 @@ $(document).ready ->
 		$(this).find('.scroll').perfectScrollbar
 			suppressScrollX:true
 
+	$('.select .trigger').click (e)->
+		$(this).parents('.select').toggleClass 'open'
+		if $('.select').hasClass 'open'
+			$('.select .city-list').velocity("transition.slideDownIn", { duration: 400, display: "block" })
+		else
+			$('.select .city-list').velocity("transition.slideUpOut", { duration: 400, display: "none" })
+		e.preventDefault()
+
+	$('#maillist form').submit (e)->
+		$.post '/include/mail.php',
+	        EMAIL: $(this).find('input[type=email]').val()
+	        (data) -> 
+	        	if data == "true"
+	        		alert("Вы успешно подписались на рассылку, теперь необходимо подтвердить адрес эл. почты")
+	        	else
+	        		alert("Произошла ошибка: "+data)
+
+		e.preventDefault()
 
 	$(window).on 'scroll touchmove gesturechange', ()->
 		$('body.color #toolbar').css

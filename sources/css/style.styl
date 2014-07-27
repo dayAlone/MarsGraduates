@@ -60,9 +60,10 @@ body
 		#toolbar
 			background-size cover
 			position top center
-			background-repeat no-repeat
+			background-repeat repeat-y
 			@media (max-width: 570px)
 				background-size auto
+				background-position-x center
 			.nav-trigger
 				svg
 					path
@@ -99,6 +100,7 @@ a, svg g, svg path
 	position fixed
 	z-index 100
 	background rgba(255,255,255,.98)
+
 	.index &
 		padding-bottom 0
 		#cal-day
@@ -143,9 +145,17 @@ a, svg g, svg path
 	.select
 		full-width()
 		width 100%
+		position relative
+		&.open
+			.trigger
+				background #20bcfc
+				svg
+					transform rotate(-90deg)
+					right 3px
 		.trigger
 			full-width()
 			position relative
+			z-index 21
 			height 23px
 			line-height 26px
 			background #339bc2
@@ -158,8 +168,40 @@ a, svg g, svg path
 				position absolute
 				right 10px
 				top 8px
+				transition-property(all)
+				transition-duration(.3s)
 				path
 					stroke white
+		.city-list
+			float left
+			full-width()
+			display none
+			background #20bcfc
+			margin-top 23px
+			z-index 20
+			position absolute
+			left 0
+			border-bottom 0px !important
+			li
+				position relative !important
+				width 100% !important
+				border 0px !important
+				margin 0 !important
+				padding 0 !important
+				a
+					font-size 14px
+					line-height 24px
+					padding 0 10px
+					full-width()
+					position relative
+					border 0
+					color white
+					text-transform none
+					text-align left
+					font-weight bold
+					&:hover
+						background rgba(255,255,255,.1)
+						color white
 	.logo
 		position relative
 		max-width 100%
@@ -249,6 +291,8 @@ a, svg g, svg path
 			text-align center
 	@media (max-width: 480px)
 		margin-bottom 15px
+		padding 14px 0 6px !important
+		max-height 60px
 		.logo-frame
 			padding 0
 		.select
@@ -1054,6 +1098,8 @@ a, svg g, svg path
 		height 15px
 		color black
 		border-radius 0 !important
+		&:focus
+			outline 0
 		&[type=email]
 			width 95px
 			font-size 11px
@@ -1512,6 +1558,8 @@ a, svg g, svg path
 					float left
 					clear left
 					padding 2px 4px 0 10px
+					@media (max-width: 570px)
+						font-size 13px
 					 
 				svg
 					position absolute
