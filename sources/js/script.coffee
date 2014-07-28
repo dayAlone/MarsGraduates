@@ -190,6 +190,10 @@ $(document).ready ->
 			$('.select .city-list').velocity("transition.slideUpOut", { duration: 400, display: "none" })
 		e.preventDefault()
 
+	$('.select .city-list a').click (e)->
+		$('.select').removeClass 'open'
+		$('.select .city-list').velocity("transition.slideUpOut", { duration: 400, display: "none" })
+
 	$('#maillist form').submit (e)->
 		$.post '/include/mail.php',
 	        EMAIL: $(this).find('input[type=email]').val()

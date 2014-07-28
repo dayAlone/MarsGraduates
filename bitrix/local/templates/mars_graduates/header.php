@@ -71,8 +71,17 @@
 	        <div class="select">
 	        	<a href="#" class="trigger">Россия <?=svg('arrow-bottom')?></a>
 	        	<ul class="city-list">
-					<li><a href="http://www.mars-graduates.kz" target="_blank">Казахстан</a></li>
-					<li><a href="#" target="_blank">Украина</a></li>
+					<?php
+					    $APPLICATION->IncludeComponent("bitrix:menu", "countries", 
+					    array(
+					        "ALLOW_MULTI_SELECT" => "Y",
+					        "MENU_CACHE_TYPE"    => "A",
+					        "ROOT_MENU_TYPE"     => "countries",
+					        "MAX_LEVEL"          => "1",
+					        "USE_EXT"            => "Y",
+					        ),
+					    false);
+					?>
 				</ul>
 	        </div>
 	      </div>

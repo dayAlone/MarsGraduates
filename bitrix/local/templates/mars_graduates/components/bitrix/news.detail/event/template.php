@@ -1,19 +1,18 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Mars Graduates");
-$APPLICATION->SetPageProperty('body_class', "event");
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+$this->setFrameMode(true);
+$prop = &$arResult["PROPS"];
 ?>
 <div id="event" style="background-image: url(/layout/images/event.jpg)">
 
-  <img src="/layout/images/academy-4-big.png" alt="" class="image">
+  <img src="<?=$prop['DIRECTION']['IMAGE']?>" alt="" class="image">
   <div class="container">
     <div class="content">
-      <div class="section orange">Маркетинг и продажи</div>
-      <div class="type">Семинар</div>
-      <div class="name">«Жизненно важные навыки: обещание покупателям»</div>
+      <div class="section orange"><?=$prop['DIRECTION']['NAME']?></div>
+      <div class="type"><?=$prop['TYPE']?></div>
+      <div class="name">«<?=$arResult['NAME']?>»</div>
       <div class="description">
-        Время: 14:00<br>
-        Место: НГТУ (просп.Карла Маркса, 20, корп.1), ауд.402 / <strong>Новосибирск</strong>
+        Время: <?=date('H:m', strtotime($prop['DATE']))?><br>
+        Место: <?=$prop['ADDRESS']." / "?><strong><?=$prop['CITY']?></strong>
       </div>
       <div class="tools">
         <div class="row">
@@ -42,45 +41,35 @@ $APPLICATION->SetPageProperty('body_class', "event");
   <div class="container">
     <div class="content">
       <div class="description">
-        <p>На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.</p>
+        <p><?=$arResult['DETAIL_TEXT']?></p>
       </div>
+      <? if(count($prop["SPEAKERS"])>0):?>
       <h2>Спикеры</h2>
       <div class="speakers">
-        <div class="item">
-          <div style="background-image: url(/layout/images/speaker.jpg)" class="image"></div>
+      	<?foreach ($prop["SPEAKERS"] as $item):?>
+      	<div class="item">
+          <div style="background-image: url(<?=$item['IMAGE']?>)" class="image"></div>
           <div class="block">
-            <div class="name">Мария Гершман</div>
-            <div class="info">На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.</div>
+            <div class="name"><?=$item['NAME']?></div>
+            <div class="info"><?=$item['TEXT']?></div>
           </div>
         </div>
-        <div class="item">
-          <div style="background-image: url(/layout/images/speaker.jpg)" class="image"></div>
-          <div class="block">
-            <div class="name">Мария Гершман</div>
-            <div class="info">На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.</div>
-          </div>
-        </div>
-        <div class="item">
-          <div style="background-image: url(/layout/images/speaker.jpg)" class="image"></div>
-          <div class="block">
-            <div class="name">Мария Гершман</div>
-            <div class="info">На мастер-классе вы узнаете о том, что такое обещание покупателю (shopper promise), какова концепция позиционирования ритейла, о чем нам может рассказать бренд, а также много другое.</div>
-          </div>
-        </div>
+        <?endforeach;?>
       </div>
+      <?endif;?>
       <div class="row">
         <div class="col-md-6">
           <div class="row">
             <div class="col-xs-6 col-md-12">
+            <?if(count($prop["SHEDULE"])>0):?>
               <h2>Расписание</h2>
               <div class="schedule">
-                <div class="time">13:30</div>
-                <p>начало регистрации</p>
-                <div class="time">14:00</div>
-                <p>лекция</p>
-                <div class="time">16:00 - 16:30</div>
-                <p>сессия вопросов и ответов</p>
+              	<?foreach ($prop["SHEDULE"] as $item):?>
+              		<div class="time"><?=$item["time"]?></div>
+	                <p><?=$item["event"]?></p>
+                <?endforeach;?>
               </div>
+            <?endif;?>
             </div>
             <?/*
             <div class="col-xs-6 col-md-12">
@@ -195,6 +184,3 @@ $APPLICATION->SetPageProperty('body_class', "event");
     </div>
   </div>
 </div>
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
-?>

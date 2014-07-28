@@ -22432,6 +22432,13 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
       }
       return e.preventDefault();
     });
+    $('.select .city-list a').click(function(e) {
+      $('.select').removeClass('open');
+      return $('.select .city-list').velocity("transition.slideUpOut", {
+        duration: 400,
+        display: "none"
+      });
+    });
     $('#maillist form').submit(function(e) {
       $.post('/include/mail.php', {
         EMAIL: $(this).find('input[type=email]').val()
