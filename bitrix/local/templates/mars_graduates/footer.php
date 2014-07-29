@@ -27,6 +27,27 @@
 global $USER;
 if(!$USER->isAdmin())
 	$APPLICATION->ShowHead();
+if(isset($_REQUEST['ID']) && isset($_REQUEST['CONFIRM_CODE']))
+{
+  CModule::IncludeModule("subscribe");
+  $subscr = new CSubscription;
+  if(isset($_REQUEST["action"])){
+    if($_REQUEST["action"]=="unsubscribe")
+      $subscr->Update($ID, array("ACTIVE"=>"N"));
+  }
+  else
+  {
+      if($subscr->Update($ID, array("CONFIRM_CODE"=>$_REQUEST['CONFIRM_CODE']))):
+      ?>
+      <script type="text/javascript" charset="utf-8" async defer>
+        $(function(){
+          $("#subscribe-success").modal()
+        })
+      </script>
+      <?
+      endif;
+  }
+}
 $APPLICATION->SetAdditionalCSS("/layout/css/frontend.css", true);
 $APPLICATION->AddHeadScript('/layout/js/frontend.js');
 ?>
