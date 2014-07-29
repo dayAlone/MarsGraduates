@@ -33,6 +33,8 @@ module.exports = (grunt)->
 							'./bower_components/scroll/src/perfect-scrollbar.js'
 							'./bower_components/hoverIntent/jquery.hoverIntent.js'
 							'./bower_components/jquery.browser/dist/jquery.browser.js'
+							'./bower_components/parsleyjs/dist/parsley.js'
+							'./bower_components/jQuery-Mask-Plugin/jquery.mask.js'
 							'./bower_components/icheck/icheck.js'
 							'./bower_components/velocity/jquery.velocity.js'
 							'./bower_components/velocity/velocity.ui.js'

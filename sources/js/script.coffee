@@ -217,6 +217,13 @@ $(document).ready ->
 		$('html, body').animate({'scrollTop' : 0},300)
 		e.preventDefault()
 
+	$('#signup').submit (e)->
+		path = '/include/signup.php'
+		formData = $(this).serialize()
+		$.post path, data: formData, (data)->
+			console.log data
+		e.preventDefault()
+
 	$('#page .sections a, .parts a, .scrollspy a, a.reg').click (e)->
 		href = $(this).attr('href').split('#')[1]
 		offset = $("#page a[name='#{href}']").offset()
@@ -224,7 +231,7 @@ $(document).ready ->
 			
 		e.preventDefault()
 
-
+	$('input[name="PERSONAL_MOBILE"]').mask('+7 (000) 000 00 00');
 	
 	$('.brands .title').click (e)->
 		$(this).parent().toggleClass('open')

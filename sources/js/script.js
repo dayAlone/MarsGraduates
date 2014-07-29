@@ -276,6 +276,17 @@
       }, 300);
       return e.preventDefault();
     });
+    $('#signup').submit(function(e) {
+      var formData, path;
+      path = '/include/signup.php';
+      formData = $(this).serialize();
+      $.post(path, {
+        data: formData
+      }, function(data) {
+        return console.log(data);
+      });
+      return e.preventDefault();
+    });
     $('#page .sections a, .parts a, .scrollspy a, a.reg').click(function(e) {
       var href, offset;
       href = $(this).attr('href').split('#')[1];
@@ -285,6 +296,7 @@
       }, 300);
       return e.preventDefault();
     });
+    $('input[name="PERSONAL_MOBILE"]').mask('+7 (000) 000 00 00');
     $('.brands .title').click(function(e) {
       var x;
       $(this).parent().toggleClass('open');

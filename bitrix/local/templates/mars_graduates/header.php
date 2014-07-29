@@ -6,9 +6,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link href="/layout/css/frontend.css" rel="stylesheet">
   <title><?php $APPLICATION->ShowTitle();?></title>
-  <?php $APPLICATION->ShowHead();?>
+  <?
+  global $USER;
+  if($USER->isAdmin())
+	$APPLICATION->ShowHead();
+  ?>
 </head>
 <body class="<?=$APPLICATION->AddBufferContent("body_class");?>" data-offset="170" data-spy="scroll">
 	<div id="panel"><?$APPLICATION->ShowPanel();?></div>

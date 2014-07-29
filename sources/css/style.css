@@ -3088,6 +3088,10 @@ svg path:hover {
   -webkit-border-radius: 0;
   border-radius: 0;
 }
+#page.event form input.parsley-error,
+#page.event form select.parsley-error {
+  border: 1px solid #f00;
+}
 #page.event form input:focus,
 #page.event form select:focus {
   outline: 0;
@@ -4129,4 +4133,7 @@ svg path:hover {
 }
 #page.text .light > * {
   font-weight: normal !important;
+}
+.parsley-errors-list {
+  display: none;
 }
