@@ -13,7 +13,7 @@
 	$APPLICATION->ShowHead();
   ?>
 </head>
-<body class="<?=$APPLICATION->AddBufferContent("body_class");?>" data-offset="170" data-spy="scroll">
+<body class="<?=$APPLICATION->AddBufferContent("body_class");?>" data-offset="170" data-spy="scroll" style="display:none">
 	<div id="panel"><?$APPLICATION->ShowPanel();?></div>
 	<div id="question" href="#">
   		<div class="text">Задать<br>вопрос</div>

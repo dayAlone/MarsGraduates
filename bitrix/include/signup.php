@@ -13,8 +13,7 @@ if(count($data)==13)
 {
     $data["LOGIN"] = $data["EMAIL"];
     $data["PASSWORD"] = md5($data["EMAIL"]);
-    $data["GROUP_ID"] = array(0=>array("GROUP_ID"=>$data["GROUP_ID"], "DATE_ACTIVE_FROM"=>"", "DATE_ACTIVE_TO"=>""));
-    var_dump($data["GROUP_ID"]);
+    var_dump($data);
     $rsUser = CUser::GetByLogin($data["EMAIL"]);
     if($arUser = $rsUser->Fetch())
     {
