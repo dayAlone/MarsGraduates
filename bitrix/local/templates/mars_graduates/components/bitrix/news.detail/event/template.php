@@ -61,7 +61,8 @@ $prop = &$arResult["PROPS"];
         <div class="col-md-6">
           <div class="row">
             <div class="col-xs-6 col-md-12">
-            <?if(count($prop["SHEDULE"])>0):?>
+            <?
+            if(isset($prop["SHEDULE"][0]["time"])):?>
               <h2>Расписание</h2>
               <div class="schedule">
               	<?foreach ($prop["SHEDULE"] as $item):?>
