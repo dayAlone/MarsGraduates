@@ -199,7 +199,7 @@ $(document).ready ->
 	        EMAIL: $(this).find('input[type=email]').val()
 	        (data) -> 
 	        	if data == "true"
-	        		alert("Вы успешно подписались на рассылку, теперь необходимо подтвердить адрес эл. почты")
+	        		alert("На указанный адрес электронной почты будет отправлено сообщение для подтверждения регистрации.")
 	        	else
 	        		alert("Произошла ошибка: "+data)
 
@@ -222,6 +222,9 @@ $(document).ready ->
 		formData = $(this).serialize()
 		$.post path, data: formData, (data)->
 			console.log data
+			if data == "success"
+				$('#signup').hide()
+				$('#success').show()
 		e.preventDefault()
 
 	$('#page .sections a, .parts a, .scrollspy a, a.reg').click (e)->

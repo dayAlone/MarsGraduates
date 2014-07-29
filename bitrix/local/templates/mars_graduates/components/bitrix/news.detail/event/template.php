@@ -87,8 +87,14 @@ $prop = &$arResult["PROPS"];
         </div>
         <div class="col-md-6 registration"><a name="reg" class="anchor"></a>
           <h2>Регистрация</h2>
-          <p>Чтобы зарегистрироваться на это событие, заполните анкету. Информация о Вас будет доступна только организаторам этого события, и больше никому. <br> <span style="color: red">Все поля обязательны для заполнения. Регистрация бесплатна.</span></p>
+          <div id="success">
+          	Поздравляем, ваша регистрация успешно пройдена!
+          </div>
           <form id="signup" data-parsley-validate>
+          	<?
+          		$data = unserialize($_COOKIE["RegData"]);
+          	?>
+          	<p>Чтобы зарегистрироваться на это событие, заполните анкету. Информация о Вас будет доступна только организаторам этого события, и больше никому. <br> <span style="color: red">Все поля обязательны для заполнения. Регистрация бесплатна.</span></p>
           	<input type="hidden" name="GROUP_ID" value="<?=$prop["GROUP"]?>">
             <div class="row">
               <div class="col-md-12 col-xs-6">
@@ -97,7 +103,7 @@ $prop = &$arResult["PROPS"];
                     <label for="#email">E-mail</label>
                   </div>
                   <div class="col-md-9">
-                    <input type="email" id="email" name="EMAIL" required data-parsley-trigger="change">
+                    <input type="email" id="email" name="EMAIL" value="<?=$data["EMAIL"]?>" required data-parsley-trigger="change">
                   </div>
                 </div>
                 <div class="row">
@@ -105,7 +111,7 @@ $prop = &$arResult["PROPS"];
                     <label for="#last_name">Фамилия</label>
                   </div>
                   <div class="col-md-8">
-                    <input type="text" id="last_name" name="LAST_NAME" required>
+                    <input type="text" id="last_name" name="LAST_NAME" value="<?=$data["LAST_NAME"]?>" required>
                   </div>
                 </div>
                 <div class="row">
@@ -113,7 +119,7 @@ $prop = &$arResult["PROPS"];
                     <label for="#first_name">Имя</label>
                   </div>
                   <div class="col-md-10">
-                    <input type="text" id="first_name" name="NAME" required>
+                    <input type="text" id="first_name" name="NAME" value="<?=$data["NAME"]?>" required>
                   </div>
                 </div>
                 <div class="row">
@@ -121,13 +127,13 @@ $prop = &$arResult["PROPS"];
                     <label for="#second_name">Отчество</label>
                   </div>
                   <div class="col-md-8">
-                    <input type="text" id="second_name" name="SECOND_NAME" required>
+                    <input type="text" id="second_name" name="SECOND_NAME" value="<?=$data["SECOND_NAME"]?>" required>
                   </div>
                 </div>
                 <label for="#phone">Мобильный телефон</label>
-                <input type="text" data-parsley-pattern="/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}/" id="phone" name="PERSONAL_MOBILE" required data-parsley-trigger="change">
+                <input type="text" data-parsley-pattern="/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}/" id="phone" name="PERSONAL_MOBILE" value="<?=$data["PERSONAL_MOBILE"]?>" required data-parsley-trigger="change">
                 <label for="#work_place">Организация/вуз/место работы</label>
-                <input type="text" id="work_place" name="WORK_COMPANY" required>
+                <input type="text" id="work_place" name="WORK_COMPANY" value="<?=$data["WORK_COMPANY"]?>" required>
               </div>
               <div class="col-md-12 col-xs-6">
                 <div class="row">
@@ -135,7 +141,7 @@ $prop = &$arResult["PROPS"];
                     <label for="#teach">Образование</label>
                   </div>
                   <div class="col-md-6">
-                    <select type="text" id="teach" name="UF_EDUCATION" required>
+                    <select type="text" id="teach" name="UF_EDUCATION" value="<?=$data["UF_EDUCATION"]?>" required>
                       <option value="">Выбрать</option>
                       <option value="1">Значение</option>
                     </select><a class="trigger"></a>
@@ -146,7 +152,7 @@ $prop = &$arResult["PROPS"];
                     <label for="#facult">Факультет</label>
                   </div>
                   <div class="col-md-7">
-                    <input type="text" id="facult" name="UF_FACULTY" required>
+                    <input type="text" id="facult" name="UF_FACULTY" value="<?=$data["UF_FACULTY"]?>" required>
                   </div>
                 </div>
                 <div class="row">
@@ -165,11 +171,11 @@ $prop = &$arResult["PROPS"];
                     <label for="#year">Год окончания вуза</label>
                   </div>
                   <div class="col-md-4">
-                    <input type="text" id="year" name="UF_YEAR" required>
+                    <input type="text" id="year" name="UF_YEAR" value="<?=$data["UF_YEAR"]?>" required>
                   </div>
                 </div>
                 <label for="#info">Откуда вы узнали <br>про мероприятие?</label>
-                <input type="text" id="info" name="UF_INFO" required>
+                <input type="text" id="info" name="UF_INFO" value="<?=$data["UF_INFO"]?>" required>
               </div>
             </div>
             <div class="row">

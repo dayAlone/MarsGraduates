@@ -254,7 +254,7 @@
         EMAIL: $(this).find('input[type=email]').val()
       }, function(data) {
         if (data === "true") {
-          return alert("Вы успешно подписались на рассылку, теперь необходимо подтвердить адрес эл. почты");
+          return alert("На указанный адрес электронной почты будет отправлено сообщение для подтверждения регистрации.");
         } else {
           return alert("Произошла ошибка: " + data);
         }
@@ -283,7 +283,11 @@
       $.post(path, {
         data: formData
       }, function(data) {
-        return console.log(data);
+        console.log(data);
+        if (data === "success") {
+          $('#signup').hide();
+          return $('#success').show();
+        }
       });
       return e.preventDefault();
     });

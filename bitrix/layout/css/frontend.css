@@ -13852,6 +13852,11 @@ svg path:hover {
 #page.text .light > * {
   font-weight: normal !important;
 }
+#success {
+  display: none;
+  font-size: 18px;
+  color: #008000;
+}
 .parsley-errors-list {
   display: none;
 }
