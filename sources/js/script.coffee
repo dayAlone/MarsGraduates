@@ -199,7 +199,7 @@ $(document).ready ->
 	        EMAIL: $(this).find('input[type=email]').val()
 	        (data) -> 
 	        	if data == "true"
-	        		alert("На указанный адрес электронной почты будет отправлено сообщение для подтверждения регистрации.")
+	        		$("#subscribe-check").modal()
 	        	else
 	        		alert("Произошла ошибка: "+data)
 

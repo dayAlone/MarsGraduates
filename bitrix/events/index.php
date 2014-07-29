@@ -16,7 +16,7 @@ global $events_filter, $current_date;
     <div class="modal-content">
     	<div id="day">
 	      
-		</div>
+		  </div>
     </div>
   </div>
 </div>

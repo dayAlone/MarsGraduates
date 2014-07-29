@@ -66,4 +66,24 @@ $APPLICATION->SetPageProperty('body_class', "index");
 </div>
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");
+if(isset($_REQUEST['ID']) && isset($_REQUEST['CONFIRM_CODE']))
+{
+  CModule::IncludeModule("subscribe");
+  $subscr = new CSubscription;
+  if(isset($_REQUEST["action"]))
+    if($_REQUEST["action"]=="unsubscribe")
+      $subscr->Update($ID, array("ACTIVE"=>"N"));
+  else
+  {
+      if($subscr->Update($ID, array("CONFIRM_CODE"=>$_REQUEST['CONFIRM_CODE']))):
+      ?>
+      <scripttype="text/javascript" charset="utf-8" async defer>
+        $(function(){
+          $("#subscribe-success").modal()
+        })
+      </script>
+      <?
+      endif;
+  }
+}
 ?>

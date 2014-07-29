@@ -2760,9 +2760,38 @@ a, svg g, svg path
 			height 30px
 			path
 				fill #993b8b
+				.message &
+					fill #339bc2
 				#modalDevelop &
 					fill #2b9ac4
+	.message.check &
+		h1
+			svg
+				top -12px
+				margin-right -21px
+	.message &
+		full-width()
+		h1
+			font-size 45px
+			line-height 50px
+			margin-bottom 25px
+			span
+				position relative
+				z-index 2
+			svg
+				display inline-block
+				vertical-align middle
+				margin-right -23px
+				width 56px
 
+				position relative
+				top -5px
+				height 54px
+		p
+			font-size 27px
+			line-height 30px
+			margin-bottom 20px
+			text-align center
 .ps-scrollbar-y-rail
 	right 10px !important
 	display block !important

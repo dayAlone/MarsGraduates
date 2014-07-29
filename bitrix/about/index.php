@@ -212,9 +212,9 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         <h2 class="count">Подразделения<span class="num">5</span></h2>
         <div class="scheme-description">
           <span data-id="scheme-1">Маркетинг<br>(Marketing) </span>
-          <span data-id="scheme-2">Научно-исследовательская<br> работа (Research and<br> Development)      </span>
-          <span data-id="scheme-3">Финансы <br>(Service&Finance )</span>
-          <span data-id="scheme-4">Управление персоналом <br>(People & Organization)</span>
+          <span data-id="scheme-2">Научно-исследовательская<br> работа (R&D)      </span>
+          <span data-id="scheme-3">Финансы <br>(S&F)</span>
+          <span data-id="scheme-4">Управление персоналом <br>(P&O)</span>
           <span data-id="scheme-5">Отдел поставок <br>(Supply)</span></div>
         <p class="center scheme">
           <?=svg('scheme')?>
@@ -304,7 +304,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         </p>
         <div class="scheme-description">
         <span data-id="scheme-6">Продажи <br>(Sales)</span>
-        <span data-id="scheme-7">Информационные технологии (Mars Information Service)</span>
+        <span data-id="scheme-7">Информационные технологии (IS)</span>
         <span data-id="scheme-8">Закупки <br>(Commercial)</span>
         <span data-id="scheme-9">Корпоративные отношения (Corporate Affairs)</span>
         <span data-id="scheme-10">Логистика <br>(Logistics)</span></div>

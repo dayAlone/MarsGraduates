@@ -3789,8 +3789,43 @@ svg path:hover {
 .modal-content .close svg path {
   fill: #993b8b;
 }
+.message .modal-content .close svg path {
+  fill: #339bc2;
+}
 #modalDevelop .modal-content .close svg path {
   fill: #2b9ac4;
+}
+.message.check .modal-content h1 svg {
+  top: -12px;
+  margin-right: -21px;
+}
+.message .modal-content {
+  float: left;
+  width: 100%;
+}
+.message .modal-content h1 {
+  font-size: 45px;
+  line-height: 50px;
+  margin-bottom: 25px;
+}
+.message .modal-content h1 span {
+  position: relative;
+  z-index: 2;
+}
+.message .modal-content h1 svg {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -23px;
+  width: 56px;
+  position: relative;
+  top: -5px;
+  height: 54px;
+}
+.message .modal-content p {
+  font-size: 27px;
+  line-height: 30px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 .ps-scrollbar-y-rail {
   right: 10px !important;

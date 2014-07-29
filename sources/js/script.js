@@ -254,7 +254,7 @@
         EMAIL: $(this).find('input[type=email]').val()
       }, function(data) {
         if (data === "true") {
-          return alert("На указанный адрес электронной почты будет отправлено сообщение для подтверждения регистрации.");
+          return $("#subscribe-check").modal();
         } else {
           return alert("Произошла ошибка: " + data);
         }
