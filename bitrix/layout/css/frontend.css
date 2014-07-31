@@ -11516,6 +11516,9 @@ svg path:hover {
   top: -38px;
   left: -200px;
 }
+#page.academy .description {
+  font-size: 15px;
+}
 #page.academy .scrollspy ul li:last-of-type a {
   margin-top: 4px;
 }
@@ -11534,7 +11537,7 @@ svg path:hover {
   font-weight: 500;
   color: #fff;
   margin: 0 20px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 18px;
 }
 #page.academy .sections a:first-of-type span.num {
@@ -11980,7 +11983,7 @@ svg path:hover {
   display: inline-block;
   vertical-align: top;
   margin: 0 10px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: #000;
   line-height: 16px;

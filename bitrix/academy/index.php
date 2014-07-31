@@ -40,7 +40,7 @@ $APPLICATION->SetPageProperty('body_class', "color academy");
       	MARS ACADEMY
 		<?=svg("shield")?>
       </h1>
-      <p class="center">Mars Academy создана с целью передачи студентам практических знаний и навыков работы в сфере FMCG (Fast Moving Consumer Goods, или отрасль потребительских товаров). Образовательные мероприятия проходят во многих городах России как в формате крупных конференций, так и в формате отдельных мастер-классов. </p>
+      <p class="center description">Mars Academy создана с целью передачи студентам практических знаний и навыков работы в сфере FMCG (Fast Moving Consumer Goods, или отрасль потребительских товаров). Образовательные мероприятия проходят во многих городах России как в формате крупных конференций, так и в формате отдельных мастер-классов. </p>
       <div class="sections">
       <a href="#conference"><?/*<span class="num">1</span><br>*/?><span class="text">Конференции</span></a>
       <a href="#lectures"><?/*<span class="num">2</span><br>*/?><span class="text">Лекции<br>и мастер-классы</span></a>
