@@ -80,6 +80,10 @@ size = ()->
 				$('.history .slick-track').height($('.history .slick-active .row').height())
 			$(".history-page a[data-id='#{e.currentSlide}']").addClass('active')
 
+	$('.history-page a').click (e)->
+		history.slickGoTo($(this).data('id'))
+		e.preventDefault()
+
 	$('body').addClass 'loaded'
 
 ###
@@ -229,10 +233,20 @@ $(document).ready ->
 
 	$('#page .sections a, .parts a, .scrollspy a, a.reg').click (e)->
 		href = $(this).attr('href').split('#')[1]
-		offset = $("#page a[name='#{href}']").offset()
-		$('html, body').animate({'scrollTop' : offset.top-140},300)
-			
+		if $(this).parents('.parts').length > 0
+			$(this).parents('.parts').find('a').removeClass 'active'
+			$(this).addClass 'active'
+			$(this).parents('.parts').addClass 'open'
+
+			$('#page .item').hide()
+			$("#page a[name='#{href}']").parents('.item').show();
+		else
+			offset = $("#page a[name='#{href}']").offset()
+			$('html, body').animate({'scrollTop' : offset.top-140},300)
+
 		e.preventDefault()
+
+
 
 	$('input[name="PERSONAL_MOBILE"]').mask('+7 (000) 000 00 00');
 	
@@ -244,10 +258,6 @@ $(document).ready ->
 			x.velocity("transition.slideDownIn", { duration: 400, display: "block" })
 		else
 			x.velocity("transition.slideUpOut", { duration: 400, display: "none" })
-		e.preventDefault()
-
-	$('.history-page a').click (e)->
-		history.slickGoTo($(this).data('id'))
 		e.preventDefault()
 
 	

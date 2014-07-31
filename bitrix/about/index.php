@@ -20,10 +20,16 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
       <div class="elm"><a name="top" id="top" class="anchor"></a>
         <h1>О нас</h1>
         <p class="center"><a href="#" class="video"><img src="/layout/images/video.jpg" width="560"></a></p>
-        <div class="sections"><a href="#inside"><span>1</span><br>Mars Inside</a><a href="#pr"><span>2</span><br>Наши 5 Принципов</a><a href="#history"><span>3</span><br>История Mars</a><a href="#brands"><span>4</span><br>Бренды и сегменты <br>Mars</a><a href="#scheme"><span>5</span><br>Подразделения  </a></div><a name="inside" id="inside" class="anchor"></a>
+        <div class="sections">
+          <a href="#inside"><?/*<span>1</span><br>*/?>Mars Inside</a>
+          <a href="#pr"><?/*<span>2</span><br>*/?>Наши 5 Принципов</a>
+          <a href="#history"><?/*<span>3</span><br>*/?>История Mars</a>
+          <a href="#brands"><?/*<span>4</span><br>*/?>Бренды и сегменты <br>Mars</a>
+          <a href="#scheme"><?/*<span>5</span><br>*/?>Подразделения  </a></div>
+          <a name="inside" id="inside" class="anchor"></a>
       </div>
       <div class="elm">
-        <h2 class="count">Mars Inside<span class="num">1</span>
+        <h2 class="count">Mars Inside<?/*<span class="num">1</span>*/?>
           <div class="social">
             <div class="title">Больше фотографий <br>о нашей жизни:</div>
             <a target="_blank" href="http://instagram.com/mars_russia"><?=svg('insta')?></a>
@@ -41,7 +47,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
       </div>
       <div class="elm">
         <a name="pr" id="pr" class="anchor"></a>
-        <h2 class="count">Наши 5 принципов<span class="num">2</span></h2>
+        <h2 class="count">Наши 5 принципов<?/*<span class="num">2</span>*/?></h2>
         <div class="principles">
           <div class="item">
             <?=svg('best')?>
@@ -71,7 +77,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         </div><a name="history" id="history" class="anchor"></a>
       </div>
       <div class="elm">
-        <h2 class="count">История mars<span class="num">3</span></h2>
+        <h2 class="count">История mars<?/*<span class="num">3</span>*/?></h2>
         <div class="history">
           <div class="item">
             <div class="row">
@@ -168,7 +174,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         </div>
       </div>
       <div class="elm"><a name="brands" id="brands" class="anchor"></a>
-        <h2 class="count">Бренды и сегменты mars<span class="num">4</span></h2>
+        <h2 class="count">Бренды и сегменты mars<?/*<span class="num">4</span>*/?></h2>
         <div class="brands">
           <div class="item">
             <div class="title brown">Шоколад (Chocolate)
@@ -197,7 +203,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
             <p>Wrigley со штаб-квартирой в Чикаго (штат Иллинойс, США) является одним из крупнейших в мире производителей жевательной резинки и сладостей, доставляя потребителям простые удовольствия. <br>В Wrigley работает более 17 000 сотрудников в 48 странах. </p>
             <p class="slide"><img src="/layout/images/brands-gym.jpg"></p>
           </div>
-          <div class="item">#972f84
+          <div class="item">
             <div class="title orange">Продукты питания (Food)
               <div class="icon">
                 <?=svg('arrow-right2')?>
@@ -209,7 +215,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         </div>
       </div>
       <div class="elm"><a name="scheme" id="scheme" class="anchor"></a>
-        <h2 class="count">Подразделения<span class="num">5</span></h2>
+        <h2 class="count">Подразделения<?/*<span class="num">5</span>*/?></h2>
         <div class="scheme-description">
           <span data-id="scheme-1">Маркетинг<br>(Marketing) </span>
           <span data-id="scheme-2">Научно-исследовательская<br> работа (R&D)      </span>

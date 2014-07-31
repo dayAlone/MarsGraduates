@@ -96,6 +96,10 @@
         return $(".history-page a[data-id='" + e.currentSlide + "']").addClass('active');
       }
     });
+    $('.history-page a').click(function(e) {
+      history.slickGoTo($(this).data('id'));
+      return e.preventDefault();
+    });
     return $('body').addClass('loaded');
   };
 
@@ -294,10 +298,18 @@
     $('#page .sections a, .parts a, .scrollspy a, a.reg').click(function(e) {
       var href, offset;
       href = $(this).attr('href').split('#')[1];
-      offset = $("#page a[name='" + href + "']").offset();
-      $('html, body').animate({
-        'scrollTop': offset.top - 140
-      }, 300);
+      if ($(this).parents('.parts').length > 0) {
+        $(this).parents('.parts').find('a').removeClass('active');
+        $(this).addClass('active');
+        $(this).parents('.parts').addClass('open');
+        $('#page .item').hide();
+        $("#page a[name='" + href + "']").parents('.item').show();
+      } else {
+        offset = $("#page a[name='" + href + "']").offset();
+        $('html, body').animate({
+          'scrollTop': offset.top - 140
+        }, 300);
+      }
       return e.preventDefault();
     });
     $('input[name="PERSONAL_MOBILE"]').mask('+7 (000) 000 00 00');
@@ -316,10 +328,6 @@
           display: "none"
         });
       }
-      return e.preventDefault();
-    });
-    $('.history-page a').click(function(e) {
-      history.slickGoTo($(this).data('id'));
       return e.preventDefault();
     });
     $('.reasons').owlCarousel({

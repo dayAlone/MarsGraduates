@@ -1739,7 +1739,7 @@ svg path:hover {
   font-size: 48px;
   text-transform: uppercase;
   margin-left: 65px;
-  margin-top: 95px;
+  margin-top: 65px;
   position: relative;
 }
 #page .content h2.count .social {
@@ -1810,11 +1810,12 @@ svg path:hover {
 }
 #page.academy .sections a {
   display: inline-block;
+  text-transform: uppercase;
   vertical-align: top;
-  font-weight: 500;
+  font-weight: bold;
   color: #fff;
   margin: 0 20px;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 18px;
 }
 #page.academy .sections a:first-of-type span.num {
@@ -1867,6 +1868,16 @@ svg path:hover {
   padding-bottom: 30px;
   text-align: center;
 }
+#page.academy .parts.open a {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+}
+#page.academy .parts.open a.active {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
 #page.academy .parts a {
   margin: 0 30px;
   display: inline-block;
@@ -1905,6 +1916,7 @@ svg path:hover {
 }
 #page.academy .item {
   margin-bottom: 30px;
+  display: none;
   float: left;
   width: 100%;
 }
@@ -2243,6 +2255,7 @@ svg path:hover {
   float: left;
   width: 100%;
   text-align: center;
+  margin-top: 20px;
 }
 #page.about .sections a {
   display: inline-block;
@@ -2281,6 +2294,8 @@ svg path:hover {
 #page.about .principles {
   float: left;
   width: 100%;
+  max-width: 80%;
+  margin-left: 10%;
 }
 #page.about .principles svg {
   height: 60px;
@@ -2320,14 +2335,14 @@ svg path:hover {
   display: none;
 }
 #page.about .slick-next {
-  right: 25px;
+  right: -15px;
   background: #f0c445 url("/layout/images/svg/arrow-right.svg") center center no-repeat;
   -webkit-background-size: auto 90%;
   -moz-background-size: auto 90%;
   background-size: auto 90%;
 }
 #page.about .slick-prev {
-  left: -50px;
+  left: -65px;
   background: #f0c445 url("/layout/images/svg/arrow-left.svg") center center no-repeat;
   -webkit-background-size: auto 90%;
   -moz-background-size: auto 90%;
@@ -2349,6 +2364,8 @@ svg path:hover {
   margin-top: 10px;
   float: left;
   width: 100%;
+  max-width: 80%;
+  margin-left: 10%;
 }
 #page.about .history img {
   max-width: 100%;
@@ -2359,6 +2376,7 @@ svg path:hover {
 }
 #page.about .history .item h3 {
   font-weight: bold;
+  margin-top: 0;
   text-transform: uppercase;
 }
 #page.about .history .item h3 span {

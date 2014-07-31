@@ -1231,7 +1231,7 @@ a, svg g, svg path
 			font-size 48px
 			text-transform uppercase
 			margin-left 65px
-			margin-top 95px
+			margin-top 65px
 			position relative
 			.social
 				font-size 15px
@@ -1291,11 +1291,12 @@ a, svg g, svg path
 			text-align center
 			a
 				display inline-block
+				text-transform uppercase
 				vertical-align top
-				font-weight 500
+				font-weight bold
 				color white
 				margin 0 20px
-				font-size 14px
+				font-size 15px
 				line-height 18px
 				&:first-of-type
 					span.num
@@ -1339,6 +1340,11 @@ a, svg g, svg path
 			padding-top 30px
 			padding-bottom 30px
 			text-align center
+			&.open
+				a
+					opacity .5
+					&.active
+						opacity 1
 			a
 				margin 0 30px
 				display inline-block
@@ -1371,6 +1377,7 @@ a, svg g, svg path
 					position absolute
 		.item
 			margin-bottom 30px
+			display none
 			full-width()
 			img
 				max-width 100%
@@ -1626,6 +1633,7 @@ a, svg g, svg path
 		.sections
 			full-width()
 			text-align center
+			margin-top 20px
 			a
 				display inline-block
 				vertical-align top
@@ -1658,6 +1666,8 @@ a, svg g, svg path
 						line-height 36px
 		.principles
 			full-width()
+			max-width 80%
+			margin-left 10%
 			svg
 				height 60px
 				width 60px
@@ -1685,11 +1695,11 @@ a, svg g, svg path
 			&:before
 				display none
 		.slick-next
-			right 25px
+			right -15px
 			background #f0c445 url(/layout/images/svg/arrow-right.svg) center center no-repeat
 			background-size auto 90%
 		.slick-prev
-			left -50px
+			left -65px
 			background #f0c445 url(/layout/images/svg/arrow-left.svg) center center no-repeat
 			background-size auto 90%
 		.slick-track
@@ -1698,6 +1708,8 @@ a, svg g, svg path
 		.history
 			margin-top 10px
 			full-width()
+			max-width 80%
+			margin-left 10%
 			img
 				max-width 100%
 			.item
@@ -1706,6 +1718,7 @@ a, svg g, svg path
 					font-weight 500
 				h3
 					font-weight bold
+					margin-top 0
 					text-transform uppercase
 					span
 						color #f2c749

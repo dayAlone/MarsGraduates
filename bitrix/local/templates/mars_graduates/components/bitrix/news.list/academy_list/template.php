@@ -13,8 +13,8 @@ $this->setFrameMode(true);
 <?endforeach;?>
 </div>
 <?foreach ($arResult['ITEMS'] as $key => &$item):?>
-	<a name="<?=$item['CODE']?>" id="<?=$item['CODE']?>" class="anchor"></a>
-        <div class="item <?=$item['COLOR']?>">
+	      <div class="item <?=$item['COLOR']?>">
+          <a name="<?=$item['CODE']?>" id="<?=$item['CODE']?>" class="anchor"></a>
           <div class="row">
             <div class="col-md-5 col-xs-5"><img src="<?=$item['PREVIEW_PICTURE']['SRC']?>"></div>
             <div class="col-md-7 col-xs-7">
