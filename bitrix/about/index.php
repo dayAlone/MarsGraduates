@@ -147,7 +147,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
               <div class="col-md-4 col-xs-4"><img src="/layout/images/mars_timeline_2008.jpg"></div>
               <div class="col-md-8 col-xs-8">
                 <h3>Декабрь <span>2008</span></h3>
-                <p>В состав компании Mars, Incorporated в качестве бизнес сегмента, производящего жевательную резинку и кондитерские изделия, входит компания Wrigley. Приобретенная Wrigley в 2007 году российская шоколадная компания "Одинцовская кондитерская фабрика", которой принадлежит шоколадный бренд A.Korkunov®, вливается в сегмент Mars Chocolate</p>
+                <p>В состав Mars, Incorporated входит компания Wrigley. Приобретенная Wrigley в 2007 году российская шоколадная компания "Одинцовская кондитерская фабрика" (бренд A.Korkunov®) вливается в сегмент Mars Chocolate.</p>
               </div>
             </div>
           </div>
