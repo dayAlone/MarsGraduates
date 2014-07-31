@@ -2123,6 +2123,8 @@ svg path:hover {
 }
 #page.career .sections a {
   display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
   position: relative;
   line-height: 18px;
   margin: 20px 20px;
