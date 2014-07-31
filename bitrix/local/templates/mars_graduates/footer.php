@@ -10,6 +10,19 @@
     </div>
   </div>
 </div>
+<div class="modal fade message done" tabindex="-1" role="dialog" aria-labelledby="event-success" id="event-success" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><?=svg('close')?></button>
+      <h1 class="center">
+        <?=svg("done")?>
+        <span>Поздравляем!</span>
+      </h1>
+      <p>Вы успешно зарегистрировались<br>на мероприятие/p>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade message check" tabindex="-1" role="dialog" aria-labelledby="subscribe-check" id="subscribe-check" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

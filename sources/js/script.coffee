@@ -227,8 +227,7 @@ $(document).ready ->
 		$.post path, data: formData, (data)->
 			console.log data
 			if data == "success"
-				$('#signup').hide()
-				$('#success').show()
+				$('#event-success').modal()
 		e.preventDefault()
 
 	$('#page .sections a, .parts a, .scrollspy a, a.reg').click (e)->
