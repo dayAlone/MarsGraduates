@@ -12109,6 +12109,7 @@ svg path:hover {
   min-height: 30px;
   line-height: 30px;
   margin-bottom: 30px;
+  text-align: center;
 }
 #page.about .history-page a {
   font-size: 14px;
