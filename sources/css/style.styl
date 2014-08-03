@@ -1301,6 +1301,8 @@ a, svg g, svg path
 				margin 0 20px
 				font-size 15px
 				line-height 18px
+				&:hover
+					color #20bcfc
 				&:first-of-type
 					span.num
 						text-indent -3px
@@ -1642,7 +1644,8 @@ a, svg g, svg path
 				vertical-align top
 				margin 0 10px
 				font-size 15px
-				
+				&:hover
+					color #20bcfc
 				font-weight 500
 				color black
 				line-height 16px
@@ -1752,6 +1755,11 @@ a, svg g, svg path
 				height: 371px
 				g[id^='scheme-']
 					cursor pointer
+					position relative
+					z-index 3
+					transform-origin center center
+					&:hover
+						transform scale(1.05)
 			&.open
 				opacity 1
 				.frame
@@ -1825,7 +1833,11 @@ a, svg g, svg path
 			.item
 				full-width()
 				margin-bottom 10px
+				padding-bottom 0
+				transition-property(height, padding)
+				transition-duration(.3s)
 				&.open
+					padding-bottom 60px
 					.icon
 						transform rotate(90deg)
 					
@@ -1838,6 +1850,7 @@ a, svg g, svg path
 					text-align left
 					margin-bottom 20px
 					display none
+					position absolute
 					animation-duration .5s
 					img
 						max-width 100%
@@ -1848,6 +1861,9 @@ a, svg g, svg path
 					font-weight bold
 					cursor pointer
 					position relative
+					&:hover
+						.icon
+							transform scale(1.1)
 					&.brown
 						color #4a2f05
 					&.green
@@ -1865,7 +1881,7 @@ a, svg g, svg path
 						height 30px
 						left -38px
 						top -4px
-						line-height 32px
+						line-height 33px
 						text-align center
 						border-radius 20px
 						svg
@@ -2354,6 +2370,8 @@ a, svg g, svg path
 						font-size 12px
 						margin-bottom 10px
 						line-height 13px
+						&:hover
+							color #20bcfc
 				h2
 					font-size 40px
 					margin-top 40px
@@ -2617,6 +2635,8 @@ a, svg g, svg path
 					font-size 12px
 					line-height 12px
 					margin 0 5px
+					&:hover
+						color #20bcfc
 					&:first-of-type
 						margin-left 0
 					&:last-of-type

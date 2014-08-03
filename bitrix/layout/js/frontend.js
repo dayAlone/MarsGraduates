@@ -24795,6 +24795,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     });
     history = $('.history').slick({
       infinite: false,
+      speed: 1000,
       onInit: function() {
         scrollHeight();
         if ($(window).width() <= 570) {
@@ -25002,8 +25003,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
       }, function(data) {
         console.log(data);
         if (data === "success") {
-          $('#signup').hide();
-          return $('#success').show();
+          return $('#event-success').modal();
         }
       });
       return e.preventDefault();
@@ -25032,12 +25032,12 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
       x = $(this).parent().find('.slide');
       if ($(this).parent().hasClass('open')) {
         x.velocity("transition.slideDownIn", {
-          duration: 400,
+          duration: 300,
           display: "block"
         });
       } else {
         x.velocity("transition.slideUpOut", {
-          duration: 400,
+          duration: 300,
           display: "none"
         });
       }

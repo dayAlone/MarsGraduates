@@ -11540,6 +11540,9 @@ svg path:hover {
   font-size: 15px;
   line-height: 18px;
 }
+#page.academy .sections a:hover {
+  color: #20bcfc;
+}
 #page.academy .sections a:first-of-type span.num {
   text-indent: -3px;
 }
@@ -11988,6 +11991,9 @@ svg path:hover {
   color: #000;
   line-height: 16px;
 }
+#page.about .sections a:hover {
+  color: #20bcfc;
+}
 #page.about .sections a:first-of-type span {
   text-indent: -3px;
 }
@@ -12137,6 +12143,20 @@ svg path:hover {
 }
 #page.about .scheme svg g[id^='scheme-'] {
   cursor: pointer;
+  position: relative;
+  z-index: 3;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+}
+#page.about .scheme svg g[id^='scheme-']:hover {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
 }
 #page.about .scheme.open {
   opacity: 1;
@@ -12252,6 +12272,20 @@ svg path:hover {
   float: left;
   width: 100%;
   margin-bottom: 10px;
+  padding-bottom: 0;
+  -webkit-transition-property: height padding;
+  -moz-transition-property: height padding;
+  -o-transition-property: height padding;
+  -ms-transition-property: height padding;
+  transition-property: height padding;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+#page.about .brands .item.open {
+  padding-bottom: 60px;
 }
 #page.about .brands .item.open .icon {
   -webkit-transform: rotate(90deg);
@@ -12271,6 +12305,7 @@ svg path:hover {
   text-align: left;
   margin-bottom: 20px;
   display: none;
+  position: absolute;
   -webkit-animation-duration: 0.5s;
   -moz-animation-duration: 0.5s;
   -o-animation-duration: 0.5s;
@@ -12287,6 +12322,13 @@ svg path:hover {
   font-weight: bold;
   cursor: pointer;
   position: relative;
+}
+#page.about .brands .item .title:hover .icon {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 #page.about .brands .item .title.brown {
   color: #4a2f05;
@@ -12317,7 +12359,7 @@ svg path:hover {
   height: 30px;
   left: -38px;
   top: -4px;
-  line-height: 32px;
+  line-height: 33px;
   text-align: center;
   -webkit-border-radius: 20px;
   border-radius: 20px;
@@ -13007,6 +13049,9 @@ svg path:hover {
     margin-bottom: 10px;
     line-height: 13px;
   }
+  #page.about .content .sections a:hover {
+    color: #20bcfc;
+  }
   #page.about .content h2 {
     font-size: 40px;
     margin-top: 40px;
@@ -13325,6 +13370,9 @@ svg path:hover {
     font-size: 12px;
     line-height: 12px;
     margin: 0 5px;
+  }
+  #page.academy .sections a:hover {
+    color: #20bcfc;
   }
   #page.academy .sections a:first-of-type {
     margin-left: 0;

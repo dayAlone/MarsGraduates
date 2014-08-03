@@ -70,6 +70,7 @@ size = ()->
 
 	history = $('.history').slick
 		infinite: false
+		speed: 1000
 		onInit: ()->
 			scrollHeight()
 			if($(window).width()<=570)
@@ -254,9 +255,9 @@ $(document).ready ->
 		x = $(this).parent().find('.slide')
 		
 		if $(this).parent().hasClass('open')
-			x.velocity("transition.slideDownIn", { duration: 400, display: "block" })
+			x.velocity("transition.slideDownIn", { duration: 300, display: "block" })
 		else
-			x.velocity("transition.slideUpOut", { duration: 400, display: "none" })
+			x.velocity("transition.slideUpOut", { duration: 300, display: "none" })
 		e.preventDefault()
 
 	

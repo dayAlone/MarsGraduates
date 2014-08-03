@@ -82,6 +82,7 @@
     });
     history = $('.history').slick({
       infinite: false,
+      speed: 1000,
       onInit: function() {
         scrollHeight();
         if ($(window).width() <= 570) {
@@ -289,8 +290,7 @@
       }, function(data) {
         console.log(data);
         if (data === "success") {
-          $('#signup').hide();
-          return $('#success').show();
+          return $('#event-success').modal();
         }
       });
       return e.preventDefault();
@@ -319,12 +319,12 @@
       x = $(this).parent().find('.slide');
       if ($(this).parent().hasClass('open')) {
         x.velocity("transition.slideDownIn", {
-          duration: 400,
+          duration: 300,
           display: "block"
         });
       } else {
         x.velocity("transition.slideUpOut", {
-          duration: 400,
+          duration: 300,
           display: "none"
         });
       }
