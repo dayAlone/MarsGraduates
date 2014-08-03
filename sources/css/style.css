@@ -2550,7 +2550,7 @@ svg path:hover {
   font-weight: 500;
 }
 #page.about .brands .item .slide {
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
   display: none;
   -webkit-animation-duration: 0.5s;
@@ -2562,7 +2562,7 @@ svg path:hover {
 #page.about .brands .item .slide img {
   max-width: 100%;
   margin-left: 0px;
-  max-height: 56px;
+  max-height: 47px;
 }
 #page.about .brands .item .title {
   font-size: 18px;
@@ -2729,6 +2729,7 @@ svg path:hover {
   top: 2px;
   font-size: 25px;
   font-weight: 500;
+  min-width: 164px;
 }
 .win #page.month .title .month {
   top: 0px;
@@ -2903,7 +2904,7 @@ svg path:hover {
 }
 #page.month .table .cell .event .name {
   font-size: 12px;
-  color: #a9bcc2;
+  color: #000;
   line-height: 11px;
   float: left;
   font-weight: 500;
@@ -3413,6 +3414,8 @@ svg path:hover {
   }
   #page.month .content .title .col-md-6 .month {
     font-size: 15px;
+    min-width: 100px;
+    text-align: center;
   }
   #page.month .content .title a.select {
     font-size: 10px;
