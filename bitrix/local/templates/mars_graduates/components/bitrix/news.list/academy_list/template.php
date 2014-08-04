@@ -12,6 +12,7 @@ $this->setFrameMode(true);
         </a>
 <?endforeach;?>
 </div>
+<div class="items">
 <?foreach ($arResult['ITEMS'] as $key => &$item):?>
 	      <div class="item <?=$item['COLOR']?>">
           <a name="<?=$item['CODE']?>" id="<?=$item['CODE']?>" class="anchor"></a>
@@ -51,3 +52,4 @@ $this->setFrameMode(true);
           </div>
         </div>
 <?endforeach;?>
+</div>

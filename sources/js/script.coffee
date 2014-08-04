@@ -233,13 +233,32 @@ $(document).ready ->
 
 	$('#page .sections a, .parts a, .scrollspy a, a.reg').click (e)->
 		href = $(this).attr('href').split('#')[1]
+		x = $(this)
 		if $(this).parents('.parts').length > 0
 			$(this).parents('.parts').find('a').removeClass 'active'
 			$(this).addClass 'active'
+			
 			$(this).parents('.parts').addClass 'open'
-
-			$('#page .item').hide()
-			$("#page a[name='#{href}']").parents('.item').show();
+			if !$('#page .items').hasClass 'open'
+				$('#page .items')
+					.addClass 'open'
+					.css 'min-height', $("#page a[name='#{href}']").parents('.item').height() - 40
+			
+			$('#page .item')
+				.velocity
+					properties: "transition.slideUpOut"
+					options:
+						duration: 400, 
+						display: "none", 
+						complete: ()-> 
+							$("#page a[name='#{href}']").parents('.item')
+								.velocity
+									properties: "transition.slideDownIn"
+									options:
+										duration: 400, 
+										display: "block"
+			
+			
 		else
 			offset = $("#page a[name='#{href}']").offset()
 			$('html, body').animate({'scrollTop' : offset.top-140},300)

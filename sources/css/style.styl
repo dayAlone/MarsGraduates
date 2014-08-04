@@ -461,6 +461,7 @@ a, svg g, svg path
 						width 16px
 					&:hover
 						background #ffc300
+						transform scale(1.05)
 					.win &
 						line-height 31px
 				&.event
@@ -581,6 +582,7 @@ a, svg g, svg path
 				left -7px
 				&:hover
 					background #ffc300
+					transform scale(1.15)
 				svg
 					display inline-block
 					vertical-align middle
@@ -1215,6 +1217,8 @@ a, svg g, svg path
 		a.top
 			float left
 			clear both
+			&:hover
+				transform scale(1.15)
 			svg
 				margin 40px 0
 				width 52px
@@ -1380,7 +1384,13 @@ a, svg g, svg path
 					top -10px
 					opacity .2
 					position absolute
+		.items
+			full-width()
+			position relative
+			transition-property(all)
+			transition-duration(.3s)
 		.item
+			position absolute
 			margin-bottom 30px
 			display none
 			full-width()
@@ -1627,6 +1637,8 @@ a, svg g, svg path
 				text-transform uppercase
 				font-size 16px
 				margin-bottom 20px
+				&:hover
+					color #20bcfc
 	&.about
 		h1
 			font-size 94px
@@ -1701,6 +1713,10 @@ a, svg g, svg path
 			height 33px
 			&:before
 				display none
+			transition-property(all)
+			transition-duration(.3s)
+			&:hover
+				transform scale(1.15)
 		.slick-next
 			right -15px
 			background #f0c445 url(/layout/images/svg/arrow-right.svg) center center no-repeat
@@ -1998,6 +2014,8 @@ a, svg g, svg path
 				svg
 					path
 						stroke-width 3px
+				&:hover
+					transform scale(1.1)
 		.table
 			full-width()
 			border-bottom 2px solid #cfdfe6
