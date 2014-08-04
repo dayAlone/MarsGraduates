@@ -10397,11 +10397,6 @@ svg path:hover {
 #main .col .content a.cal:hover,
 #cal-day a.cal:hover {
   background: #ffc300;
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  -ms-transform: scale(1.05);
-  transform: scale(1.05);
 }
 .win #main .col .content a.cal,
 .win #cal-day a.cal {
@@ -12177,6 +12172,7 @@ svg path:hover {
 }
 #page.about .history-page a {
   font-size: 14px;
+  line-height: 24px;
   font-weight: 500;
   color: #000;
   margin: 0 20px;
