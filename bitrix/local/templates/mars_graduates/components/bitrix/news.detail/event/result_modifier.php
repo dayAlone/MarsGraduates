@@ -52,8 +52,7 @@
 	global $APPLICATION;
 	$APPLICATION->SetTitle($prop['TYPE'].": «".$arResult["NAME"]."»");
 	$APPLICATION->SetPageProperty('day', $prop['DATE']);
-	var_dump($prop['IMAGE']);
-	$APPLICATION->SetPageProperty('image', $prop['DIRECTION']['TITLE_IMAGE']);
+	$APPLICATION->SetPageProperty('og:image', $prop['DIRECTION']['TITLE_IMAGE']);
 	$APPLICATION->SetPageProperty('description', $arResult["DETAIL_TEXT"]);
 	$this->SetViewTarget('day');
 	      require_once($_SERVER['DOCUMENT_ROOT'].'/include/calendar.php');
