@@ -8,6 +8,7 @@
   <?$APPLICATION->ShowMeta("og:image")?>
   <title><?php $APPLICATION->ShowTitle();?></title>
   <?
+  $APPLICATION->ShowViewContent('header');
   global $USER;
   if($USER->isAdmin())
 	$APPLICATION->ShowHead();
