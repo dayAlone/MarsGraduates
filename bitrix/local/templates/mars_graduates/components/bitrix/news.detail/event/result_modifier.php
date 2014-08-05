@@ -59,7 +59,7 @@
 	$this->EndViewTarget();
 	$this->SetViewTarget('header');
 			
-	      ?><link rel="image_src" href="<?=$_SERVER['SERVER_NAME'].$prop['DIRECTION']['TITLE_IMAGE']?>" /><?
+	      ?><link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME'].$prop['DIRECTION']['TITLE_IMAGE']?>" /><?
 	$this->EndViewTarget();
 	
 ?>
