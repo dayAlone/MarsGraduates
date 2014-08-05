@@ -16,8 +16,8 @@
 			case 'DIRECTION':
 				$res = CIBlockElement::GetByID($item["VALUE"]);
 				if($ar_res = $res->GetNext()) {
-				  $res = CIBlockElement::GetProperty($ar_res['IBLOCK_ID'], $ar_res['ID'], "sort", "asc", array("CODE" => "IMAGE"));
-    			  $image = $res->Fetch();
+				  $res2 = CIBlockElement::GetProperty($ar_res['IBLOCK_ID'], $ar_res['ID'], "sort", "asc", array("CODE" => "IMAGE"));
+    			  $image = $res2->Fetch();
 				  $prop[$item["CODE"]] = array(
 				  	"NAME"  => $ar_res['NAME'],
 				  	"IMAGE" => CFile::GetPath($ar_res['DETAIL_PICTURE']),
