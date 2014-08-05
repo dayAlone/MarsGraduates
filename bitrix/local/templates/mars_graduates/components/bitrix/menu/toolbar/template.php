@@ -10,9 +10,15 @@ $this->setFrameMode(true);
 				<a href="<?=$arItem['LINK']?>" class="<?=($arItem['SELECTED']?'active':'')?> <?=($arItem['LINK']=='/'?"main":"")?>">
 					<?=($arItem['LINK']=='/'?svg('home'):$arItem['TEXT'])?>
 				</a>
-				<?
+				<?	
 					if($arItem['LINK']=='/events/' && $APPLICATION->GetCurPage() != '/')
-						require_once($_SERVER['DOCUMENT_ROOT'].'/include/calendar.php');
+					{
+						if (!(strstr($APPLICATION->GetCurPage(), '/events/') && $APPLICATION->GetCurPage() != '/events/'))	
+							require_once($_SERVER['DOCUMENT_ROOT'].'/include/calendar.php');
+						else
+							$APPLICATION->ShowViewContent('day');
+					} 
+						
 				?>
 			</li>
 	        <?

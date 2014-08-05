@@ -54,7 +54,7 @@ $APPLICATION->SetPageProperty('body_class', "color career");
         </div>
         <div data-merge="2" class="item">
           <div class="title">Самореализация</div>
-          <div class="text">Если тебе не терпится достичь профессиональных высот, проявить</div>
+          <div class="text">Если тебе не терпится достичь профессиональных высот, проявить себя и показать, на что ты способен, тогда мы ждем тебя в Mars.</div>
         </div>
         <div class="item"></div>
       </div>

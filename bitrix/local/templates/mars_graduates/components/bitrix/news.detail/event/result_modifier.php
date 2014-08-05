@@ -11,12 +11,17 @@
 				  $prop[$item["CODE"]] = $ar_res['NAME'];
 				}
 				break;
+			case 'IMAGE':
+				$prop["IMAGE"] = CFile::GetPath($$item);
 			case 'DIRECTION':
 				$res = CIBlockElement::GetByID($item["VALUE"]);
 				if($ar_res = $res->GetNext()) {
+				  $res = CIBlockElement::GetProperty($ar_res['IBLOCK_ID'], $ar_res['ID'], "sort", "asc", array("CODE" => "IMAGE"));
+    			  $image = $res->Fetch();
 				  $prop[$item["CODE"]] = array(
 				  	"NAME"  => $ar_res['NAME'],
-				  	"IMAGE" => CFile::GetPath($ar_res['DETAIL_PICTURE'])
+				  	"IMAGE" => CFile::GetPath($ar_res['DETAIL_PICTURE']),
+				  	"TITLE_IMAGE"=>CFile::GetPath($image["VALUE"]),
 				  	);
 				}
 				break;
@@ -44,4 +49,13 @@
 				break;
 		}
 	}
+	global $APPLICATION;
+	$APPLICATION->SetTitle($prop['TYPE'].": «".$arResult["NAME"]."»");
+	$APPLICATION->SetPageProperty('day', $prop['DATE']);
+	var_dump($prop['IMAGE']);
+	$APPLICATION->SetPageProperty('image', $prop['DIRECTION']['TITLE_IMAGE']);
+	$APPLICATION->SetPageProperty('description', $arResult["DETAIL_TEXT"]);
+	$this->SetViewTarget('day');
+	      require_once($_SERVER['DOCUMENT_ROOT'].'/include/calendar.php');
+	$this->EndViewTarget();
 ?>

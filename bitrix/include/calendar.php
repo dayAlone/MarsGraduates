@@ -3,6 +3,8 @@
   <?
     if($_REQUEST['date']):
       $date = strtotime($_REQUEST['date']);
+    elseif($APPLICATION->GetPageProperty('day')):
+      $date = strtotime($APPLICATION->GetPageProperty('day'));
     else:
       $date = strtotime(date('d.m.Y'));
     endif;

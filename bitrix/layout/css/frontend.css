@@ -9809,7 +9809,8 @@ body.color #page .content a.top svg path {
 }
 body.event #toolbar .event,
 body.event #toolbar .star,
-body.event #toolbar .flag {
+body.event #toolbar .flag,
+body.event #toolbar a.arrow {
   display: none;
 }
 h1,
