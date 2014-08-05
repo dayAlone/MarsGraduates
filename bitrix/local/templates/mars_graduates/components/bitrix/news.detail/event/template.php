@@ -1,6 +1,7 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 $prop = &$arResult["PROPS"];
+$url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
 ?>
 <div id="event" style="background-image: url(/layout/images/event.jpg)">
 
@@ -21,10 +22,10 @@ $prop = &$arResult["PROPS"];
           </div>
           <div class="col-xs-6">
             <div class="social">
-              <a href="http://vkontakte.ru/share.php?url=" target="_blank">
+              <a href="http://vkontakte.ru/share.php?url=<?=$url?>" target="_blank">
                 <?=svg('vk')?>
               </a>
-              <a href="http://www.facebook.com/sharer/sharer.php?u=" target="_blank">
+              <a href="http://www.facebook.com/sharer/sharer.php?u=<?=$url?>" target="_blank">
                 <?=svg('fb')?>
               </a><br>
               <span>поделиться</span></div>
