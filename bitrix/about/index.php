@@ -32,7 +32,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
         <h2 class="count">Mars Inside<?/*<span class="num">1</span>*/?>
           <div class="social">
             <div class="title">Больше фотографий <br>о нашей жизни:</div>
-            <a target="_blank" href="http://instagram.com/mars_russia"><?=svg('insta')?></a>
+            <a target="_blank" href="http://instagram.com/mars_russia" class="insta"><?=svg('insta')?></a>
             <a target="_blank" href="https://vk.com/albums-25625432"><?=svg('vk')?></a>
           </div>
         </h2>

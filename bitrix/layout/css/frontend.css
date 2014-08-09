@@ -13209,11 +13209,19 @@ svg path:hover {
   #page.academy h1 svg {
     left: -160px;
   }
+  #page.academy h2.count,
+  #page.academy p.offset {
+    padding-left: 0;
+    margin-left: 0;
+  }
   #page.academy .item img {
     max-width: 140%;
   }
   #page.academy .item h3 {
     margin-top: 0;
+  }
+  #page.academy .events .event {
+    margin-left: 10px;
   }
   #page.academy .parts {
     padding-left: 0;
@@ -13397,7 +13405,7 @@ svg path:hover {
   }
   #page.career h2.count,
   #page.academy h2.count {
-    margin-left: 40px;
+    margin-left: 10px;
     font-size: 30px;
   }
   #page.career p.offset,
@@ -13530,7 +13538,7 @@ svg path:hover {
   #page.about .content h2 {
     width: 90%;
     font-size: 32px;
-    margin-left: 43px;
+    margin-left: 0px;
   }
   #page.about .content h2 .num {
     left: -70px;
@@ -13580,6 +13588,7 @@ svg path:hover {
   }
   #page.about .content .brands .item img {
     max-width: 285px;
+    max-height: 22px;
     margin-left: -40px;
   }
   #page.about .content .scheme {
@@ -13598,17 +13607,19 @@ svg path:hover {
     height: 156px;
   }
   #page.about .content .scheme .description {
-    line-height: 156px;
+    line-height: 172px;
   }
   #page.about .content .scheme .description .item {
     padding: 0 10px;
     line-height: 8px;
   }
   #page.about .content .scheme .description .item .title {
-    font-size: 11px;
+    font-size: 9px;
+    margin-bottom: 0px;
   }
   #page.about .content .scheme .description .item .text {
-    font-size: 8px;
+    font-size: 7px;
+    line-height: 8px;
   }
   #page.about .content .scheme-description {
     width: 107%;

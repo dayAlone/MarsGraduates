@@ -71,7 +71,7 @@
 	  <div class="container">
 	    <div class="row">
 	      <div class="col-md-2 col-xs-3">
-	      	<a href="#" class="home"><?=svg('home')?></a>
+	      	<a href="/" class="home"><?=svg('home')?></a>
 	        <div class="select">
 	        	<a href="#" class="trigger">Россия <?=svg('arrow-bottom')?></a>
 	        	<ul class="city-list">
