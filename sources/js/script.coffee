@@ -235,6 +235,8 @@ $(document).ready ->
 		href = $(this).attr('href').split('#')[1]
 		x = $(this)
 		if $(this).parents('.parts').length > 0
+			if($(this).hasClass('active'))
+				return false
 			$(this).parents('.parts').find('a').removeClass 'active'
 			$(this).addClass 'active'
 			
@@ -242,7 +244,7 @@ $(document).ready ->
 			if !$('#page .items').hasClass 'open'
 				$('#page .items')
 					.addClass 'open'
-					.css 'min-height', $("#page a[name='#{href}']").parents('.item').height() - 40
+			$('#page .items').css 'min-height', $("#page a[name='#{href}']").parents('.item').height()
 			
 			$('#page .item')
 				.velocity

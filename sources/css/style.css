@@ -1952,20 +1952,20 @@ svg path:hover {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-#page.academy .item {
+#page.academy .items > .item {
   position: absolute;
   margin-bottom: 30px;
   display: none;
   float: left;
   width: 100%;
 }
-#page.academy .item img {
+#page.academy .items > .item img {
   max-width: 100%;
 }
-#page.academy .item:first-of-type img {
+#page.academy .items > .item:first-of-type img {
   max-width: 120%;
 }
-#page.academy .item h3 {
+#page.academy .items > .item h3 {
   float: left;
   padding-top: 10px;
   padding-right: 4px;
@@ -1973,42 +1973,46 @@ svg path:hover {
   text-transform: uppercase;
   font-weight: 500;
 }
-#page.academy .item h5 {
+#page.academy .items > .item h5 {
   float: left;
   clear: left;
   font-weight: bold;
   margin-top: 0;
 }
-#page.academy .item h6 {
+#page.academy .items > .item h6 {
   float: left;
   width: 100%;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
 }
-#page.academy .item p {
+#page.academy .items > .item p {
   float: left;
   width: 100%;
   margin-bottom: 3px;
 }
-#page.academy .item .events {
+#page.academy .items > .item .events {
   float: left;
   width: 100%;
 }
-#page.academy .item .events .item {
+#page.academy .items > .item .events .event {
+  float: left;
   position: relative;
+  min-height: 0;
   width: 45%;
   margin-right: 20px;
   color: #fff;
   padding: 2px 5px;
 }
-#page.academy .item .events .item .title {
+#page.academy .items > .item .events .event .title {
   font-weight: bold;
   line-height: 16px;
   width: 88%;
+  position: relative;
+  z-index: 2;
   padding-bottom: 4px;
 }
-#page.academy .item .events .item .reg {
+#page.academy .items > .item .events .event .reg {
   position: absolute;
   font-weight: 500;
   background: #f0c343;
@@ -2018,56 +2022,56 @@ svg path:hover {
   bottom: -13px;
   right: 0;
 }
-#page.academy .item .events .item .city {
+#page.academy .items > .item .events .event .city {
   position: absolute;
   top: 2px;
   right: 5px;
   font-size: 26px;
 }
-#page.academy .item.orange img {
+#page.academy .items > .item.orange img {
   margin-right: -30px;
 }
-#page.academy .item.orange h3 {
+#page.academy .items > .item.orange h3 {
   background-color: #e6603d;
 }
-#page.academy .item.orange .events .item {
+#page.academy .items > .item.orange .events .event {
   background: #e6603c;
 }
-#page.academy .item.orange .events .item .type,
-#page.academy .item.orange .events .item .city {
+#page.academy .items > .item.orange .events .event .type,
+#page.academy .items > .item.orange .events .event .city {
   color: #fdbf2d;
 }
-#page.academy .item.green h3 {
+#page.academy .items > .item.green h3 {
   background-color: #4aa743;
 }
-#page.academy .item.green .events .item {
+#page.academy .items > .item.green .events .event {
   background: #4aa743;
 }
-#page.academy .item.green .events .item .type,
-#page.academy .item.green .events .item .city {
+#page.academy .items > .item.green .events .event .type,
+#page.academy .items > .item.green .events .event .city {
   color: #65e35c;
 }
-#page.academy .item.violet h3 {
+#page.academy .items > .item.violet h3 {
   background-color: #943283;
 }
-#page.academy .item.violet .events .item {
+#page.academy .items > .item.violet .events .event {
   background: #943283;
 }
-#page.academy .item.violet .events .item .type,
-#page.academy .item.violet .events .item .city {
+#page.academy .items > .item.violet .events .event .type,
+#page.academy .items > .item.violet .events .event .city {
   color: #de42c1;
 }
-#page.academy .item.yellow h3 {
+#page.academy .items > .item.yellow h3 {
   background-color: #f2983c;
 }
-#page.academy .item.yellow .events .item {
+#page.academy .items > .item.yellow .events .event {
   background: #f2983c;
 }
-#page.academy .item.yellow .events .item .type,
-#page.academy .item.yellow .events .item .city {
+#page.academy .items > .item.yellow .events .event .type,
+#page.academy .items > .item.yellow .events .event .city {
   color: #fee834;
 }
-#page.academy .item img {
+#page.academy .items > .item img {
   float: right;
 }
 #page.career h1 {

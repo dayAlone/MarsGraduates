@@ -1390,100 +1390,104 @@ a, svg g, svg path
 			position relative
 			transition-property(all)
 			transition-duration(.3s)
-		.item
-			position absolute
-			margin-bottom 30px
-			display none
-			full-width()
-			img
-				max-width 100%
-			&:first-of-type
+			> .item
+				position absolute
+				margin-bottom 30px
+				display none
+				full-width()
 				img
-					max-width 120%
-			h3
-				float left
-				padding-top 10px
-				padding-right 4px
-				line-height 18px
-				text-transform uppercase
-				font-weight 500
-			h5
-				float left
-				clear left
-				font-weight bold
-				margin-top 0
-			h6
-				full-width()
-				text-transform uppercase
-				font-size 12px
-				font-weight 500
-			p
-				full-width()
-				margin-bottom 3px
-			.events
-				full-width()
-				.item
-					position relative
-					width 45%
-					margin-right 20px
-					color white
-					padding 2px 5px
-					.title
-						font-weight bold
-						line-height 16px
-						width 88%
-						padding-bottom 4px
-					.reg
-						position absolute
-						font-weight 500
-						background #f0c343
-						font-weight bold
-						font-size 12px
-						padding 2px 5px 0
-						bottom -13px
-						right 0
-						
-					.city
-						position absolute
-						top 2px
-						right 5px
-						font-size 26px
-			&.orange
+					max-width 100%
+				&:first-of-type
+					img
+						max-width 120%
+				h3
+					float left
+					padding-top 10px
+					padding-right 4px
+					line-height 18px
+					text-transform uppercase
+					font-weight 500
+				h5
+					float left
+					clear left
+					font-weight bold
+					margin-top 0
+				h6
+					full-width()
+					text-transform uppercase
+					font-size 12px
+					font-weight 500
+				p
+					full-width()
+					margin-bottom 3px
+				.events
+					full-width()
+					.event
+						float left
+						position relative
+						min-height 0 
+						width 45%
+						margin-right 20px
+						color white
+						padding 2px 5px
+						.title
+							font-weight bold
+							line-height 16px
+							width 88%
+							position relative
+							z-index 2
+							padding-bottom 4px
+						.reg
+							position absolute
+							font-weight 500
+							background #f0c343
+							font-weight bold
+							font-size 12px
+							padding 2px 5px 0
+							bottom -13px
+							right 0
+							
+						.city
+							position absolute
+							top 2px
+							right 5px
+							font-size 26px
+				&.orange
+					img
+						margin-right -30px
+					h3
+						background-color #e6603d
+					.events
+						.event
+							background #e6603c
+							.type, .city
+								color #fdbf2d
+				&.green
+					h3
+						background-color #4aa743
+					.events
+						.event
+							background #4aa743
+							.type, .city
+								color #65e35c
+				&.violet
+					h3
+						background-color #943283
+					.events
+						.event
+							background #943283
+							.type, .city
+								color #de42c1
+				&.yellow
+					h3
+						background-color #f2983c
+					.events
+						.event
+							background #f2983c
+							.type, .city
+								color #fee834
 				img
-					margin-right -30px
-				h3
-					background-color #e6603d
-				.events
-					.item
-						background #e6603c
-						.type, .city
-							color #fdbf2d
-			&.green
-				h3
-					background-color #4aa743
-				.events
-					.item
-						background #4aa743
-						.type, .city
-							color #65e35c
-			&.violet
-				h3
-					background-color #943283
-				.events
-					.item
-						background #943283
-						.type, .city
-							color #de42c1
-			&.yellow
-				h3
-					background-color #f2983c
-				.events
-					.item
-						background #f2983c
-						.type, .city
-							color #fee834
-			img
-				float right		
+					float right		
 	&.career
 		h1
 			font-size 94px
@@ -3142,3 +3146,4 @@ a, svg g, svg path
 
 body
 	display block !important
+
