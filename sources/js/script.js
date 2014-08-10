@@ -69,8 +69,8 @@
     }
     if (window.location.hash) {
       direction = window.location.hash.split('#modal')[1];
-      if ($("#" + window.location.hash).length > 0 && direction) {
-        $("#" + window.location.hash).modal();
+      if ($("" + window.location.hash).length > 0 && direction) {
+        $("" + window.location.hash).modal();
       }
       window.location.hash = "";
     }
