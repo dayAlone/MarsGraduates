@@ -68,6 +68,12 @@
         'scrollTop': offset - $('#toolbar').height() - 10
       }, 300);
     }
+    if (window.location.hash) {
+      direction = window.location.hash.split('#modal')[1];
+      if ($("#" + window.location.hash).length > 0 && direction) {
+        $("#" + window.location.hash).modal();
+      }
+    }
     if ($('body').hasClass('loaded')) {
       $('.speakers, .principles, .history').unslick();
     }
