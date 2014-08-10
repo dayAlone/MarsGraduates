@@ -60,7 +60,6 @@
     scrollHeight();
     if (window.location.hash) {
       direction = window.location.hash.split('#go-')[1];
-      window.location.hash = "";
     }
     if ($("#" + direction).length > 0) {
       offset = $("#" + direction).offset().top;
@@ -73,6 +72,7 @@
       if ($("#" + window.location.hash).length > 0 && direction) {
         $("#" + window.location.hash).modal();
       }
+      window.location.hash = "";
     }
     if ($('body').hasClass('loaded')) {
       $('.speakers, .principles, .history').unslick();

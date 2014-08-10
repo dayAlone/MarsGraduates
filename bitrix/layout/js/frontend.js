@@ -24773,7 +24773,6 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     scrollHeight();
     if (window.location.hash) {
       direction = window.location.hash.split('#go-')[1];
-      window.location.hash = "";
     }
     if ($("#" + direction).length > 0) {
       offset = $("#" + direction).offset().top;
@@ -24786,6 +24785,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
       if ($("#" + window.location.hash).length > 0 && direction) {
         $("#" + window.location.hash).modal();
       }
+      window.location.hash = "";
     }
     if ($('body').hasClass('loaded')) {
       $('.speakers, .principles, .history').unslick();

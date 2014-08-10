@@ -52,7 +52,7 @@ size = ()->
 
 	if window.location.hash
 		direction = window.location.hash.split('#go-')[1]
-		window.location.hash = ""
+		
 
 	if $("##{direction}").length > 0
 		offset = $("##{direction}").offset().top
@@ -62,6 +62,7 @@ size = ()->
 		direction = window.location.hash.split('#modal')[1]
 		if $("##{window.location.hash}").length > 0 && direction
 			$("##{window.location.hash}").modal()
+		window.location.hash = ""
 
 	
 
