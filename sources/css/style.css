@@ -1233,6 +1233,7 @@ svg path:hover {
   #event {
     height: auto;
     min-height: 0;
+    margin-top: 50px;
   }
   #event .image {
     max-width: 80%;
