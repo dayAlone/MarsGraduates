@@ -3,7 +3,7 @@ $this->setFrameMode(true);
 if (!empty($arResult)):
 	foreach($arResult as $arItem):
 		?>
-		<a href="<?=$arItem['LINK']?>" class="<?=$arItem['TEXT']?>"><?=svg($arItem['TEXT'])?></a>
+		<a href="<?=$arItem['LINK']?>" target="_blank" class="<?=$arItem['TEXT']?>"><?=svg($arItem['TEXT'])?></a>
         <?
 	endforeach;
 endif?>

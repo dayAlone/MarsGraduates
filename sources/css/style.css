@@ -1412,31 +1412,43 @@ svg path:hover {
   }
 }
 @media (max-width: 320px) {
+  #nav {
+    width: 130px;
+    padding: 20px 15px;
+    right: -130px;
+  }
   #nav .trigger {
-    margin-top: -5px;
+    margin-top: -3px;
   }
   #nav .trigger svg {
     height: 15px;
     width: 25px;
   }
   #nav a {
-    font-size: 27px;
-    line-height: 27px;
-    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 10px;
   }
   #nav a br {
     display: none;
   }
+  #nav .footer {
+    margin-left: -5px;
+    bottom: 30px;
+  }
   #nav .footer .social {
     margin-bottom: 4px;
   }
-  #nav .footer .social a svg {
-    width: 25px;
-    height: 25px;
+  #nav .footer .social a:first-child {
+    margin-left: -5px;
   }
-  #nav .footer a {
-    margin-left: 5px;
-    font-size: 18px;
+  #nav .footer .social a svg {
+    width: 20px;
+    height: 20px;
+  }
+  #nav .footer > a {
+    font-size: 14px;
+    width: 110%;
     line-height: 18px;
     margin-bottom: 4px;
   }
@@ -1529,6 +1541,8 @@ svg path:hover {
 @media (max-width: 1024px) {
   #question {
     display: none;
+    bottom: 41px;
+    top: auto;
   }
 }
 #maillist {
@@ -1605,6 +1619,8 @@ svg path:hover {
 @media (max-width: 1024px) {
   #maillist {
     display: none;
+    bottom: 15px;
+    top: auto;
   }
 }
 #brands {

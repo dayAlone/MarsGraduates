@@ -156,6 +156,32 @@ initDay = ()->
 
 $(document).ready ->
 
+	shown = false
+	side = (id)->
+		if !$("##{id}").hasClass 'open'
+			$("##{id}")
+				.addClass 'open'
+				.velocity("transition.slideLeftIn", { duration: 300, display: "block" })
+		else
+			$("##{id}")
+				.velocity
+					properties: "transition.slideRightOut"
+					options:
+						duration: 300, 
+						display: "none", 
+						complete: ()-> 
+							$("##{id}").removeClass 'open'
+	
+	$('#nav .maillist, #nav .question').click (e)->
+		id = $(this).attr('class')
+		second = $("#nav .footer > a:not(.#{id})").attr('class')
+		
+		if !$("##{id}").is(':visible') && $("##{second}").is(':visible')
+			side(second)
+		side(id)
+
+		e.preventDefault()
+
 	$('.scheme svg g[id^="scheme-"]').hover ()->
 		$(".scheme-description span[data-id='#{$(this).attr('id')}']").addClass 'hover'
 	, ()->

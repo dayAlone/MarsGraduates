@@ -202,7 +202,37 @@
   };
 
   $(document).ready(function() {
-    var x;
+    var shown, side, x;
+    shown = false;
+    side = function(id) {
+      if (!$("#" + id).hasClass('open')) {
+        return $("#" + id).addClass('open').velocity("transition.slideLeftIn", {
+          duration: 300,
+          display: "block"
+        });
+      } else {
+        return $("#" + id).velocity({
+          properties: "transition.slideRightOut",
+          options: {
+            duration: 300,
+            display: "none",
+            complete: function() {
+              return $("#" + id).removeClass('open');
+            }
+          }
+        });
+      }
+    };
+    $('#nav .maillist, #nav .question').click(function(e) {
+      var id, second;
+      id = $(this).attr('class');
+      second = $("#nav .footer > a:not(." + id + ")").attr('class');
+      if (!$("#" + id).is(':visible') && $("#" + second).is(':visible')) {
+        side(second);
+      }
+      side(id);
+      return e.preventDefault();
+    });
     $('.scheme svg g[id^="scheme-"]').hover(function() {
       return $(".scheme-description span[data-id='" + ($(this).attr('id')) + "']").addClass('hover');
     }, function() {

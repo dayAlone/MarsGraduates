@@ -63,8 +63,8 @@
 				    false);
 				?>
     		</div>
-    		<a href="#">Задать вопрос</a>
-    		<a href="#" class="subscribe">Подписаться</a>
+    		<a href="#" class="question">Задать вопрос</a>
+    		<a href="#" class="maillist">Подписаться</a>
     	</div>
 	</div>
 	<div id="toolbar">
