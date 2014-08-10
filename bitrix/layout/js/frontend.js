@@ -24920,15 +24920,13 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     side = function(id) {
       if (!$("#" + id).hasClass('open')) {
         return $("#" + id).addClass('open').velocity("transition.slideLeftIn", {
-          duration: 300,
-          display: "block"
+          duration: 300
         });
       } else {
         return $("#" + id).velocity({
           properties: "transition.slideRightOut",
           options: {
             duration: 300,
-            display: "none",
             complete: function() {
               return $("#" + id).removeClass('open');
             }

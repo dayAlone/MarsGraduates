@@ -161,14 +161,13 @@ $(document).ready ->
 		if !$("##{id}").hasClass 'open'
 			$("##{id}")
 				.addClass 'open'
-				.velocity("transition.slideLeftIn", { duration: 300, display: "block" })
+				.velocity("transition.slideLeftIn", { duration: 300})
 		else
 			$("##{id}")
 				.velocity
 					properties: "transition.slideRightOut"
 					options:
 						duration: 300, 
-						display: "none", 
 						complete: ()-> 
 							$("##{id}").removeClass 'open'
 	

@@ -1540,7 +1540,7 @@ svg path:hover {
 }
 @media (max-width: 1024px) {
   #question {
-    display: none;
+    left: -180px;
     bottom: 41px;
     top: auto;
   }
@@ -1618,7 +1618,7 @@ svg path:hover {
 }
 @media (max-width: 1024px) {
   #maillist {
-    display: none;
+    left: -180px;
     bottom: 15px;
     top: auto;
   }
