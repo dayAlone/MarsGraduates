@@ -9,11 +9,10 @@ sizeMain = ()->
 		
 		$('#main .col').one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ()->
 			$('#main .col, #main .frame').each ()->
-			mainColHeightList.push($(this).height());
-
+				mainColHeightList.push($(this).height());
+				console.log $(this).height()
 			$('#main .col').height Math.max.apply(Math,mainColHeightList)
-			
-			console.log Math.max.apply(Math,mainColHeightList), mainColHeightList
+
 
 scrollHeight = ()->
 	
@@ -31,8 +30,18 @@ scrollHeight = ()->
 size = ()->
 	
 	sizeMain()
+	###
+	$('#page.about .scheme svg').removeAttr 'style'
+	$('#page.about .scheme svg').height $('#page.about .scheme svg > g')[0].getBoundingClientRect().height
 
-	if($(window).width()<=768)
+	$('#page.about .scheme .description, #page.about .scheme .frame')
+		.height $('#page.about .scheme svg').height()
+		.css 'line-height', $('#page.about .scheme svg').height() + 'px'
+	###
+
+	$('#page.academy .items').css 'min-height', $("#page .item:visible").height()
+
+	if($(window).width()<=991)
 		$('#main .col').height($('#main .frame').height())
 	if carousel
 		carousel.reload()
@@ -184,8 +193,9 @@ $(document).ready ->
 	$('body').addClass $.browser.platform
 
 	$('#modalInternship, #modalLeadership').on 'shown.bs.modal', ()->
-		$(this).find('.scroll').perfectScrollbar
-			suppressScrollX:true
+		if $(window).width > 540
+			$(this).find('.scroll').perfectScrollbar
+				suppressScrollX:true
 
 	$('.select .trigger').click (e)->
 		$(this).parents('.select').toggleClass 'open'
@@ -244,6 +254,7 @@ $(document).ready ->
 			if !$('#page .items').hasClass 'open'
 				$('#page .items')
 					.addClass 'open'
+
 			$('#page .items').css 'min-height', $("#page a[name='#{href}']").parents('.item').height()
 			
 			$('#page .item')

@@ -64,7 +64,7 @@
 				?>
     		</div>
     		<a href="#">Задать вопрос</a>
-    		<a href="#">Подписаться</a>
+    		<a href="#" class="subscribe">Подписаться</a>
     	</div>
 	</div>
 	<div id="toolbar">

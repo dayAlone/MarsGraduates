@@ -3423,6 +3423,10 @@ svg path:hover {
     width: 30px;
     height: 30px;
   }
+  #page.about .content .principles,
+  #page.about .content .history {
+    max-width: 98%;
+  }
   #page.about .content .principles button.slick-next,
   #page.about .content .history button.slick-next {
     right: 33px;
@@ -3439,6 +3443,9 @@ svg path:hover {
   }
   #page.about .content .history .row > div h3 {
     margin-top: 0;
+  }
+  #page.about .content .history .row > div p {
+    width: 70%;
   }
   #page.about .content .history-page {
     margin-left: 0;
@@ -3459,7 +3466,7 @@ svg path:hover {
   }
   #page.about .content .scheme svg {
     margin-top: 0px;
-    width: 500px;
+    max-width: 100%;
     height: 270px;
   }
   #page.about .content .scheme .frame {
@@ -3904,7 +3911,7 @@ svg path:hover {
     line-height: 8px;
   }
   #page.about .content .scheme-description {
-    width: 107%;
+    width: 111%;
   }
   #page.about .content .scheme-description span {
     font-size: 8px;
@@ -4003,6 +4010,12 @@ svg path:hover {
   height: 520px;
   overflow: hidden;
 }
+@media (max-width: 480px) {
+  .modal .scroll {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
 .modal .block {
   float: left;
   background: #794194;
@@ -4051,6 +4064,12 @@ svg path:hover {
   padding-top: 0;
   font-weight: 500;
 }
+@media (max-width: 480px) {
+  #modalInternship h1 {
+    font-size: 24px;
+    line-height: 26px;
+  }
+}
 #modalInternship .scroll {
   margin-top: 0px;
   height: 520px;
@@ -4068,6 +4087,11 @@ svg path:hover {
   font-size: 21px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+@media (max-width: 560px) {
+  #modalInternship h2 {
+    margin-top: 40px;
+  }
 }
 #modalInternship li {
   line-height: 14px;
@@ -4137,6 +4161,12 @@ svg path:hover {
   padding-top: 0;
   font-weight: 500;
 }
+@media (max-width: 480px) {
+  #modalLeadership h1 {
+    font-size: 24px;
+    line-height: 26px;
+  }
+}
 #modalLeadership .block {
   font-weight: 500;
 }
@@ -4164,13 +4194,29 @@ svg path:hover {
 #modalLeadership .first h4 {
   margin-left: -20px;
 }
+@media (max-width: 560px) {
+  #modalLeadership .first ul,
+  #modalLeadership .first h4 {
+    margin-left: 0;
+  }
+}
 #modalLeadership .money {
   float: left;
   margin-top: 55px;
 }
+@media (max-width: 560px) {
+  #modalLeadership .money {
+    display: none;
+  }
+}
 #modalLeadership .chart {
   float: left;
   margin-top: 30px;
+}
+@media (max-width: 560px) {
+  #modalLeadership .chart {
+    display: none;
+  }
 }
 #modalLeadership ul.big {
   width: 100%;

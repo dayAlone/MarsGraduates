@@ -2417,6 +2417,7 @@ a, svg g, svg path
 								width 30px
 								height 30px
 				.principles, .history
+					max-width 98%
 					button
 						&.slick-next
 							right 33px
@@ -2433,6 +2434,8 @@ a, svg g, svg path
 								max-width 100%
 							h3
 								margin-top 0
+							p
+								width 70%
 						
 				.history-page
 					margin-left 0
@@ -2448,7 +2451,7 @@ a, svg g, svg path
 					margin-bottom 0px
 					svg
 						margin-top 0px
-						width: 500px
+						max-width: 100%
 						height 270px
 					.frame
 						width 94%
@@ -2808,7 +2811,7 @@ a, svg g, svg path
 								font-size 7px
 								line-height 8px
 				.scheme-description
-					width 107%
+					width 111%
 					span
 						font-size 8px
 						width 19%
@@ -2885,6 +2888,9 @@ a, svg g, svg path
 		width 97%
 		height 520px
 		overflow hidden
+		@media (max-width: 480px)
+			height auto !important
+			overflow visible !important
 	.block
 		float left
 		background #794194
@@ -2924,6 +2930,9 @@ a, svg g, svg path
 		color #a63d86
 		padding-top 0
 		font-weight 500
+		@media (max-width: 480px)
+			font-size 24px
+			line-height 26px
 	.scroll
 		margin-top 0px
 		height 520px
@@ -2938,6 +2947,8 @@ a, svg g, svg path
 		font-size 21px
 		font-weight bold
 		margin-bottom 10px
+		@media (max-width: 560px)
+			margin-top 40px
 	li
 		line-height 14px
 		margin-bottom 6px
@@ -2994,6 +3005,9 @@ a, svg g, svg path
 		color #a63d86
 		padding-top 0
 		font-weight 500
+		@media (max-width: 480px)
+			font-size 24px
+			line-height 26px
 	.block	
 		font-weight 500
 		&.b-1
@@ -3014,12 +3028,18 @@ a, svg g, svg path
 	.first
 		ul, h4
 			margin-left -20px
+			@media (max-width: 560px)
+				margin-left 0
 	.money
 		float left
 		margin-top 55px
+		@media (max-width: 560px)
+			display none
 	.chart
 		float left
 		margin-top 30px
+		@media (max-width: 560px)
+			display none
 	ul
 		&.big
 			width 100%

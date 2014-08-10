@@ -24726,10 +24726,11 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
       mainColHeightList = [];
       $('#main .col, #main .frame').removeAttr('style');
       return $('#main .col').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-        $('#main .col, #main .frame').each(function() {});
-        mainColHeightList.push($(this).height());
-        $('#main .col').height(Math.max.apply(Math, mainColHeightList));
-        return console.log(Math.max.apply(Math, mainColHeightList), mainColHeightList);
+        $('#main .col, #main .frame').each(function() {
+          mainColHeightList.push($(this).height());
+          return console.log($(this).height());
+        });
+        return $('#main .col').height(Math.max.apply(Math, mainColHeightList));
       });
     }
   };
@@ -24751,7 +24752,17 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
   size = function() {
     var direction, history, offset;
     sizeMain();
-    if ($(window).width() <= 768) {
+
+    /*
+    	$('#page.about .scheme svg').removeAttr 'style'
+    	$('#page.about .scheme svg').height $('#page.about .scheme svg > g')[0].getBoundingClientRect().height
+    
+    	$('#page.about .scheme .description, #page.about .scheme .frame')
+    		.height $('#page.about .scheme svg').height()
+    		.css 'line-height', $('#page.about .scheme svg').height() + 'px'
+     */
+    $('#page.academy .items').css('min-height', $("#page .item:visible").height());
+    if ($(window).width() <= 991) {
       $('#main .col').height($('#main .frame').height());
     }
     if (carousel) {
@@ -24941,9 +24952,11 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     initDay();
     $('body').addClass($.browser.platform);
     $('#modalInternship, #modalLeadership').on('shown.bs.modal', function() {
-      return $(this).find('.scroll').perfectScrollbar({
-        suppressScrollX: true
-      });
+      if ($(window).width > 540) {
+        return $(this).find('.scroll').perfectScrollbar({
+          suppressScrollX: true
+        });
+      }
     });
     $('.select .trigger').click(function(e) {
       $(this).parents('.select').toggleClass('open');
