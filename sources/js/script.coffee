@@ -68,6 +68,8 @@ size = ()->
 
 	$('.speakers, .principles, .history').unslick()	if $('body').hasClass 'loaded'
 
+	$('#main a.internship').height($('#main a.leadership').height())
+
 	$('.speakers').slick
 		infinite: false
 

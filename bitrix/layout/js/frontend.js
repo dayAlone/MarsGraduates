@@ -24790,6 +24790,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     if ($('body').hasClass('loaded')) {
       $('.speakers, .principles, .history').unslick();
     }
+    $('#main a.internship').height($('#main a.leadership').height());
     $('.speakers').slick({
       infinite: false
     });

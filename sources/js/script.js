@@ -77,6 +77,7 @@
     if ($('body').hasClass('loaded')) {
       $('.speakers, .principles, .history').unslick();
     }
+    $('#main a.internship').height($('#main a.leadership').height());
     $('.speakers').slick({
       infinite: false
     });
