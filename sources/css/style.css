@@ -595,14 +595,13 @@ svg path:hover {
 #cal-day a.big.leadership {
   padding-bottom: 13px;
   padding-left: 60px;
-  padding-top: 6px;
-  padding-bottom: 1px;
+  padding-top: 12px;
+  padding-bottom: 10px;
 }
 #main .col .content a.big.internship.open,
 #cal-day a.big.internship.open,
 #main .col .content a.big.leadership.open,
 #cal-day a.big.leadership.open {
-  padding-bottom: 13px;
   margin-bottom: 50px;
 }
 #main .col .content a.big.internship,
@@ -1543,6 +1542,7 @@ svg path:hover {
     left: -180px;
     bottom: 41px;
     top: auto;
+    display: none;
   }
 }
 #maillist {
@@ -1621,6 +1621,7 @@ svg path:hover {
     left: -180px;
     bottom: 15px;
     top: auto;
+    display: none;
   }
 }
 #brands {
@@ -4000,6 +4001,12 @@ svg path:hover {
   line-height: 30px;
   margin-bottom: 20px;
   text-align: center;
+}
+@media (max-width: 560px) {
+  .message .modal-content p {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 .ps-scrollbar-y-rail {
   right: 10px !important;

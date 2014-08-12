@@ -217,8 +217,7 @@
           options: {
             duration: 300,
             complete: function() {
-              $("#" + id + " input").focus();
-              return console.log($("#" + id + " input").length);
+              return $("#" + id + " input[type='email']").focus().select();
             }
           }
         });
@@ -238,7 +237,6 @@
       var id, second;
       id = $(this).attr('class');
       second = $("#nav .footer > a:not(." + id + ")").attr('class');
-      console.log($("#" + second).is(':visible'));
       if (!$("#" + id).is(':visible') && $("#" + second).is(':visible')) {
         side(second);
       }
@@ -481,10 +479,12 @@
     });
     $('#question, #maillist').hoverIntent({
       over: function() {
-        return $(this).toggleClass('open');
+        return $(this).addClass('open');
       },
       out: function() {
-        return $(this).toggleClass('open');
+        if ($(window).window() > 1024) {
+          return $(this).removeClass('open');
+        }
       }
     });
     $('form input[type=checkbox]').iCheck();

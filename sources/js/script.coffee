@@ -173,8 +173,7 @@ $(document).ready ->
 					options:
 						duration: 300, 
 						complete: ()-> 
-							$("##{id} input").focus()
-							console.log $("##{id} input").length
+							$("##{id} input[type='email']").focus().select()
 		else
 			$("##{id}")
 				.velocity
@@ -187,7 +186,6 @@ $(document).ready ->
 	$('#nav .maillist, #nav .question').click (e)->
 		id = $(this).attr('class')
 		second = $("#nav .footer > a:not(.#{id})").attr('class')
-		console.log $("##{second}").is(':visible')
 
 		if !$("##{id}").is(':visible') && $("##{second}").is(':visible')
 			side(second)
@@ -393,8 +391,10 @@ $(document).ready ->
 		$('#nav').toggleClass 'open'
 
 	$('#question, #maillist').hoverIntent 
-		over: ()-> $(this).toggleClass 'open'
-		out: ()-> $(this).toggleClass 'open'
+		over: ()-> $(this).addClass 'open'
+		out: ()-> 
+			if($(window).window()>1024)
+				$(this).removeClass 'open'
 
 	$('form input[type=checkbox]').iCheck()
 

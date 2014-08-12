@@ -409,10 +409,9 @@ a, svg g, svg path
 					&.internship, &.leadership
 						padding-bottom 13px
 						padding-left 60px
-						padding-top 6px
-						padding-bottom 1px
+						padding-top 12px
+						padding-bottom 10px
 						&.open
-							padding-bottom 13px
 							margin-bottom 50px
 					&.internship
 						background linear-gradient(right, #9f449d 0%, #5495c8 100%) 
@@ -1082,6 +1081,7 @@ a, svg g, svg path
 		left -180px
 		bottom 41px
 		top auto
+		display none
 #maillist
 	transition-property(all)
 	transition-duration(.3s)
@@ -1135,6 +1135,7 @@ a, svg g, svg path
 		left -180px
 		bottom 15px
 		top auto
+		display none
 
 #brands
 	overflow hidden
@@ -2879,6 +2880,10 @@ a, svg g, svg path
 			line-height 30px
 			margin-bottom 20px
 			text-align center
+			@media (max-width: 560px)
+				font-size 18px
+				line-height 22px
+
 .ps-scrollbar-y-rail
 	right 10px !important
 	display block !important
