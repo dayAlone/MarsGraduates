@@ -13888,6 +13888,9 @@ svg path:hover {
     width: 100%;
   }
 }
+#modalLeadership .modal-content {
+  padding-bottom: 15px;
+}
 #modalLeadership h1 {
   font-size: 32px;
   margin-top: -10px;
