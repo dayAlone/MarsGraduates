@@ -144,7 +144,8 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
                   <div class="col-md-6">
                     <select type="text" id="teach" name="UF_EDUCATION" value="<?=$data["UF_EDUCATION"]?>" required>
                       <option value="">Выбрать</option>
-                      <option value="1">Значение</option>
+                      <option value="Очное">Очное</option>
+                      <option value="Заочное">Заочное</option>
                     </select><a class="trigger"></a>
                   </div>
                 </div>
@@ -163,7 +164,17 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
                   <div class="col-md-9">
                     <select type="text" id="course" name="UF_COURSE" required>
                       <option value="">Выбрать</option>
-                      <option value="1">Значение</option>
+                      <option vlaue="абитуриент/школьник">абитуриент/школьник</option>
+                      <option vlaue="1 курс">1 курс</option>
+                      <option vlaue="2 курс">2 курс</option>
+                      <option vlaue="3 курс">3 курс</option>
+                      <option vlaue="4 курс">4 курс</option>
+                      <option vlaue="5 курс">5 курс</option>
+                      <option vlaue="6 курс">6 курс</option>
+                      <option vlaue="1 курс магистратуры">1 курс магистратуры</option>
+                      <option vlaue="2 курс магистратуры">2 курс магистратуры</option>
+                      <option vlaue="аспирант">аспирант</option>
+                      <option vlaue="выпускник">выпускник</option>
                     </select><a class="trigger"></a>
                   </div>
                 </div>
