@@ -24986,7 +24986,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     initDay();
     $('body').addClass($.browser.platform);
     $('#modalInternship, #modalLeadership').on('shown.bs.modal', function() {
-      if ($(window).width > 540) {
+      if ($(window).width() > 540) {
         return $(this).find('.scroll').perfectScrollbar({
           suppressScrollX: true
         });

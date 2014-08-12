@@ -273,7 +273,7 @@
     initDay();
     $('body').addClass($.browser.platform);
     $('#modalInternship, #modalLeadership').on('shown.bs.modal', function() {
-      if ($(window).width > 540) {
+      if ($(window).width() > 540) {
         return $(this).find('.scroll').perfectScrollbar({
           suppressScrollX: true
         });

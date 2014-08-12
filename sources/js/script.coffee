@@ -225,7 +225,7 @@ $(document).ready ->
 	$('body').addClass $.browser.platform
 
 	$('#modalInternship, #modalLeadership').on 'shown.bs.modal', ()->
-		if $(window).width > 540
+		if $(window).width() > 540
 			$(this).find('.scroll').perfectScrollbar
 				suppressScrollX:true
 
