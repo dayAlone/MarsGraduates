@@ -13998,6 +13998,9 @@ svg path:hover {
   position: absolute;
   z-index: 22;
 }
+#day_events .close:focus {
+  outline: 0;
+}
 #day_events .close svg {
   width: 20px;
   height: 20px;
