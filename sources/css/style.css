@@ -4277,6 +4277,8 @@ svg path:hover {
 #day_events .close {
   top: 10px;
   right: 5px;
+  position: absolute;
+  z-index: 22;
 }
 #day_events .close svg {
   width: 20px;

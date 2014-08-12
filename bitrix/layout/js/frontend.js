@@ -24924,9 +24924,16 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
     var shown, side, x;
     shown = false;
     side = function(id) {
-      if (!$("#" + id).hasClass('open')) {
-        return $("#" + id).addClass('open').velocity("transition.slideLeftIn", {
-          duration: 300
+      if (!$("#" + id).is(':visible')) {
+        return $("#" + id).addClass('open').velocity({
+          properties: "transition.slideLeftIn",
+          options: {
+            duration: 300,
+            complete: function() {
+              $("#" + id + " input").focus();
+              return console.log($("#" + id + " input").length);
+            }
+          }
         });
       } else {
         return $("#" + id).velocity({
@@ -24944,6 +24951,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
       var id, second;
       id = $(this).attr('class');
       second = $("#nav .footer > a:not(." + id + ")").attr('class');
+      console.log($("#" + second).is(':visible'));
       if (!$("#" + id).is(':visible') && $("#" + second).is(':visible')) {
         side(second);
       }

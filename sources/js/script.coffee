@@ -165,10 +165,16 @@ $(document).ready ->
 
 	shown = false
 	side = (id)->
-		if !$("##{id}").hasClass 'open'
+		if !$("##{id}").is ':visible'
 			$("##{id}")
 				.addClass 'open'
-				.velocity("transition.slideLeftIn", { duration: 300})
+				.velocity
+					properties: "transition.slideLeftIn"
+					options:
+						duration: 300, 
+						complete: ()-> 
+							$("##{id} input").focus()
+							console.log $("##{id} input").length
 		else
 			$("##{id}")
 				.velocity
@@ -181,7 +187,8 @@ $(document).ready ->
 	$('#nav .maillist, #nav .question').click (e)->
 		id = $(this).attr('class')
 		second = $("#nav .footer > a:not(.#{id})").attr('class')
-		
+		console.log $("##{second}").is(':visible')
+
 		if !$("##{id}").is(':visible') && $("##{second}").is(':visible')
 			side(second)
 		side(id)
