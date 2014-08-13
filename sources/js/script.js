@@ -315,7 +315,7 @@
         if (data === "true") {
           return $("#subscribe-check").modal();
         } else {
-          return alert("Произошла ошибка: " + data);
+          return $("#subscribe-error").modal();
         }
       });
       return e.preventDefault();

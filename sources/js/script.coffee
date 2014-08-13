@@ -255,7 +255,7 @@ $(document).ready ->
 	        	if data == "true"
 	        		$("#subscribe-check").modal()
 	        	else
-	        		alert("Произошла ошибка: "+data)
+	        		$("#subscribe-error").modal()
 
 		e.preventDefault()
 

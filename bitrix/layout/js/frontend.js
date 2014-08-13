@@ -25028,7 +25028,7 @@ The biggest cause of both codebase bloat and codepath obfuscation is support for
         if (data === "true") {
           return $("#subscribe-check").modal();
         } else {
-          return alert("Произошла ошибка: " + data);
+          return $("#subscribe-error").modal();
         }
       });
       return e.preventDefault();
