@@ -217,7 +217,7 @@ $APPLICATION->SetTitle("О нас | Mars Graduates");
       <div class="elm"><a name="scheme" id="scheme" class="anchor"></a>
         <h2 class="count">Подразделения<?/*<span class="num">5</span>*/?></h2>
         <div class="scheme-description">
-          <span data-id="scheme-1">Маркетинг<br>(Marketing) </span><span data-id="scheme-2">Исследования и разработки (R&D)</span><span data-id="scheme-3">Финансы <br>(S&F)</span><span data-id="scheme-4">Управление персоналом <br>(P&O)</span><span data-id="scheme-5">Отдел поставок <br>(Supply)</span></div>
+          <span data-id="scheme-1">Маркетинг<br>(Marketing) </span><span data-id="scheme-2">Исследования и разработки (R&D)</span><span data-id="scheme-3">Финансы <br>(S&F)</span><span data-id="scheme-4">Управление персоналом <br>(P&O)</span><span data-id="scheme-5">Производство <br>(Supply)</span></div>
         <p class="center scheme">
           <?=svg('scheme')?>
           <span class="frame"></span>

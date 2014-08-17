@@ -249,13 +249,17 @@ $(document).ready ->
 		$('.select .city-list').velocity("transition.slideUpOut", { duration: 400, display: "none" })
 
 	$('#maillist form').submit (e)->
-		$.post '/include/mail.php',
-	        EMAIL: $(this).find('input[type=email]').val()
-	        (data) -> 
-	        	if data == "true"
-	        		$("#subscribe-check").modal()
-	        	else
-	        		$("#subscribe-error").modal()
+		$(this).find('input[type=email]').removeClass 'error'
+		if $(this).find('input[type=email]').val().length > 0
+			$.post '/include/mail.php',
+		        EMAIL: $(this).find('input[type=email]').val()
+		        (data) -> 
+		        	if data == "true"
+		        		$("#subscribe-check").modal()
+		        	else
+		        		$("#subscribe-error").modal()
+		else
+			$(this).find('input[type=email]').addClass 'error'
 
 		e.preventDefault()
 
@@ -395,7 +399,7 @@ $(document).ready ->
 	$('#question, #maillist').hoverIntent 
 		over: ()-> $(this).addClass 'open'
 		out: ()-> 
-			if($(window).window()>1024)
+			if($(window).width()>1024)
 				$(this).removeClass 'open'
 
 	$('form input[type=checkbox]').iCheck()

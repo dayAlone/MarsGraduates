@@ -56,7 +56,7 @@ if(isset($_REQUEST['ID']) && isset($_REQUEST['CONFIRM_CODE']))
   $subscr = new CSubscription;
   if(isset($_REQUEST["action"])){
     if($_REQUEST["action"]=="unsubscribe")
-      $subscr->Update($ID, array("ACTIVE"=>"N"));
+      $subscr->Delete($ID);
   }
   else
   {

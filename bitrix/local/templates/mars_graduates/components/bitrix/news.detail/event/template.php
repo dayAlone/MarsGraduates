@@ -133,16 +133,7 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
                 </div>
                 <label for="#phone">Мобильный телефон</label>
                 <input type="text" data-parsley-pattern="/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}/" id="phone" name="PERSONAL_MOBILE" value="<?=$data["PERSONAL_MOBILE"]?>" required data-parsley-trigger="change">
-                <label for="#work_place">Организация/вуз/место работы</label>
-                <input type="text" id="work_place" name="WORK_COMPANY" value="<?=$data["WORK_COMPANY"]?>" required>
-                <label for="#nation">Гражданство</label>
-                  
-                <select type="text" id="nation" name="UF_NATION" required>
-                  <option value="">Выбрать</option>
-                  <option value="Российская Федерация">Российская Федерация</option>
-                  <option value="Гражданин иностранного государства">Гражданин иностранного государства</option>
-                </select><a class="trigger"></a>
-            
+                
               </div>
               <div class="col-md-12 col-xs-6">
                 <div class="row">
@@ -200,6 +191,16 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
                   </div>
                   <div class="col-md-4">
                     <input type="text" id="year" name="UF_YEAR" value="<?=$data["UF_YEAR"]?>" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="#nation">Гражданство</label>
+                    <select type="text" id="nation" name="UF_NATION" required>
+                      <option value="">Выбрать</option>
+                      <option value="Российская Федерация">Российская Федерация</option>
+                      <option value="Гражданин иностранного государства">Гражданин иностранного государства</option>
+                    </select><a class="trigger"></a>
                   </div>
                 </div>
                 <label for="#info">Откуда вы узнали <br>про мероприятие?</label>

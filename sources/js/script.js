@@ -309,15 +309,20 @@
       });
     });
     $('#maillist form').submit(function(e) {
-      $.post('/include/mail.php', {
-        EMAIL: $(this).find('input[type=email]').val()
-      }, function(data) {
-        if (data === "true") {
-          return $("#subscribe-check").modal();
-        } else {
-          return $("#subscribe-error").modal();
-        }
-      });
+      $(this).find('input[type=email]').removeClass('error');
+      if ($(this).find('input[type=email]').val().length > 0) {
+        $.post('/include/mail.php', {
+          EMAIL: $(this).find('input[type=email]').val()
+        }, function(data) {
+          if (data === "true") {
+            return $("#subscribe-check").modal();
+          } else {
+            return $("#subscribe-error").modal();
+          }
+        });
+      } else {
+        $(this).find('input[type=email]').addClass('error');
+      }
       return e.preventDefault();
     });
     $(window).on('scroll touchmove gesturechange', function() {
@@ -483,7 +488,7 @@
         return $(this).addClass('open');
       },
       out: function() {
-        if ($(window).window() > 1024) {
+        if ($(window).width() > 1024) {
           return $(this).removeClass('open');
         }
       }

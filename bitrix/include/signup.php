@@ -9,7 +9,7 @@ foreach (explode('&', $_REQUEST['data']) as $chunk) {
         if(strlen(urldecode($param[1]))>0)
             $data[urldecode($param[0])] = urldecode($param[1]);
 }
-if(count($data)>=14)
+if(count($data)>=13)
 {
     setcookie("RegData", serialize($data), time()+3600, "/");
     $data["LOGIN"] = $data["EMAIL"];

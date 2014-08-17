@@ -11316,6 +11316,9 @@ svg path:hover {
   line-height: 12px;
   padding: 0 3px;
 }
+#maillist input[type=email].error {
+  border: 1px solid #f00;
+}
 #maillist input[type=submit] {
   margin: 0;
   float: right;
