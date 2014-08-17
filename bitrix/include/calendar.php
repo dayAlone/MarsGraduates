@@ -66,7 +66,29 @@
          false
       );
     ?>
-    <?/*
+    <?
+    $promo_filter = array(
+      ">=DATE_ACTIVE_TO" => date('Y-m-d')." 00:00:00",
+      "<=DATE_ACTIVE_FROM" => date('Y-m-d')." 23:59:59",
+    );
+    $APPLICATION->IncludeComponent("bitrix:news.list", "promo", 
+      array(
+      "IBLOCK_ID"            => 9,
+      "NEWS_COUNT"           => "0",
+      "SORT_BY1"             => "ID",
+      "SORT_ORDER1"          => "ASC",
+      "FILTER_NAME"          => "",
+      "PROPERTY_CODE"        => Array("LINK"),
+      "DETAIL_URL"           => "",
+      "CACHE_TYPE"           => "A",
+      "DISPLAY_PANEL"        => "N",
+      "DISPLAY_TOP_PAGER"    => "N",
+      "DISPLAY_BOTTOM_PAGER" => "N",
+      "SET_TITLE"            => "N"
+         ),
+         false
+      );
+    /*
   	<a class="star">
   		<?=svg('star')?>
     	<div class="text">ВИКТОРИНА <br>С СУПЕР-ПРИЗОМ!</div>

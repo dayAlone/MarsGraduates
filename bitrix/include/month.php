@@ -30,7 +30,6 @@
 	$events_filter = array(
 		">=PROPERTY_DATE" => date('Y-m-d', $start)." 00:00:00",
 		"<=PROPERTY_DATE" => date('Y-m-d', $end)." 23:59:59",
-
 	);
 
 	if($_COOKIE['city'])

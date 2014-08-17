@@ -28,7 +28,39 @@
     <div class="modal-content">
       <button type="button" class="close" data-dismiss="modal"><?=svg('close')?></button>
       <p class="center"><br>Этот адрес уже был зарегистрирован. <br>Спасибо!
-</p>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade message done" tabindex="-1" role="dialog" aria-labelledby="promo-modal" id="promo-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal"><?=svg('close')?></button>
+      <?
+        $promo_filter = array(
+          ">=DATE_ACTIVE_TO" => date('Y-m-d')." 00:00:00",
+          "<=DATE_ACTIVE_FROM" => date('Y-m-d')." 23:59:59",
+        );
+        $APPLICATION->IncludeComponent("bitrix:news.list", "promo_modal", 
+          array(
+          "IBLOCK_ID"            => 9,
+          "NEWS_COUNT"           => "0",
+          "SORT_BY1"             => "ID",
+          "SORT_ORDER1"          => "ASC",
+          "FILTER_NAME"          => "",
+          "PROPERTY_CODE"        => Array("LINK"),
+          "DETAIL_URL"           => "",
+          "CACHE_TYPE"           => "A",
+          "DISPLAY_PANEL"        => "N",
+          "DISPLAY_TOP_PAGER"    => "N",
+          "DISPLAY_BOTTOM_PAGER" => "N",
+          "SET_TITLE"            => "N"
+             ),
+             false
+          );
+        ?>
+      </p>
     </div>
   </div>
 </div>
