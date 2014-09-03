@@ -80,10 +80,12 @@
 			<div class="cell <?=(date('m', $start)!=$month?"inactive":"")?> <?=(in_array((int)date('N', $start), array(6,7))?"end":"")?> <?=(count($arResult['ITEMS'][date('j', $start)])>0?"event":"")?>">
 				<?if (date('m', $start)==$month):?>
 					<div class="num"><?=date('j',$start)?></div>
-				<?endif;?>
-				<?if(count($arResult['ITEMS'][date('j', $start)])>0):
+				<?endif;
+				if(date('m', $start)==$month):
+				?>
+				<?if(count($arResult['ITEMS'][date('j.m', $start)])>0):
 					
-					foreach ($arResult['ITEMS'][date('j', $start)] as $key => $event):
+					foreach ($arResult['ITEMS'][date('j.m', $start)] as $key => $event):
 						?>
 						<div class="event <?=$event['DIRECTION']?> <?=($key>0?"hidden":"")?>">
 							<a href="<?=$event['DETAIL_PAGE_URL']?>">
@@ -97,7 +99,9 @@
 				        </div>
 				<?
 					endforeach;
-				endif;?>
+					endif;
+				endif;
+				?>
 
 			</div>
 		<?

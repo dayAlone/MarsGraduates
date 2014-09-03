@@ -4,6 +4,7 @@
 	if(!$date)
 		$date = time();
 
+
 ?>
 <div id="day">
 	<button type="button" class="close" data-dismiss="modal"><?=svg('close')?></button>

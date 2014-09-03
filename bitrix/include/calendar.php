@@ -7,6 +7,13 @@
       $date = strtotime($APPLICATION->GetPageProperty('day'));
     else:
       $date = strtotime(date('d.m.Y'));
+      CModule::IncludeModule("iblock");
+      $arSelect = Array("ID", "PROPERTY_DATE");
+      $arFilter = Array("IBLOCK_ID"=>1, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y", ">=PROPERTY_DATE" => date('Y-m-d')." 00:00:00");
+      $res = CIBlockElement::GetList(Array("PROPERTY_DATE"=>"ASC"), $arFilter, $arSelect);
+      $arFields = $res->Fetch();
+      $date = strtotime($arFields['PROPERTY_DATE_VALUE']);
+      
     endif;
   ?>
 
@@ -77,7 +84,7 @@
       "NEWS_COUNT"           => "0",
       "SORT_BY1"             => "ID",
       "SORT_ORDER1"          => "ASC",
-      "FILTER_NAME"          => "",
+      "FILTER_NAME"          => array('NAME', 'DETAIL_TEXT', 'PREVIEW_TEXT'),
       "PROPERTY_CODE"        => Array("LINK"),
       "DETAIL_URL"           => "",
       "CACHE_TYPE"           => "A",

@@ -394,6 +394,7 @@
       return e.preventDefault();
     });
     $('input[name="PERSONAL_MOBILE"]').mask('+7 (000) 000 00 00');
+    $('input[name="PERSONAL_BIRTHDAY"]').mask('00.00.0000');
     $('.brands .title').click(function(e) {
       var x;
       $(this).parent().toggleClass('open');

@@ -7,10 +7,9 @@
 	}
 	else
 		$additional = 'target="_blank"';
-
 ?>
 <a class="star" href="<?=$link?>" <?=$additional?>>
 	<?=svg('star')?>
-	<div class="text">ВИКТОРИНА <br>С СУПЕР-ПРИЗОМ!</div>
+	<div class="text"><?=(strlen($item['~DETAIL_TEXT'])>0?$item['~DETAIL_TEXT']:"ВИКТОРИНА <br>С СУПЕР-ПРИЗОМ!")?></div>
 </a>
 <?endif;?>

@@ -23,10 +23,13 @@
 				if($ar_res = $res->GetNext()) {
 				  $res2 = CIBlockElement::GetProperty($ar_res['IBLOCK_ID'], $ar_res['ID'], "sort", "asc", array("CODE" => "IMAGE"));
     			  $image = $res2->Fetch();
+    			  $res3 = CIBlockElement::GetProperty($ar_res['IBLOCK_ID'], $ar_res['ID'], "sort", "asc", array("CODE" => "COLOR"));
+    			  $color = $res3->Fetch();
 				  $prop[$item["CODE"]] = array(
 						"NAME"        => $ar_res['NAME'],
 						"IMAGE"       => CFile::GetPath($ar_res['DETAIL_PICTURE']),
 						"TITLE_IMAGE" => CFile::GetPath($image["VALUE"]),
+						"COLOR"       => $color['VALUE_XML_ID']
 				  	);
 				}
 				break;
@@ -48,14 +51,19 @@
 	global $APPLICATION;
 	$APPLICATION->SetTitle($prop['TYPE'].": «".$arResult["NAME"]."»");
 	$APPLICATION->SetPageProperty('day', $prop['DATE']);
-	$APPLICATION->SetPageProperty('og:image', $prop['DIRECTION']['TITLE_IMAGE']);
-	$APPLICATION->SetPageProperty('description', $arResult["DETAIL_TEXT"]);
+	if(isset($prop['DIRECTION'])){
+		$APPLICATION->SetPageProperty('og:image', $prop['DIRECTION']['TITLE_IMAGE']);
+	}
+	else{
+		$APPLICATION->SetPageProperty('og:image', $arResult['PREVIEW_PICTURE']['SRC']);
+	}
+	$APPLICATION->SetPageProperty('description', strip_tags($arResult["DETAIL_TEXT"]));
 	$this->SetViewTarget('day');
 	      require_once($_SERVER['DOCUMENT_ROOT'].'/include/calendar.php');
 	$this->EndViewTarget();
 	$this->SetViewTarget('header');
 			
-	      ?><link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME'].$prop['DIRECTION']['TITLE_IMAGE']?>" /><?
+	      ?><link rel="image_src" href="http://<?=$_SERVER['SERVER_NAME'].(isset($prop['DIRECTION'])?$prop['DIRECTION']['TITLE_IMAGE']:$arResult['PREVIEW_PICTURE']['SRC'])?>" /><?
 	$this->EndViewTarget();
 	
 ?>

@@ -324,6 +324,8 @@ $(document).ready ->
 
 
 	$('input[name="PERSONAL_MOBILE"]').mask('+7 (000) 000 00 00');
+
+	$('input[name="PERSONAL_BIRTHDAY"]').mask('00.00.0000');
 	
 	$('.brands .title').click (e)->
 		$(this).parent().toggleClass('open')

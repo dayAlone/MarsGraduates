@@ -392,12 +392,23 @@ a, svg g, svg path
 					padding 8px 5px 3px
 					.win &
 						padding-bottom 6px
+				&.no
+					padding 0
+					min-height 0
+					full-width()
+					margin-top -20px
+					
 				&.big
 					full-width()
-					
 					color white
 					font-size 23px
 					line-height 24px
+					&.no
+						min-height 0
+						margin-bottom 50px
+						margin-top -30px
+						.win &
+							margin-top -38px
 					padding 6px 0 3px 6px
 					position relative
 					margin-bottom 10px
@@ -525,14 +536,19 @@ a, svg g, svg path
 							color white
 					svg
 						position absolute
+						transform-origin center center
+						transition-property(all)
+						transition-duration(.3s)
 						left 0
 						margin-top -2px
 						width 30px
 						top 50%
+						animation zoom 1s linear infinite
 						transform translateY(-50%)
 						.color &
 							path
 								fill white
+					
 		#cal-day
 			margin-top 0
 		.day
@@ -1453,7 +1469,7 @@ a, svg g, svg path
 						float left
 						position relative
 						min-height 0 
-						width 45%
+						width 44%
 						margin-right 20px
 						color white
 						padding 2px 5px
@@ -2079,14 +2095,16 @@ a, svg g, svg path
 						color #9ab0b8
 				&:hover
 					.num
-						color #399cc0
+						color white
 					&.event
 						.num
 							color white !important
 					.event
 						.name
 							color white
-						
+						background #316b9c
+						.city, .type, .more
+							color #20bcfc
 						&.green
 							background #46a73e
 							.city, .type, .more
@@ -2191,6 +2209,7 @@ a, svg g, svg path
 					full-width()
 					font-size 16px
 					font-weight 500
+					line-height 18px
 				.block
 					position absolute
 					right 0
@@ -2270,7 +2289,6 @@ a, svg g, svg path
 				line-height 32px
 				min-height 30px
 				font-size 25px
-				white-space no-wrap
 				font-weight normal
 				full-width()
 				span
@@ -3214,3 +3232,10 @@ a, svg g, svg path
 body
 	display block !important
 
+@keyframes zoom
+	0%
+		transform translateY(-50%) scale(1)
+	50%
+		transform translateY(-50%) scale(1.1)
+	100%
+		transform translateY(-50%) scale(1)

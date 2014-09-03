@@ -9,7 +9,8 @@ $APPLICATION->SetPageProperty('body_class', "index");
     <div class="col">
       <div class="title"><a href="/about/">О нас</a></div>
       <div class="content">
-      	<a href="/about/#go-inside">Mars Inside<br><span class="flag">Видео Mars СНГ<?=svg('flag')?></span></a>
+      	<a href="/about/#go-inside">Mars Inside</a>
+        <a href="/about/" class="no"><span class="flag">Видео Mars СНГ<?=svg('flag')?></span></a>
       	<a href="/about/#go-pr">Наши 5 Принципов</a>
       	<a href="/about/#go-history">История Mars</a>
       	<a href="/about/#go-brands">Бренды и сегменты Mars</a>
@@ -44,7 +45,20 @@ $APPLICATION->SetPageProperty('body_class', "index");
         <div class="title"><a href="/academy/">Mars academy</a></div>
         <div class="content">
 	        <a href="/academy/#go-conference" class="big"><span>Конференции</span></a>
-	        <a href="/academy/#go-lectures" class="big"><span>Лекции и мастер-классы</span></a>
+          <a href="/events/fmcgsecrets/" class="big no">
+            <span class="flag">
+              <span>Внимание, открыта<br> регистрация!</span>
+              <?=svg('flag')?>
+            </span>
+          </a>
+	        <a href="/academy/#go-lectures" class="big"><span>Лекции и мастер-классы</span>
+          </a>
+          <a href="/academy/#go-lectures" class="big no">
+            <span class="flag">
+              <span>Внимание, открыта<br> регистрация!</span>
+              <?=svg('flag')?>
+            </span>
+          </a>
 	        <a href="/academy/#go-games" class="big"><span>Бизнес-игры <br>и кейс-чемпионаты</span></a>
         </div>
       </div>

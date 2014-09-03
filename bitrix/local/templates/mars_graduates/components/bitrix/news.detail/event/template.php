@@ -4,15 +4,20 @@ $prop = &$arResult["PROPS"];
 $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
 ?>
 <div id="event" style="background-image: url(/layout/images/event.jpg)">
-
-  <img src="<?=$prop['DIRECTION']['IMAGE']?>" alt="" class="image">
+  <? if(isset($prop['DIRECTION'])):?>
+    <img src="<?=$prop['DIRECTION']['IMAGE']?>" alt="" class="image">
+  <?else:?>
+    <img src="<?=$arResult['DETAIL_PICTURE']['SRC']?>" alt="" class="image">
+  <?endif;?>
   <div class="container">
     <div class="content">
-      <div class="section orange"><?=$prop['DIRECTION']['NAME']?></div>
+      <? if(isset($prop['DIRECTION'])):?>
+        <div class="section <?=$prop['DIRECTION']['COLOR']?>"><?=$prop['DIRECTION']['NAME']?></div>
+      <? endif;?>
       <div class="type"><?=$prop['TYPE']?></div>
       <div class="name">«<?=$arResult['NAME']?>»</div>
       <div class="description">
-        Время: <?=date('H:m', strtotime($prop['DATE']))?><br>
+        Время: <?=date('H:i', strtotime($prop['DATE']))?><br>
         Место: <?=$prop['ADDRESS']." / "?><strong><?=$prop['CITY']?></strong>
       </div>
       <div class="tools">
@@ -95,13 +100,13 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
           	<?
           		$data = unserialize($_COOKIE["RegData"]);
           	?>
-          	<p>Чтобы зарегистрироваться на это событие, заполните анкету. Информация о Вас будет доступна только организаторам этого события, и больше никому. <br> <span style="color: red">Все поля обязательны для заполнения. Регистрация бесплатна.</span></p>
+          	<p>Чтобы зарегистрироваться на это событие, заполните анкету. Информация о Вас будет доступна только организаторам этого события, и больше никому. <br> <span style="color: red">Все поля обязательны для заполнения. </span></p>
           	<input type="hidden" name="GROUP_ID" value="<?=$prop["GROUP"]?>">
             <div class="row">
               <div class="col-md-12 col-xs-6">
                 <div class="row">
                   <div class="col-md-3">
-                    <label for="#email">E-mail</label>
+                    <label for="#email"><nobr>E-mail</nobr></label>
                   </div>
                   <div class="col-md-9">
                     <input type="email" id="email" name="EMAIL" value="<?=$data["EMAIL"]?>" required data-parsley-trigger="change">
@@ -131,6 +136,16 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
                     <input type="text" id="second_name" name="SECOND_NAME" value="<?=$data["SECOND_NAME"]?>" required>
                   </div>
                 </div>
+                <? if($arResult['CODE']=='fmcgsecrets'):?>
+                  <div class="row">
+                    <div class="col-md-7">
+                      <label for="#birthday">Год рождения</label>
+                    </div>
+                    <div class="col-md-5">
+                      <input type="text" id="birthday" name="UF_BYEAR" value="<?=$data["UF_BYEAR"]?>" required>
+                    </div>
+                  </div>
+                <? endif;?>
                 <label for="#phone">Мобильный телефон</label>
                 <input type="text" data-parsley-pattern="/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}/" id="phone" name="PERSONAL_MOBILE" value="<?=$data["PERSONAL_MOBILE"]?>" required data-parsley-trigger="change">
                 
@@ -203,6 +218,56 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
                     </select><a class="trigger"></a>
                   </div>
                 </div>
+              <? if($arResult['CODE']=='fmcgsecrets'):?>
+                <div class="row">
+                  <div class="col-md-12">
+                  <label for="#city">Город</label>
+                  <input type="text" id="city" name="PERSONAL_CITY" value="<?=$data["PERSONAL_CITY"]?>" required>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="#cases">Решаешь ли ты кейсы?</label>
+                    <select type="text" id="cases" name="UF_CASES" required>
+                      <option value="">Выбрать</option>
+                      <option value="нет, не решаю">нет, не решаю </option>
+                      <option value="да, решаю">да, решаю </option>
+                      <option value="да, решаю и участвовал в кейс-чемпионатах">да, решаю и участвовал в кейс-чемпионатах </option>
+                    </select><a class="trigger"></a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="#fmcg"> Участвовал ли ты раньше в «Тайны FMCG»?</label>
+                    <select type="text" id="fmcg" name="UF_FMCG" required>
+                      <option value="">Выбрать</option>
+                      <option value="Y">да, участвовал</option>
+                      <option value="N">нет</option>
+                    </select><a class="trigger"></a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="#why">Почему тебе интересен Mars?</label>
+                    <input type="text" id="why" name="UF_WHY" value="<?=$data["UF_WHY"]?>">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for="#english">Уровень владения английским языком</label>
+                    <select type="text" id="english" name="UF_ENGLISH" required>
+                      <option value="">Выбрать</option>
+                      <option value="не владею">не владею</option>
+                      <option value="начинающий/beginner">начинающий/beginner</option>
+                      <option value="средний/intermediate">средний/intermediate</option>
+                      <option value="выше среднего/upper-intermediate">выше среднего/upper-intermediate</option>
+                      <option value="продвинутый/advanced">продвинутый/advanced</option>
+                    </select><a class="trigger"></a>
+                  </div>
+                </div>
+              <? endif;?>
+              <div class="row">
+                  <div class="col-md-12">
                 <label for="#info">Откуда вы узнали <br>про мероприятие?</label>
                 <input type="text" id="info" name="UF_INFO" value="<?=$data["UF_INFO"]?>" required>
               </div>
@@ -222,4 +287,6 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>

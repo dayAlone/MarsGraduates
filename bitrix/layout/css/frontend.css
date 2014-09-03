@@ -10281,6 +10281,14 @@ svg path:hover {
 .win #cal-day a.flag {
   padding-bottom: 6px;
 }
+#main .col .content a.no,
+#cal-day a.no {
+  padding: 0;
+  min-height: 0;
+  float: left;
+  width: 100%;
+  margin-top: -20px;
+}
 #main .col .content a.big,
 #cal-day a.big {
   float: left;
@@ -10298,6 +10306,16 @@ svg path:hover {
   background: linear-gradient(to left, #0b3360 0%, #175092 100%);
   min-height: 70px;
   line-height: 72px;
+}
+#main .col .content a.big.no,
+#cal-day a.big.no {
+  min-height: 0;
+  margin-bottom: 50px;
+  margin-top: -30px;
+}
+.win #main .col .content a.big.no,
+.win #cal-day a.big.no {
+  margin-top: -38px;
 }
 #main .col .content a.big.leadership,
 #cal-day a.big.leadership {
@@ -10499,10 +10517,30 @@ svg path:hover {
 #main .col .content a.star svg,
 #cal-day a.star svg {
   position: absolute;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -o-transform-origin: center center;
+  -ms-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -o-transition-property: all;
+  -ms-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
   left: 0;
   margin-top: -2px;
   width: 30px;
   top: 50%;
+  -webkit-animation: zoom 1s linear infinite;
+  -moz-animation: zoom 1s linear infinite;
+  -o-animation: zoom 1s linear infinite;
+  -ms-animation: zoom 1s linear infinite;
+  animation: zoom 1s linear infinite;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
   -o-transform: translateY(-50%);
@@ -11755,7 +11793,7 @@ svg path:hover {
   float: left;
   position: relative;
   min-height: 0;
-  width: 45%;
+  width: 44%;
   margin-right: 20px;
   color: #fff;
   padding: 2px 5px;
@@ -12659,13 +12697,21 @@ svg path:hover {
   color: #9ab0b8;
 }
 #page.month .table .cell:hover .num {
-  color: #399cc0;
+  color: #fff;
 }
 #page.month .table .cell:hover.event .num {
   color: #fff !important;
 }
+#page.month .table .cell:hover .event {
+  background: #316b9c;
+}
 #page.month .table .cell:hover .event .name {
   color: #fff;
+}
+#page.month .table .cell:hover .event .city,
+#page.month .table .cell:hover .event .type,
+#page.month .table .cell:hover .event .more {
+  color: #20bcfc;
 }
 #page.month .table .cell:hover .event.green {
   background: #46a73e;
@@ -12839,6 +12885,7 @@ svg path:hover {
   width: 100%;
   font-size: 16px;
   font-weight: 500;
+  line-height: 18px;
 }
 #page.event .speakers .item .block {
   position: absolute;
@@ -12947,7 +12994,6 @@ svg path:hover {
   line-height: 32px;
   min-height: 30px;
   font-size: 25px;
-  white-space: nowrap;
   font-weight: normal;
   float: left;
   width: 100%;
@@ -14145,4 +14191,96 @@ svg path:hover {
 }
 body {
   display: block !important;
+}
+@-moz-keyframes zoom {
+  0% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translateY(-50%) scale(1.1);
+    -moz-transform: translateY(-50%) scale(1.1);
+    -o-transform: translateY(-50%) scale(1.1);
+    -ms-transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1);
+  }
+  100% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+}
+@-webkit-keyframes zoom {
+  0% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translateY(-50%) scale(1.1);
+    -moz-transform: translateY(-50%) scale(1.1);
+    -o-transform: translateY(-50%) scale(1.1);
+    -ms-transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1);
+  }
+  100% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+}
+@-o-keyframes zoom {
+  0% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translateY(-50%) scale(1.1);
+    -moz-transform: translateY(-50%) scale(1.1);
+    -o-transform: translateY(-50%) scale(1.1);
+    -ms-transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1);
+  }
+  100% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+}
+@keyframes zoom {
+  0% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    -webkit-transform: translateY(-50%) scale(1.1);
+    -moz-transform: translateY(-50%) scale(1.1);
+    -o-transform: translateY(-50%) scale(1.1);
+    -ms-transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1);
+  }
+  100% {
+    -webkit-transform: translateY(-50%) scale(1);
+    -moz-transform: translateY(-50%) scale(1);
+    -o-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
+    transform: translateY(-50%) scale(1);
+  }
 }

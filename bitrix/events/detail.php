@@ -8,7 +8,7 @@ $APPLICATION->IncludeComponent("bitrix:news.detail","event",Array(
     "ELEMENT_CODE"  => $_REQUEST["ELEMENT_CODE"],
     "CHECK_DATES"   => "N",
     "CACHE_TYPE"           => "N",
-    "FIELD_CODE"    => Array("ID"),
+    "FIELD_CODE"    => Array("ID", "PREVIEW_PICTURE", "DETAIL_PICTURE"),
     "SET_TITLE"     => "N",
     "PROPERTY_CODE" => Array("CITY", "DATE", "DIRECTION","DIRECTION.NAME", "SPEAKERS", "TYPE", "GROUP", "ADDRESS", "SHEDULE", "IMAGE"),
 )

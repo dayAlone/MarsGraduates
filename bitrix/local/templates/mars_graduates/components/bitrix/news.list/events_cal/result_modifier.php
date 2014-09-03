@@ -2,7 +2,7 @@
 	$items = array();
 
 	foreach ($arResult['ITEMS'] as $key => &$item):
-		$item['DATE'] = date('j', strtotime($item['PROPERTIES']['DATE']['VALUE']));
+		$item['DATE'] = date('j.m', strtotime($item['PROPERTIES']['DATE']['VALUE']));
 
 		# Город мероприятия
 		$raw = CIBlockElement::GetProperty($item['PROPERTIES']['CITY']['LINK_IBLOCK_ID'], $item['PROPERTIES']['CITY']['VALUE'], array("sort" => "asc"), Array("CODE"=>"SHORT"));
