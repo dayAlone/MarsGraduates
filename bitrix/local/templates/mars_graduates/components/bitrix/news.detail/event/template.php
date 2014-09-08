@@ -1,4 +1,4 @@
-<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+  <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 $prop = &$arResult["PROPS"];
 $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
@@ -56,8 +56,8 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
       	<div class="item">
           <div style="background-image: url(<?=$item['IMAGE']?>)" class="image"></div>
           <div class="block">
-            <div class="name"><?=$item['NAME']?></div>
-            <div class="info"><?=$item['TEXT']?></div>
+            <div class="name" style="-webkit-user-select: initial;"><?=$item['NAME']?></div>
+            <div class="info" style="-webkit-user-select: initial;"><?=$item['TEXT']?></div>
           </div>
         </div>
         <?endforeach;?>

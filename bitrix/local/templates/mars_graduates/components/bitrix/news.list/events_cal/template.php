@@ -77,7 +77,7 @@
 		<?
 		$weeks++;
 		endif;?>
-			<div class="cell <?=(date('m', $start)!=$month?"inactive":"")?> <?=(in_array((int)date('N', $start), array(6,7))?"end":"")?> <?=(count($arResult['ITEMS'][date('j', $start)])>0?"event":"")?>">
+			<div class="cell <?=(date('m', $start)!=$month?"inactive":"")?> <?=(count($arResult['ITEMS'][date('j.m', $start)])>0?"event":"")?> <?=(in_array((int)date('N', $start), array(6,7))?"end":"")?> <?=(count($arResult['ITEMS'][date('j', $start)])>0?"event":"")?>">
 				<?if (date('m', $start)==$month):?>
 					<div class="num"><?=date('j',$start)?></div>
 				<?endif;
@@ -93,7 +93,7 @@
 					            <div class="type"><?=$event['TYPE']?></div>
 					            <div class="name">«<?=$event['NAME']?>»</div>
 				            </a>
-				            <?if(count($arResult['ITEMS'][date('j', $start)])>1 && $key==0):?>
+				            <?if(count($arResult['ITEMS'][date('j.m', $start)])>1 && $key==0):?>
 								<a href="#" data-date="<?=date('d.m.Y', $start)?>" class="more">еще одно событие</a>
 							<?endif;?>
 				        </div>

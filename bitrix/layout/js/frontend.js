@@ -11993,7 +11993,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.3.6
+ Version: 1.3.7
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -12027,19 +12027,25 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
             _.defaults = {
                 accessibility: true,
+                appendArrows: $(element),
                 arrows: true,
+                asNavFor: null,
+                prevArrow: '<button type="button" data-role="none" class="slick-prev">Previous</button>',
+                nextArrow: '<button type="button" data-role="none" class="slick-next">Next</button>',
                 autoplay: false,
                 autoplaySpeed: 3000,
                 centerMode: false,
                 centerPadding: '50px',
                 cssEase: 'ease',
                 customPaging: function(slider, i) {
-                    return '<button type="button">' + (i + 1) + '</button>';
+                    return '<button type="button" data-role="none">' + (i + 1) + '</button>';
                 },
                 dots: false,
+                dotsClass: 'slick-dots',
                 draggable: true,
                 easing: 'linear',
                 fade: false,
+                focusOnSelect: false,
                 infinite: true,
                 lazyLoad: 'ondemand',
                 onBeforeChange: null,
@@ -12047,7 +12053,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                 onInit: null,
                 onReInit: null,
                 pauseOnHover: true,
+                pauseOnDotsHover: false,
                 responsive: null,
+                rtl: false,
                 slide: 'div',
                 slidesToShow: 1,
                 slidesToScroll: 1,
@@ -12061,6 +12069,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
             _.initials = {
                 animating: false,
+                dragging: false,
                 autoPlayTimer: null,
                 currentSlide: 0,
                 currentLeft: null,
@@ -12123,6 +12132,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             _.autoPlay = $.proxy(_.autoPlay, _);
             _.autoPlayClear = $.proxy(_.autoPlayClear, _);
             _.changeSlide = $.proxy(_.changeSlide, _);
+            _.selectHandler = $.proxy(_.selectHandler, _);
             _.setPosition = $.proxy(_.setPosition, _);
             _.swipeHandler = $.proxy(_.swipeHandler, _);
             _.dragHandler = $.proxy(_.dragHandler, _);
@@ -12130,6 +12140,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             _.autoPlayIterator = $.proxy(_.autoPlayIterator, _);
 
             _.instanceUid = instanceUid++;
+
+            // A simple way to check for HTML strings
+            // Strict HTML recognition (must start with <)
+            // Extracted from jQuery v1.11 source
+            _.htmlExpr = /^(?:\s*(<[\w\W]+>)[^>]*)$/;
 
             _.init();
 
@@ -12170,9 +12185,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         _.$slides = _.$slideTrack.children(this.options.slide);
 
-        _.$slideTrack.children(this.options.slide).remove();
+        _.$slideTrack.children(this.options.slide).detach();
 
         _.$slideTrack.append(_.$slides);
+
+        _.$slides.each(function(index, element) {
+            $(element).attr("index",index);
+        });
 
         _.$slidesCache = _.$slides;
 
@@ -12180,11 +12199,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     };
 
-    Slick.prototype.animateSlide = function(targetLeft,
-        callback) {
+    Slick.prototype.animateSlide = function(targetLeft, callback) {
 
         var animProps = {}, _ = this;
 
+        if (_.options.rtl === true && _.options.vertical === false) {
+            targetLeft = -targetLeft;
+        }
         if (_.transformsEnabled === false) {
             if (_.options.vertical === false) {
                 _.$slideTrack.animate({
@@ -12298,6 +12319,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     Slick.prototype.autoPlayIterator = function() {
 
         var _ = this;
+        var asNavFor = _.options.asNavFor != null ? $(_.options.asNavFor).getSlick() : null;
 
         if (_.options.infinite === false) {
 
@@ -12308,8 +12330,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                     _.direction = 0;
                 }
 
-                _.slideHandler(_.currentSlide + _.options
-                    .slidesToScroll);
+                _.slideHandler(_.currentSlide + _.options.slidesToScroll);
+                if(asNavFor != null) asNavFor.slideHandler(asNavFor.currentSlide + asNavFor.options.slidesToScroll);
 
             } else {
 
@@ -12319,14 +12341,15 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
                 }
 
-                _.slideHandler(_.currentSlide - _.options
-                    .slidesToScroll);
+                _.slideHandler(_.currentSlide - _.options.slidesToScroll);
+                if(asNavFor != null) asNavFor.slideHandler(asNavFor.currentSlide - asNavFor.options.slidesToScroll);
 
             }
 
         } else {
 
             _.slideHandler(_.currentSlide + _.options.slidesToScroll);
+            if(asNavFor != null) asNavFor.slideHandler(asNavFor.currentSlide + asNavFor.options.slidesToScroll);
 
         }
 
@@ -12338,12 +12361,16 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         if (_.options.arrows === true && _.slideCount > _.options.slidesToShow) {
 
-            _.$prevArrow = $(
-                '<button type="button" class="slick-prev">Previous</button>').appendTo(
-                _.$slider);
-            _.$nextArrow = $(
-                '<button type="button" class="slick-next">Next</button>').appendTo(
-                _.$slider);
+            _.$prevArrow = $(_.options.prevArrow);
+            _.$nextArrow = $(_.options.nextArrow);
+
+            if (_.htmlExpr.test(_.options.prevArrow)) {
+                _.$prevArrow.appendTo(_.options.appendArrows);
+            }
+
+            if (_.htmlExpr.test(_.options.nextArrow)) {
+                _.$nextArrow.appendTo(_.options.appendArrows);
+            }
 
             if (_.options.infinite !== true) {
                 _.$prevArrow.addClass('slick-disabled');
@@ -12360,7 +12387,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
 
-            dotString = '<ul class="slick-dots">';
+            dotString = '<ul class="' + _.options.dotsClass + '">';
 
             for (i = 0; i <= _.getDotCount(); i += 1) {
                 dotString += '<li>' + _.options.customPaging.call(this, _, i) + '</li>';
@@ -12386,6 +12413,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             ':not(.slick-cloned)').addClass(
             'slick-slide');
         _.slideCount = _.$slides.length;
+
+        _.$slides.each(function(index, element) {
+            $(element).attr("index",index);
+        });
+
         _.$slidesCache = _.$slides;
 
         _.$slider.addClass('slick-slider');
@@ -12399,7 +12431,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         _.$slideTrack.css('opacity', 0);
 
         if (_.options.centerMode === true) {
-            _.options.infinite = true;
             _.options.slidesToScroll = 1;
             if (_.options.slidesToShow % 2 === 0) {
                 _.options.slidesToShow = 3;
@@ -12414,11 +12445,13 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         _.buildDots();
 
+        _.updateDots();
+
         if (_.options.accessibility === true) {
             _.$list.prop('tabIndex', 0);
         }
 
-        _.setSlideClasses(0);
+        _.setSlideClasses(typeof this.currentSlide === 'number' ? this.currentSlide : 0);
 
         if (_.options.draggable === true) {
             _.$list.addClass('draggable');
@@ -12451,14 +12484,14 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                     if (targetBreakpoint !== _.activeBreakpoint) {
                         _.activeBreakpoint =
                             targetBreakpoint;
-                        _.options = $.extend({}, _.defaults,
+                        _.options = $.extend({}, _.options,
                             _.breakpointSettings[
                                 targetBreakpoint]);
                         _.refresh();
                     }
                 } else {
                     _.activeBreakpoint = targetBreakpoint;
-                    _.options = $.extend({}, _.defaults,
+                    _.options = $.extend({}, _.options,
                         _.breakpointSettings[
                             targetBreakpoint]);
                     _.refresh();
@@ -12466,7 +12499,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             } else {
                 if (_.activeBreakpoint !== null) {
                     _.activeBreakpoint = null;
-                    _.options = $.extend({}, _.defaults,
+                    _.options = $.extend({}, _.options,
                         _.originalSettings);
                     _.refresh();
                 }
@@ -12478,23 +12511,35 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     Slick.prototype.changeSlide = function(event) {
 
-        var _ = this;
+        var _ = this,
+            $target = $(event.target);
+        var asNavFor = _.options.asNavFor != null ? $(_.options.asNavFor).getSlick() : null;
+
+        // If target is a link, prevent default action.
+        $target.is('a') && event.preventDefault();
 
         switch (event.data.message) {
 
             case 'previous':
-                _.slideHandler(_.currentSlide - _.options
+                if (_.slideCount > _.options.slidesToShow) {
+                  _.slideHandler(_.currentSlide - _.options
                     .slidesToScroll);
+                if(asNavFor != null) asNavFor.slideHandler(asNavFor.currentSlide - asNavFor.options.slidesToScroll);
+                }
                 break;
 
             case 'next':
-                _.slideHandler(_.currentSlide + _.options
+                if (_.slideCount > _.options.slidesToShow) {
+                  _.slideHandler(_.currentSlide + _.options
                     .slidesToScroll);
+                if(asNavFor != null)  asNavFor.slideHandler(asNavFor.currentSlide + asNavFor.options.slidesToScroll);
+                }
                 break;
 
             case 'index':
-                _.slideHandler($(event.target).parent().index() * _.options.slidesToScroll);
-                break;
+                var index = $(event.target).parent().index() * _.options.slidesToScroll;
+                _.slideHandler(index);
+                if(asNavFor != null)  asNavFor.slideHandler(index);                break;
 
             default:
                 return false;
@@ -12518,7 +12563,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             _.$prevArrow.remove();
             _.$nextArrow.remove();
         }
-        _.$slides.unwrap().unwrap();
+        if (_.$slides.parent().hasClass('slick-track')) {
+            _.$slides.unwrap().unwrap();
+        }
         _.$slides.removeClass(
             'slick-slide slick-active slick-visible').removeAttr('style');
         _.$slider.removeClass('slick-slider');
@@ -12526,6 +12573,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         _.$list.off('.slick');
         $(window).off('.slick-' + _.instanceUid);
+        $(document).off('.slick-' + _.instanceUid);
+        
     };
 
     Slick.prototype.disableTransition = function(slide) {
@@ -12587,7 +12636,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
             _.unload();
 
-            _.$slideTrack.children(this.options.slide).remove();
+            _.$slideTrack.children(this.options.slide).detach();
 
             _.$slidesCache.filter(filter).appendTo(_.$slideTrack);
 
@@ -12655,8 +12704,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             }
         }
 
-        if (_.options.centerMode === true) {
+        if (_.options.centerMode === true && _.options.infinite === true) {
             _.slideOffset += _.slideWidth * Math.floor(_.options.slidesToShow / 2) - _.slideWidth;
+        } else if (_.options.centerMode === true) {
+            _.slideOffset += _.slideWidth * Math.floor(_.options.slidesToShow / 2);
         }
 
         if (_.options.vertical === false) {
@@ -12715,6 +12766,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             }, _.changeSlide);
         }
 
+        if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.options.autoplay === true) {
+            $('li', _.$dots)
+                .on('mouseenter.slick', _.autoPlayClear)
+                .on('mouseleave.slick', _.autoPlay);
+        }
+
     };
 
     Slick.prototype.initializeEvents = function() {
@@ -12744,7 +12801,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         }
 
         if(_.options.accessibility === true) {
-            _.$list.on('keydown.slick', _.keyHandler); 
+            _.$list.on('keydown.slick', _.keyHandler);
+        }
+
+        if(_.options.focusOnSelect === true) {
+            $(_.options.slide, _.$slideTrack).on('click.slick', _.selectHandler);
         }
 
         $(window).on('orientationchange.slick.slick-' + _.instanceUid, function() {
@@ -12753,7 +12814,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         });
 
         $(window).on('resize.slick.slick-' + _.instanceUid, function() {
-            if ($(window).width !== _.windowWidth) {
+            if ($(window).width() !== _.windowWidth) {
                 clearTimeout(_.windowDelay);
                 _.windowDelay = window.setTimeout(function() {
                     _.windowWidth = $(window).width();
@@ -12764,6 +12825,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         });
 
         $(window).on('load.slick.slick-' + _.instanceUid, _.setPosition);
+        $(document).on('ready.slick.slick-' + _.instanceUid, _.setPosition);
 
     };
 
@@ -12817,7 +12879,21 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         var _ = this,
             loadRange, cloneRange, rangeStart, rangeEnd;
 
-        if (_.options.centerMode === true) {
+        function loadImages(imagesScope) {
+            $('img[data-lazy]', imagesScope).each(function() {
+                var image = $(this),
+                    imageSource = $(this).attr('data-lazy') + "?" + new Date().getTime();
+
+                image
+                  .load(function() { image.animate({ opacity: 1 }, 200); })
+                  .css({ opacity: 0 })
+                  .attr('src', imageSource)
+                  .removeAttr('data-lazy')
+                  .removeClass('slick-loading');
+            });
+        }
+
+        if (_.options.centerMode === true || _.options.fade === true ) {
             rangeStart = _.options.slidesToShow + _.currentSlide - 1;
             rangeEnd = rangeStart + _.options.slidesToShow + 2;
         } else {
@@ -12826,27 +12902,18 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         }
 
         loadRange = _.$slider.find('.slick-slide').slice(rangeStart, rangeEnd);
+        loadImages(loadRange);
 
-        $('img[data-lazy]', loadRange).not('[src]').each(function() {
-            $(this).css({opacity: 0}).attr('src', $(this).attr('data-lazy')).removeClass('slick-loading').load(function(){
-                $(this).animate({ opacity: 1 }, 200);
-            });
-        });
-
+          if (_.slideCount == 1){
+              cloneRange = _.$slider.find('.slick-slide')
+              loadImages(cloneRange)
+          }else
         if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
             cloneRange = _.$slider.find('.slick-cloned').slice(0, _.options.slidesToShow);
-            $('img[data-lazy]', cloneRange).not('[src]').each(function() {
-                $(this).css({opacity: 0}).attr('src', $(this).attr('data-lazy')).removeClass('slick-loading').load(function(){
-                    $(this).animate({ opacity: 1 }, 200);
-                });
-            });
+            loadImages(cloneRange)
         } else if (_.currentSlide === 0) {
             cloneRange = _.$slider.find('.slick-cloned').slice(_.options.slidesToShow * -1);
-            $('img[data-lazy]', cloneRange).not('[src]').each(function() {
-                $(this).css({opacity: 0}).attr('src', $(this).attr('data-lazy')).removeClass('slick-loading').load(function(){
-                    $(this).animate({ opacity: 1 }, 200);
-                });
-            });
+            loadImages(cloneRange);
         }
 
     };
@@ -12896,11 +12963,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         var _ = this,
             imgCount, targetImage;
 
-        imgCount = $('img[data-lazy]').not('[src]').length;
+        imgCount = $('img[data-lazy]').length;
 
         if (imgCount > 0) {
-            targetImage = $($('img[data-lazy]', _.$slider).not('[src]').get(0));
+            targetImage = $('img[data-lazy]', _.$slider).first();
             targetImage.attr('src', targetImage.attr('data-lazy')).removeClass('slick-loading').load(function() {
+                targetImage.removeAttr('data-lazy');
                 _.progressiveLazyLoad();
             });
         }
@@ -12909,12 +12977,14 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     Slick.prototype.refresh = function() {
 
-        var _ = this;
+        var _ = this,
+            currentSlide = _.currentSlide;
 
         _.destroy();
 
         $.extend(_, _.initials);
 
+        _.currentSlide = currentSlide;
         _.init();
 
     };
@@ -12948,6 +13018,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         _.initDotEvents();
 
+        if(_.options.focusOnSelect === true) {
+            $(_.options.slide, _.$slideTrack).on('click.slick', _.selectHandler);
+        }
+
         _.setSlideClasses(0);
 
         _.setPosition();
@@ -12979,7 +13053,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         _.$slides = _.$slideTrack.children(this.options.slide);
 
-        _.$slideTrack.children(this.options.slide).remove();
+        _.$slideTrack.children(this.options.slide).detach();
 
         _.$slideTrack.append(_.$slides);
 
@@ -12994,6 +13068,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         var _ = this,
             positionProps = {}, x, y;
 
+        if (_.options.rtl === true) {
+            position = -position;
+        }
         x = _.positionProp == 'left' ? position + 'px' : '0px';
         y = _.positionProp == 'top' ? position + 'px' : '0px';
 
@@ -13018,31 +13095,37 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         var _ = this;
 
-        if (_.options.centerMode === true) {
-            _.$slideTrack.children('.slick-slide').width(_.slideWidth);
-        } else {
-            _.$slideTrack.children('.slick-slide').width(_.slideWidth);
-        }
-
-
         if (_.options.vertical === false) {
-            _.$slideTrack.width(Math.ceil((_.slideWidth * _
-                .$slideTrack.children('.slick-slide').length)));
             if (_.options.centerMode === true) {
                 _.$list.css({
                     padding: ('0px ' + _.options.centerPadding)
                 });
             }
         } else {
-            _.$list.height(_.$slides.first().outerHeight() * _.options.slidesToShow);
-            _.$slideTrack.height(Math.ceil((_.$slides.first().outerHeight() * _
-                .$slideTrack.children('.slick-slide').length)));
+            _.$list.height(_.$slides.first().outerHeight(true) * _.options.slidesToShow);
             if (_.options.centerMode === true) {
                 _.$list.css({
                     padding: (_.options.centerPadding + ' 0px')
                 });
             }
         }
+
+        _.listWidth = _.$list.width();
+        _.listHeight = _.$list.height();
+
+
+        if(_.options.vertical === false) {
+            _.slideWidth = Math.ceil(_.listWidth / _.options.slidesToShow);
+            _.$slideTrack.width(Math.ceil((_.slideWidth * _.$slideTrack.children('.slick-slide').length)));
+        
+        } else {
+            _.slideWidth = Math.ceil(_.listWidth);
+            _.$slideTrack.height(Math.ceil((_.$slides.first().outerHeight(true) * _.$slideTrack.children('.slick-slide').length)));
+        
+        }
+
+        var offset = _.$slides.first().outerWidth(true) - _.$slides.first().width();
+        _.$slideTrack.children('.slick-slide').width(_.slideWidth - offset);
 
     };
 
@@ -13073,7 +13156,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         var _ = this;
 
-        _.setValues();
         _.setDimensions();
 
         if (_.options.fade === false) {
@@ -13115,6 +13197,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             _.transitionType = 'webkitTransition';
         }
         if (document.body.style.msTransform !== undefined) {
+            _.animType = 'msTransform';
+            _.transformType = "-ms-transform";
+            _.transitionType = 'msTransition';
+        }
+        if (document.body.style.transform !== undefined) {
             _.animType = 'transform';
             _.transformType = "transform";
             _.transitionType = 'transition';
@@ -13124,25 +13211,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
     };
 
-    Slick.prototype.setValues = function() {
-
-        var _ = this;
-
-        _.listWidth = _.$list.width();
-        _.listHeight = _.$list.height();
-        if(_.options.vertical === false) {
-        _.slideWidth = Math.ceil(_.listWidth / _.options
-            .slidesToShow);
-        } else {
-        _.slideWidth = Math.ceil(_.listWidth);
-        }
-
-    };
 
     Slick.prototype.setSlideClasses = function(index) {
 
         var _ = this,
-            centerOffset, allSlides, indexOffset;
+            centerOffset, allSlides, indexOffset, remainder;
 
         _.$slider.find('.slick-slide').removeClass('slick-active').removeClass('slick-center');
         allSlides = _.$slider.find('.slick-slide');
@@ -13151,28 +13224,39 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
             centerOffset = Math.floor(_.options.slidesToShow / 2);
 
-            if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
-                _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('slick-active');
-            } else {
-                indexOffset = _.options.slidesToShow + index;
-                allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('slick-active');
-            }
+            if(_.options.infinite === true) {
 
-            if (index === 0) {
-                allSlides.eq(allSlides.length - 1 - _.options.slidesToShow).addClass('slick-center');
-            } else if (index === _.slideCount - 1) {
-                allSlides.eq(_.options.slidesToShow).addClass('slick-center');
+                if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
+                    _.$slides.slice(index - centerOffset, index + centerOffset + 1).addClass('slick-active');
+                } else {
+                    indexOffset = _.options.slidesToShow + index;
+                    allSlides.slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2).addClass('slick-active');
+                }
+
+                if (index === 0) {
+                    allSlides.eq(allSlides.length - 1 - _.options.slidesToShow).addClass('slick-center');
+                } else if (index === _.slideCount - 1) {
+                    allSlides.eq(_.options.slidesToShow).addClass('slick-center');
+                }
+
             }
 
             _.$slides.eq(index).addClass('slick-center');
 
         } else {
 
-            if (index > 0 && index < (_.slideCount - _.options.slidesToShow)) {
+            if (index >= 0 && index <= (_.slideCount - _.options.slidesToShow)) {
                 _.$slides.slice(index, index + _.options.slidesToShow).addClass('slick-active');
+            } else if ( allSlides.length <= _.options.slidesToShow ) {
+                allSlides.addClass('slick-active');
             } else {
+                remainder = _.slideCount%_.options.slidesToShow;
                 indexOffset = _.options.infinite === true ? _.options.slidesToShow + index : index;
-                allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('slick-active');
+                if(_.options.slidesToShow == _.options.slidesToScroll && (_.slideCount - index) < _.options.slidesToShow) {
+                    allSlides.slice(indexOffset-(_.options.slidesToShow-remainder), indexOffset + remainder).addClass('slick-active');
+                } else {
+                    allSlides.slice(indexOffset, indexOffset + _.options.slidesToShow).addClass('slick-active');
+                }
             }
 
         }
@@ -13207,12 +13291,12 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
                 for (i = _.slideCount; i > (_.slideCount -
                     infiniteCount); i -= 1) {
                     slideIndex = i - 1;
-                    $(_.$slides[slideIndex]).clone().attr('id', '').prependTo(
+                    $(_.$slides[slideIndex]).clone(true).attr('id', '').prependTo(
                         _.$slideTrack).addClass('slick-cloned');
                 }
                 for (i = 0; i < infiniteCount; i += 1) {
                     slideIndex = i;
-                    $(_.$slides[slideIndex]).clone().attr('id', '').appendTo(
+                    $(_.$slides[slideIndex]).clone(true).attr('id', '').appendTo(
                         _.$slideTrack).addClass('slick-cloned');
                 }
                 _.$slideTrack.find('.slick-cloned').find('[id]').each(function() {
@@ -13223,6 +13307,26 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         }
 
+    };
+
+    Slick.prototype.selectHandler = function(event) {
+
+        var _ = this;
+        var asNavFor = _.options.asNavFor != null ? $(_.options.asNavFor).getSlick() : null;
+        var index = parseInt($(event.target).parent().attr("index"));
+        if(!index) index = 0;
+
+        if(_.slideCount <= _.options.slidesToShow){
+            return;
+        }
+        _.slideHandler(index);
+
+        if(asNavFor != null){
+            if(asNavFor.slideCount <= asNavFor.options.slidesToShow){
+                return;
+            }
+            asNavFor.slideHandler(index);
+        }
     };
 
     Slick.prototype.slideHandler = function(index) {
@@ -13242,7 +13346,15 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         _.currentLeft = _.swipeLeft === null ? slideLeft : _.swipeLeft;
 
-        if (_.options.infinite === false && (index < 0 || index > (_.slideCount - _.options.slidesToShow + unevenOffset))) {
+        if (_.options.infinite === false && _.options.centerMode === false && (index < 0 || index > (_.slideCount - _.options.slidesToShow + unevenOffset))) {
+            if(_.options.fade === false) {
+                targetSlide = _.currentSlide;
+                _.animateSlide(slideLeft, function() {
+                    _.postSlide(targetSlide);
+                });
+            }
+            return false;
+        } else if (_.options.infinite === false && _.options.centerMode === true && (index < 0 || index > (_.slideCount - _.options.slidesToScroll))) {
             if(_.options.fade === false) {
                 targetSlide = _.currentSlide;
                 _.animateSlide(slideLeft, function() {
@@ -13345,8 +13457,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     Slick.prototype.swipeEnd = function(event) {
 
         var _ = this;
+        var asNavFor = _.options.asNavFor != null ? $(_.options.asNavFor).getSlick() : null;
 
-        _.$list.removeClass('dragging');
+        _.dragging = false;
 
         if (_.touchObject.curX === undefined) {
             return false;
@@ -13363,17 +13476,20 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
             switch (_.swipeDirection()) {
                 case 'left':
                     _.slideHandler(_.currentSlide + _.options.slidesToScroll);
+                    if(asNavFor != null) asNavFor.slideHandler(asNavFor.currentSlide + asNavFor.options.slidesToScroll);
                     _.touchObject = {};
                     break;
 
                 case 'right':
                     _.slideHandler(_.currentSlide - _.options.slidesToScroll);
+                    if(asNavFor != null) asNavFor.slideHandler(asNavFor.currentSlide - asNavFor.options.slidesToScroll);
                     _.touchObject = {};
                     break;
             }
         } else {
             if(_.touchObject.startX !== _.touchObject.curX) {
                 _.slideHandler(_.currentSlide);
+                if(asNavFor != null) asNavFor.slideHandler(asNavFor.currentSlide);
                 _.touchObject = {};
             }
         }
@@ -13384,10 +13500,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         var _ = this;
 
-        if ('ontouchend' in document && _.options.swipe === false) {
-            return false;
-        } else if (_.options.draggable === false && !event.originalEvent.touches) {
-            return true;
+        if ((_.options.swipe === false) || ('ontouchend' in document && _.options.swipe === false)) {
+           return;
+        } else if ((_.options.draggable === false) || (_.options.draggable === false && !event.originalEvent.touches)) {
+           return;
         }
 
         _.touchObject.fingerCount = event.originalEvent && event.originalEvent.touches !== undefined ?
@@ -13423,7 +13539,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
         curLeft = _.getLeft(_.currentSlide);
 
-        if (!_.$list.hasClass('dragging') || touches && touches.length !== 1) {
+        if (!_.dragging || touches && touches.length !== 1) {
             return false;
         }
 
@@ -13482,7 +13598,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         _.touchObject.startX = _.touchObject.curX = touches !== undefined ? touches.pageX : event.clientX;
         _.touchObject.startY = _.touchObject.curY = touches !== undefined ? touches.pageY : event.clientY;
 
-        _.$list.addClass('dragging');
+        _.dragging = true;
 
     };
 
@@ -13494,7 +13610,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
             _.unload();
 
-            _.$slideTrack.children(this.options.slide).remove();
+            _.$slideTrack.children(this.options.slide).detach();
 
             _.$slidesCache.appendTo(_.$slideTrack);
 
@@ -13547,8 +13663,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         if (_.$dots !== null) {
 
             _.$dots.find('li').removeClass('slick-active');
-            _.$dots.find('li').eq(_.currentSlide / _.options.slidesToScroll).addClass(
-                'slick-active');
+            _.$dots.find('li').eq(Math.floor(_.currentSlide / _.options.slidesToScroll)).addClass('slick-active');
 
         }
 
@@ -13590,6 +13705,8 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         var _ = this;
         return _.each(function(index, element) {
 
+            var asNavFor = element.slick.options.asNavFor != null ? $(element.slick.options.asNavFor) : null;
+            if(asNavFor != null) asNavFor.slickGoTo(slide);
             element.slick.slideHandler(slide);
 
         });
@@ -13650,6 +13767,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         });
     };
 
+    $.fn.slickGetOption = function(option) {
+        var _ = this;
+        return _.get(0).slick.options[option];
+    };
+
     $.fn.slickSetOption = function(option, value, refresh) {
         var _ = this;
         return _.each(function(index, element) {
@@ -13677,12 +13799,25 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         var _ = this;
         return _.each(function(index, element) {
 
+          if (element.slick) {
             element.slick.destroy();
+          }
 
         });
     };
 
-}));;/**
+    $.fn.getSlick = function() {
+        var s = null;
+        var _ = this;
+        _.each(function(index, element) {
+            s = element.slick;
+        });
+
+        return s;
+    };
+
+}));
+;/**
  * Owl carousel
  * @version 2.0.0
  * @author Bartosz Wojciechowski
@@ -17805,7 +17940,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
   };
 }));
 ;/*!
- * hoverIntent v1.8.0 // 2014.06.29 // jQuery v1.9.1+
+ * hoverIntent v1.8.1 // 2014.08.11 // jQuery v1.9.1+
  * http://cherne.net/brian/resources/jquery.hoverIntent.html
  *
  * You may use hoverIntent under the terms of the MIT license. Basically that
@@ -18033,7 +18168,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 })( jQuery, window );;/*!
 * Parsleyjs
 * Guillaume Potier - <guillaume@wisembly.com>
-* Version 2.0.3 - built Mon Jul 21 2014 11:56:56
+* Version 2.0.5 - built Thu Aug 28 2014 11:27:36
 * MIT Licensed
 *
 */
@@ -18229,20 +18364,20 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 /*!
 * validator.js
 * Guillaume Potier - <guillaume@wisembly.com>
-* Version 0.5.8 - built Sun Mar 16 2014 17:18:21
+* Version 1.0.0 - built Sun Aug 03 2014 17:42:31
 * MIT Licensed
 *
 */
-( function ( exports ) {
+var Validator = ( function ( ) {
+  var exports = {};
   /**
   * Validator
   */
   var Validator = function ( options ) {
     this.__class__ = 'Validator';
-    this.__version__ = '0.5.8';
+    this.__version__ = '1.0.0';
     this.options = options || {};
     this.bindingKey = this.options.bindingKey || '_validatorjsConstraint';
-    return this;
   };
   Validator.prototype = {
     constructor: Validator,
@@ -18325,27 +18460,37 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
         throw new Error( 'Should give a valid mapping object to Constraint', err, data );
       }
     }
-    return this;
   };
   Constraint.prototype = {
     constructor: Constraint,
     check: function ( object, group ) {
       var result, failures = {};
-      // check all constraint nodes if strict validation enabled. Else, only object nodes that have a constraint
-      for ( var property in this.options.strict ? this.nodes : object ) {
-        if ( this.options.strict ? this.has( property, object ) : this.has( property ) ) {
-          result = this._check( property, object[ property ], group );
-          // check returned an array of Violations or an object mapping Violations
-          if ( ( _isArray( result ) && result.length > 0 ) || ( !_isArray( result ) && !_isEmptyObject( result ) ) )
-            failures[ property ] = result;
-        // in strict mode, get a violation for each constraint node not in object
-        } else if ( this.options.strict ) {
-          try {
+      // check all constraint nodes.
+      for ( var property in this.nodes ) {
+        var isRequired = false;
+        var constraint = this.get(property);
+        var constraints = _isArray( constraint ) ? constraint : [constraint];
+        for (var i = constraints.length - 1; i >= 0; i--) {
+          if ( 'Required' === constraints[i].__class__ ) {
+            isRequired = constraints[i].requiresValidation( group );
+            continue;
+          }
+        }
+        if ( ! this.has( property, object ) && ! this.options.strict && ! isRequired ) {
+          continue;
+        }
+        try {
+          if (! this.has( property, this.options.strict || isRequired ? object : undefined ) ) {
             // we trigger here a HaveProperty Assert violation to have uniform Violation object in the end
             new Assert().HaveProperty( property ).validate( object );
-          } catch ( violation ) {
-            failures[ property ] = violation;
           }
+          result = this._check( property, object[ property ], group );
+          // check returned an array of Violations or an object mapping Violations
+          if ( ( _isArray( result ) && result.length > 0 ) || ( !_isArray( result ) && !_isEmptyObject( result ) ) ) {
+            failures[ property ] = result;
+          }
+        } catch ( violation ) {
+          failures[ property ] = violation;
         }
       }
       return _isEmptyObject(failures) ? true : failures;
@@ -18454,14 +18599,18 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
     this.groups = [];
     if ( 'undefined' !== typeof group )
       this.addGroup( group );
-    return this;
   };
   Assert.prototype = {
     construct: Assert,
-    check: function ( value, group ) {
+    requiresValidation: function ( group ) {
       if ( group && !this.hasGroup( group ) )
-        return;
+        return false;
       if ( !group && this.hasGroups() )
+        return false;
+      return true;
+    },
+    check: function ( value, group ) {
+      if ( !this.requiresValidation( group ) )
         return;
       try {
         return this.validate( value, group );
@@ -18565,9 +18714,9 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       };
       return this;
     },
-    Collection: function ( constraint ) {
+    Collection: function ( assertOrConstraint ) {
       this.__class__ = 'Collection';
-      this.constraint = 'undefined' !== typeof constraint ? new Constraint( constraint ) : false;
+      this.constraint = 'undefined' !== typeof assertOrConstraint ? (assertOrConstraint instanceof Assert ? assertOrConstraint : new Constraint( assertOrConstraint )) : false;
       this.validate = function ( collection, group ) {
         var result, validator = new Validator(), count = 0, failures = {}, groups = this.groups.length ? this.groups : group;
         if ( !_isArray( collection ) )
@@ -18607,19 +18756,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
           throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string } );
         if ( !regExp.test( value ) )
           throw new Violation( this, value );
-        return true;
-      };
-      return this;
-    },
-    Eql: function ( eql ) {
-      this.__class__ = 'Eql';
-      if ( 'undefined' === typeof eql )
-        throw new Error( 'Equal must be instanciated with an Array or an Object' );
-      this.eql = eql;
-      this.validate = function ( value ) {
-        var eql = 'function' === typeof this.eql ? this.eql( value ) : this.eql;
-        if ( !expect.eql( eql, value ) )
-          throw new Violation( this, value, { eql: eql } );
         return true;
       };
       return this;
@@ -18677,18 +18813,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       };
       return this;
     },
-    IPv4: function () {
-      this.__class__ = 'IPv4';
-      this.validate = function ( value ) {
-        var regExp = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
-        if ( 'string' !== typeof value )
-          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string } );
-        if ( !regExp.test( value ) )
-          throw new Violation( this, value );
-        return true;
-      };
-      return this;
-    },
     Length: function ( boundaries ) {
       this.__class__ = 'Length';
       if ( !boundaries.min && !boundaries.max )
@@ -18732,18 +18856,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
           throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
         if ( this.threshold < value )
           throw new Violation( this, value, { threshold: this.threshold } );
-        return true;
-      };
-      return this;
-    },
-    Mac: function () {
-      this.__class__ = 'Mac';
-      this.validate = function ( value ) {
-        var regExp = /^(?:[0-9A-F]{2}:){5}[0-9A-F]{2}$/i;
-        if ( 'string' !== typeof value )
-          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_string } );
-        if ( !regExp.test( value ) )
-          throw new Violation( this, value );
         return true;
       };
       return this;
@@ -18903,76 +19015,24 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
   var _isArray = function ( obj ) {
     return Object.prototype.toString.call( obj ) === '[object Array]';
   };
-  // https://github.com/LearnBoost/expect.js/blob/master/expect.js
-  var expect = {
-    eql: function ( actual, expected ) {
-      if ( actual === expected ) {
-        return true;
-      } else if ( 'undefined' !== typeof Buffer && Buffer.isBuffer( actual ) && Buffer.isBuffer( expected ) ) {
-        if ( actual.length !== expected.length ) return false;
-        for ( var i = 0; i < actual.length; i++ )
-          if ( actual[i] !== expected[i] ) return false;
-        return true;
-      } else if ( actual instanceof Date && expected instanceof Date ) {
-        return actual.getTime() === expected.getTime();
-      } else if ( typeof actual !== 'object' && typeof expected !== 'object' ) {
-        // loosy ==
-        return actual == expected;
-      } else {
-        return this.objEquiv(actual, expected);
-      }
-    },
-    isUndefinedOrNull: function ( value ) {
-      return value === null || typeof value === 'undefined';
-    },
-    isArguments: function ( object ) {
-      return Object.prototype.toString.call(object) == '[object Arguments]';
-    },
-    keys: function ( obj ) {
-      if ( Object.keys )
-        return Object.keys( obj );
-      var keys = [];
-      for ( var i in obj )
-        if ( Object.prototype.hasOwnProperty.call( obj, i ) )
-          keys.push(i);
-      return keys;
-    },
-    objEquiv: function ( a, b ) {
-      if ( this.isUndefinedOrNull( a ) || this.isUndefinedOrNull( b ) )
-        return false;
-      if ( a.prototype !== b.prototype ) return false;
-      if ( this.isArguments( a ) ) {
-        if ( !this.isArguments( b ) )
-          return false;
-        return eql( pSlice.call( a ) , pSlice.call( b ) );
-      }
-      try {
-        var ka = this.keys( a ), kb = this.keys( b ), key, i;
-        if ( ka.length !== kb.length )
-          return false;
-        ka.sort();
-        kb.sort();
-        for ( i = ka.length - 1; i >= 0; i-- )
-          if ( ka[ i ] != kb[ i ] )
-            return false;
-        for ( i = ka.length - 1; i >= 0; i-- ) {
-          key = ka[i];
-          if ( !this.eql( a[ key ], b[ key ] ) )
-             return false;
-        }
-        return true;
-      } catch ( e ) {
-        return false;
-      }
-    }
-  };
-  // AMD Compliance
-  if ( "function" === typeof define && define.amd ) {
-    define( 'validator', [],function() { return exports; } );
+  // AMD export
+  if ( typeof define === 'function' && define.amd ) {
+    define( 'vendors/validator.js/dist/validator',[],function() {
+      return exports;
+    } );
+  // commonjs export
+  } else if ( typeof module !== 'undefined' && module.exports ) {
+    module.exports = exports;
+  // browser
+  } else {
+    window[ 'undefined' !== typeof validatorjs_ns ? validatorjs_ns : 'Validator' ] = exports;
   }
-} )( 'undefined' === typeof exports ? this[ 'undefined' !== typeof validatorjs_ns ? validatorjs_ns : 'Validator' ] = {} : exports );
 
+  return exports; 
+} )( );
 
+  // This is needed for Browserify usage that requires Validator.js through module.exports
+  Validator = 'undefined' !== typeof Validator ? Validator : ('undefined' !== typeof module ? module.exports : null);
   var ParsleyValidator = function (validators, catalog) {
     this.__class__ = 'ParsleyValidator';
     this.Validator = Validator;
@@ -19345,8 +19405,11 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       _ui.validationInformationVisible = false;
       // Store it in fieldInstance for later
       fieldInstance._ui = _ui;
-      /** Mess with DOM now **/
-      this._insertErrorWrapper(fieldInstance);
+      // Stops excluded inputs from getting errorContainer added
+      if( !fieldInstance.$element.is(fieldInstance.options.excluded) ) {
+        /** Mess with DOM now **/
+        this._insertErrorWrapper(fieldInstance);
+      }
       // Bind triggers first time
       this.actualizeTriggers(fieldInstance);
     },
@@ -19546,7 +19609,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       // loop through fields to validate them one by one
       for (var i = 0; i < this.fields.length; i++) {
         // do not validate a field if not the same as given validation group
-        if (group && group !== this.fields[i].options.group)
+        if (group && !this._isFieldInGroup(this.fields[i], group))
           continue;
         fieldValidationResult = this.fields[i].validate(force);
         if (true !== fieldValidationResult && fieldValidationResult.length > 0 && this.validationResult)
@@ -19560,12 +19623,17 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       this._refreshFields();
       for (var i = 0; i < this.fields.length; i++) {
         // do not validate a field if not the same as given validation group
-        if (group && group !== this.fields[i].options.group)
+        if (group && !this._isFieldInGroup(this.fields[i], group))
           continue;
         if (false === this.fields[i].isValid(force))
           return false;
       }
       return true;
+    },
+    _isFieldInGroup: function (field, group) {
+      if(ParsleyUtils.isArray(field.options.group))
+        return -1 !== $.inArray(field.options.group, group);
+      return field.options.group === group;
     },
     _refreshFields: function () {
       return this.actualizeOptions()._bindFields();
@@ -19962,7 +20030,7 @@ window.ParsleyConfig.i18n.en = $.extend(window.ParsleyConfig.i18n.en || {}, {
 if ('undefined' !== typeof window.ParsleyValidator)
   window.ParsleyValidator.addCatalog('en', window.ParsleyConfig.i18n.en, true);
 
-//     Parsley.js 2.0.3
+//     Parsley.js 2.0.5
 //     http://parsleyjs.org
 //     (c) 20012-2014 Guillaume Potier, Wisembly
 //     Parsley may be freely distributed under the MIT license.
@@ -19970,7 +20038,7 @@ if ('undefined' !== typeof window.ParsleyValidator)
   // ### Parsley factory
   var Parsley = function (element, options, parsleyFormInstance) {
     this.__class__ = 'Parsley';
-    this.__version__ = '2.0.3';
+    this.__version__ = '2.0.5';
     this.__id__ = ParsleyUtils.hash(4);
     // Parsley must be instanciated with a DOM element or jQuery $element
     if ('undefined' === typeof element)

@@ -566,7 +566,6 @@ svg path:hover {
 #main .col .content a.no,
 #cal-day a.no {
   padding: 0;
-  min-height: 0;
   float: left;
   width: 100%;
   margin-top: -20px;
@@ -591,7 +590,8 @@ svg path:hover {
 }
 #main .col .content a.big.no,
 #cal-day a.big.no {
-  min-height: 0;
+  height: 0px !important;
+  min-height: 0px !important;
   margin-bottom: 50px;
   margin-top: -30px;
 }
@@ -1051,6 +1051,9 @@ svg path:hover {
   }
   #main .container .frame .col.big {
     padding: 0;
+  }
+  #main .container .frame .col.big a.big.no {
+    margin-top: -15px;
   }
   #main .container .frame .col.big:first-child a.big {
     min-height: 30px;
