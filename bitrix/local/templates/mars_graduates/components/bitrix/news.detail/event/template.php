@@ -17,13 +17,15 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
       <div class="type"><?=$prop['TYPE']?></div>
       <div class="name">«<?=$arResult['NAME']?>»</div>
       <div class="description">
-        Время: <?=date('H:i', strtotime($prop['DATE']))?><br>
+        <?=(date('H:i', strtotime($prop['DATE']))!='00:00'?"Время: ".date('H:i', strtotime($prop['DATE']))."<br>":"")?>
         Место: <?=$prop['ADDRESS']." / "?><strong><?=$prop['CITY']?></strong>
       </div>
       <div class="tools">
         <div class="row">
           <div class="col-xs-6">
-            <a href="#reg" class="reg">Регистрация</a>    
+            <?if($prop['OPEN']!='N'):?>
+              <a href="#reg" class="reg">Регистрация</a> 
+            <? endif;?>
           </div>
           <div class="col-xs-6">
             <div class="social">
@@ -63,6 +65,8 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
         <?endforeach;?>
       </div>
       <?endif;?>
+        <?=$prop['LAST_YEAR']?>  
+      
       <div class="row">
         <div class="col-md-6">
           <div class="row">
@@ -78,7 +82,9 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
               </div>
             <?endif;?>
             </div>
-            <?/*
+          </div>
+        </div>
+         <?/*
             <div class="col-xs-6 col-md-12">
               <h2>Партнёры</h2>
               <ul class="partners">
@@ -89,8 +95,9 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
               </ul>
             </div>
             */?>
-          </div>
-        </div>
+
+        <?
+        if($prop['OPEN']!='N'):?>
         <div class="col-md-6 registration"><a name="reg" class="anchor"></a>
           <h2>Регистрация</h2>
           <div id="success">
@@ -147,7 +154,7 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
                   </div>
                 <? endif;?>
                 <label for="#phone">Мобильный телефон</label>
-                <input type="text" data-parsley-pattern="/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}/" id="phone" name="PERSONAL_MOBILE" value="<?=$data["PERSONAL_MOBILE"]?>" required data-parsley-trigger="change">
+                <input type="text" placeholder="+7 (___) ___ __ __" data-parsley-pattern="/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}/" id="phone" name="PERSONAL_MOBILE" value="<?=$data["PERSONAL_MOBILE"]?>" required data-parsley-trigger="change">
                 
               </div>
               <div class="col-md-12 col-xs-6">
@@ -284,6 +291,13 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
             <p>Регистрируясь на это событие, вы принимаете <a href="#">Пользовательское соглашение</a> и подтверждаете ваше согласие на <a href="#">обработку персональных данных</a>.</p>
           </form>
         </div>
+        <?else:?>
+        <div class="col-md-6">
+          <h2>К сожалению, регистрация на данное мероприятие закрыта.</h2>
+          <p>Ждем вас на других мероприятиях!</p>
+        </div>
+        <?endif;?>
+
       </div>
     </div>
   </div>

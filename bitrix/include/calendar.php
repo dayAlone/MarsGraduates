@@ -1,6 +1,7 @@
 <?require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");?>
 <div id="cal-day">
   <?
+    $count = str_split($APPLICATION->GetPageProperty('count'));
     if($_REQUEST['date']):
       $date = strtotime($_REQUEST['date']);
     elseif($APPLICATION->GetPageProperty('day')):
@@ -43,7 +44,8 @@
         "SORT_BY1"             => "DATE",
         "SORT_ORDER1"          => "ASC",
         "FILTER_NAME"          => "day_filter",
-        "PROPERTY_CODE"        => Array("CITY", "DATE", "TYPE", "DIRECTION"),
+        "CACHE_FILTER"         => "Y",
+        "PROPERTY_CODE"        => Array("CITY", "DATE", "TYPE", "DIRECTION", "OPEN"),
         "DETAIL_URL"           => "/events/#ELEMENT_CODE#/",
         "CACHE_TYPE"           => "A",
         "DISPLAY_PANEL"        => "N",
@@ -61,10 +63,10 @@
       "NEWS_COUNT"           => "0",
       "SORT_BY1"             => "ID",
       "SORT_ORDER1"          => "ASC",
-      "FILTER_NAME"          => "",
-      "PROPERTY_CODE"        => Array("OPEN"),
+      "PROPERTY_CODE"        => Array("OPEN", "SIDE"),
       "DETAIL_URL"           => "/career/",
       "CACHE_TYPE"           => "A",
+      "CACHE_FILTER"         => "Y",
       "DISPLAY_PANEL"        => "N",
       "DISPLAY_TOP_PAGER"    => "N",
       "DISPLAY_BOTTOM_PAGER" => "N",
@@ -80,18 +82,19 @@
     );
     $APPLICATION->IncludeComponent("bitrix:news.list", "promo", 
       array(
-      "IBLOCK_ID"            => 9,
-      "NEWS_COUNT"           => "0",
-      "SORT_BY1"             => "ID",
-      "SORT_ORDER1"          => "ASC",
-      "FILTER_NAME"          => array('NAME', 'DETAIL_TEXT', 'PREVIEW_TEXT'),
-      "PROPERTY_CODE"        => Array("LINK"),
-      "DETAIL_URL"           => "",
-      "CACHE_TYPE"           => "A",
-      "DISPLAY_PANEL"        => "N",
-      "DISPLAY_TOP_PAGER"    => "N",
-      "DISPLAY_BOTTOM_PAGER" => "N",
-      "SET_TITLE"            => "N"
+          "IBLOCK_ID"            => 9,
+          "NEWS_COUNT"           => "0",
+          "SORT_BY1"             => "ID",
+          "SORT_ORDER1"          => "ASC",
+          "FILTER_NAME"          => array('NAME', 'DETAIL_TEXT', 'PREVIEW_TEXT'),
+          "PROPERTY_CODE"        => Array("LINK"),
+          "DETAIL_URL"           => "",
+          "CACHE_TYPE"           => "A",
+          "CACHE_FILTER"         => "Y",
+          "DISPLAY_PANEL"        => "N",
+          "DISPLAY_TOP_PAGER"    => "N",
+          "DISPLAY_BOTTOM_PAGER" => "N",
+          "SET_TITLE"            => "N"
          ),
          false
       );
@@ -101,4 +104,14 @@
     	<div class="text">ВИКТОРИНА <br>С СУПЕР-ПРИЗОМ!</div>
     </a>
     */?>
+    <? if(count($count)>0):?>
+      <div class="counter center">
+        <?foreach ($count as $n) {
+          echo svg($n);
+        }?><br>
+        зарегистрировались
+      </div>
+    <? endif;?>
+
+
 </div>

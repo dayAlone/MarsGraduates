@@ -82,9 +82,11 @@ module.exports = (grunt)->
 					}, {
 					removeComments: true
 					}, {
+					moveGroupAttrsToElems: false
+					}, {
 					convertPathData: { 
 					    straightCurves: false
-					}
+					},
 				}]
 			dist:
 				files: [{

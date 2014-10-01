@@ -91,68 +91,79 @@ $APPLICATION->SetPageProperty('body_class', "color career");
       </button>
       <h1>Mars Internship Program</h1>
       <div class="row">
-        <div class="col-md-8 col-xs-7">
-          <div class="block d-1">
-            <h3>Направления</h3>
-            <ul>
-              <li>Отдел Информационных технологий</li>
-              <li>Производство и Логистика</li>
-              <li>Финансовый отдел</li>
-              <li>Отдел персонала</li>
-              <li>Маркетинг</li>
-              <li>Отдел Исследований и Разработок</li>
-              <li>Отдел Закупок</li>
-            </ul>
-          </div>
-          <div class="block d-2">
-            <h3>Условия</h3>
-            <ul>
-              <li>Летняя оплачиваемая стажировка 2-3  месяца</li>
-              <li>Постоянная оплачиваемая стажировка до 1 года (для старшекурсников)</li>
-              <li>Ученический договор</li>
-              <li>Корпоративное обучение</li>
-              <li>Интересные и ответственные проекты</li>
-              <li>Выделенный наставник, отвечающий за ваше развитие на Программе</li>
-            </ul>
-          </div>
-          <div class="block d-3">
-            <h3>Компетенции</h3>
-            <ul>
-              <li>Лидерство</li>
-              <li>Честность</li>
-              <li>Стремление достичь результата в работе</li>
-              <li>Способность быстро обучаться</li>
-              <li>Умение строить отношения сотрудничества</li>
-              <li>Умение планировать, расставлять приоритеты</li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-5">
-          <div class="scroll">
+        <?
+          CModule::IncludeModule("iblock");
+          $arSelect = Array("ID", "NAME");
+          $arFilter = Array("IBLOCK_ID"=>8);
+          $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>50), $arSelect);
+        ?>
+        <div class="<?=($res->NavRecordCount>0?'col-md-8 col-xs-7':'col-xs-12')?>">
+          <div class="scroll violet">
             <div class="frame">
-              <h2>Вакансии</h2>
-              <?php
-			    $APPLICATION->IncludeComponent("bitrix:news.list", "career_vacancy", 
-			    array(
-					"IBLOCK_ID"            => 8,
-					"NEWS_COUNT"           => "0",
-					"SORT_BY1"             => "ID",
-					"SORT_ORDER1"          => "ASC",
-					"FILTER_NAME"          => "",
-					"PROPERTY_CODE" 	   => Array("SECTION", "LINK"),
-					"DETAIL_URL"           => "",
-					"CACHE_TYPE"           => "A",
-					"DISPLAY_PANEL"        => "N",
-					"DISPLAY_TOP_PAGER"    => "N",
-					"DISPLAY_BOTTOM_PAGER" => "N",
-          "SET_TITLE"            => "N"
-			       ),
-			       false
-			    );
-			?>
+
+            <div class="block d-2">
+              <h3>Направления</h3>
+              <ul>
+                <li>Отдел Информационных технологий</li>
+                <li>Производство и Логистика</li>
+                <li>Финансовый отдел</li>
+                <li>Отдел персонала</li>
+                <li>Маркетинг</li>
+                <li>Отдел Исследований и Разработок</li>
+              </ul>
+            </div>
+            <div class="block d-1">
+              <h3>Условия</h3>
+              <ul>
+                <li>Оплачиваемая стажировка длительностью 6 месяцев</li>
+                <li>Полная или частичная занятость: 3-5 дней в неделю</li>
+                <li>Ученический договор</li>
+                <li>Корпоративное обучение</li>
+                <li>Интересные и ответственные проекты</li>
+                <li>Выделенный наставник, отвечающий за ваше развитие на Программе</li>
+                <li>Возможность после стажировки попасть в штат компании на программу развития или позицию начального уровня</li>
+              </ul>
+            </div>
+            <div class="block d-3">
+              <h3>Требования к кандидатам</h3>
+              <ul>
+                <li>Ждем студентов последнего курса (бакалавриат, специалитет, магистратура)
+                <li>Intermediate English</li>
+                <li>Высокий уровень обучаемости</li>
+                <li>Способность планировать свое время</li>
+                <li>Нацеленность на результат</li>
+                <li>Желание строить карьеру в компании Mars</li>
+              </ul>
+            </div>
+              <h3 class="blue">Отзывы участников Mars Internship Program:</h3>
+              <div class="row">
+                <div class="col-md-4 right"><a href="https://vk.com/doc-25625432_228687350" target="_blank"><img src="/layout/images/r-1.png"></a></div>
+                <div class="col-md-4 center"><a href="https://vk.com/doc-25625432_232932515" target="_blank"><img src="/layout/images/r-2.png"></a></div>
+                <div class="col-md-4"><a href="https://vk.com/doc-25625432_217623575" target="_blank"><img src="/layout/images/r-3.png" style="max-width:95%"></a></div>
+              </div>
             </div>
           </div>
         </div>
+        
+        <?php
+  			    $APPLICATION->IncludeComponent("bitrix:news.list", "career_vacancy", 
+  			    array(
+  					"IBLOCK_ID"            => 8,
+  					"NEWS_COUNT"           => "0",
+  					"SORT_BY1"             => "ID",
+  					"SORT_ORDER1"          => "ASC",
+  					"FILTER_NAME"          => "",
+  					"PROPERTY_CODE" 	   => Array("SECTION", "LINK"),
+  					"DETAIL_URL"           => "",
+  					"CACHE_TYPE"           => "A",
+  					"DISPLAY_PANEL"        => "N",
+  					"DISPLAY_TOP_PAGER"    => "N",
+  					"DISPLAY_BOTTOM_PAGER" => "N",
+            "SET_TITLE"            => "N"
+  			       ),
+  			       false
+  			    );
+  			?>
       </div>
     </div>
   </div>

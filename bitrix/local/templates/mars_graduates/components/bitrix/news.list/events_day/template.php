@@ -8,6 +8,8 @@ $this->setFrameMode(true);
 		<span class="type"><?=$item['TYPE']?></span>
 		<br>
 		<span class="name"><?=$item['NAME']?></span>
+		<?if($item['OPEN']!="N"):?>
 		<span class="reg">Регистрация</span>
+		<?endif;?>
 	</a>
 <? endforeach; ?>

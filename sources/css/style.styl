@@ -33,6 +33,34 @@ b(name=null, position=null, color=null, size=null)
 	if size
 		background-size size
 
+.slide
+	full-width()
+	transition-property(min-height)
+	transition-duration(.8s)
+	&__content
+		display none
+		padding-bottom 20px
+	&__trigger
+		font-weight bold
+		padding-left 38px
+		position relative
+		font-size 30px
+		cursor pointer
+		&:after
+			width 25px
+			height 25px
+			border-radius 33px
+			b('svg/arrow-right.svg', center center no-repeat, #f2c648, 7px auto)
+			content ""
+			position absolute
+			left 3px
+			top 1px
+			transition-property(transform)
+			transition-duration(.3s)
+	&--open
+		.slide__trigger:after
+			transform: rotate(90deg)
+
 .fotorama__arr,.fotorama__fullscreen-icon,.fotorama__video-close,.fotorama__video-play
 	background-image url(/layout/plugins/fotorama.png)
 	@media (-webkit-min-device-pixel-ratio:1.5),(min-resolution:144dpi)
@@ -94,6 +122,28 @@ a, svg g, svg path
 
 .container
 	max-width 1000px
+
+#cal-day
+	.counter
+		padding-top 15px
+		color white
+		full-width()
+		line-height 20px
+		font-size 16px
+		font-weight bold
+		svg
+			max-height 45px
+			max-width 25px
+			g
+				fill white
+		&.blue
+			color #339bc1
+			svg
+				path
+					fill white
+				g, path[fill="#FFFFFF"]
+					fill #339bc1
+				
 
 #toolbar
 	full-width()
@@ -277,6 +327,7 @@ a, svg g, svg path
 		left 50%
 		transform translateX(-50%)
 		position absolute
+
 	@media (max-width: 1024px)
 		padding-bottom 13px
 		ul
@@ -476,9 +527,9 @@ a, svg g, svg path
 				&.event
 					full-width()
 					position relative
-					background #943283
+					background #346c9a
 					color white
-					padding 4px 8px 2px
+					padding 4px 8px 8px
 					line-height 14px
 					margin-bottom 18px
 					.win &
@@ -2919,6 +2970,24 @@ a, svg g, svg path
 			@media (max-width: 560px)
 				font-size 18px
 				line-height 22px
+		.social
+			padding-top 10px
+			full-width()
+			text-align center
+			a
+				box-shadow 2px 2px 0 #0a1012
+				display inline-block
+				&:first-of-type
+					width 58px
+					height 59px
+				&:last-of-type
+					width 59px
+					height 58px
+				border-radius 59px
+				margin 0 3px 15px
+				svg
+					height 60px
+					width 60px
 
 .ps-scrollbar-y-rail
 	right 10px !important
@@ -2984,6 +3053,14 @@ a, svg g, svg path
 		@media (max-width: 480px)
 			font-size 24px
 			line-height 26px
+	.row
+		img
+			max-width 100%
+		svg
+			float right
+			width 280px
+			margin-right -10px
+			max-height 548px
 	.scroll
 		margin-top 0px
 		height 520px
@@ -2992,6 +3069,11 @@ a, svg g, svg path
 		background #91d9f2 !important
 		.ps-scrollbar-y
 			background #2b9ac4 !important
+	.violet
+		.ps-scrollbar-y-rail
+			background #e2a0e5 !important
+			.ps-scrollbar-y
+				background #aa42b0 !important
 	h2
 		text-transform uppercase
 		margin-top 0
@@ -3022,6 +3104,8 @@ a, svg g, svg path
 			float left
 			clear left
 			padding 3px 10px 0
+	h3.blue
+		color #339bc2
 	.block
 		font-weight 500
 		&.d-1

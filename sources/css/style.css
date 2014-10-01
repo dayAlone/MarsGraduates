@@ -23,6 +23,62 @@
   font-weight: normal;
   font-style: normal;
 }
+.slide {
+  float: left;
+  width: 100%;
+  -webkit-transition-property: min-height;
+  -moz-transition-property: min-height;
+  -o-transition-property: min-height;
+  -ms-transition-property: min-height;
+  transition-property: min-height;
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  -ms-transition-duration: 0.8s;
+  transition-duration: 0.8s;
+}
+.slide__content {
+  display: none;
+  padding-bottom: 20px;
+}
+.slide__trigger {
+  font-weight: bold;
+  padding-left: 38px;
+  position: relative;
+  font-size: 30px;
+  cursor: pointer;
+}
+.slide__trigger:after {
+  width: 25px;
+  height: 25px;
+  -webkit-border-radius: 33px;
+  border-radius: 33px;
+  background: #f2c648 url("/layout/images/svg/arrow-right.svg") center center no-repeat;
+  -webkit-background-size: 7px auto;
+  -moz-background-size: 7px auto;
+  background-size: 7px auto;
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 1px;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  -ms-transition-property: -ms-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.slide--open .slide__trigger:after {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 .fotorama__arr,
 .fotorama__fullscreen-icon,
 .fotorama__video-close,
@@ -132,6 +188,32 @@ svg path:hover {
 }
 .container {
   max-width: 1000px;
+}
+#cal-day .counter {
+  padding-top: 15px;
+  color: #fff;
+  float: left;
+  width: 100%;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+#cal-day .counter svg {
+  max-height: 45px;
+  max-width: 25px;
+}
+#cal-day .counter svg g {
+  fill: #fff;
+}
+#cal-day .counter.blue {
+  color: #339bc1;
+}
+#cal-day .counter.blue svg path {
+  fill: #fff;
+}
+#cal-day .counter.blue svg g,
+#cal-day .counter.blue svg path[fill="#FFFFFF"] {
+  fill: #339bc1;
 }
 #toolbar {
   float: left;
@@ -707,9 +789,9 @@ svg path:hover {
   float: left;
   width: 100%;
   position: relative;
-  background: #943283;
+  background: #346c9a;
   color: #fff;
-  padding: 4px 8px 2px;
+  padding: 4px 8px 8px;
   line-height: 14px;
   margin-bottom: 18px;
 }
@@ -4077,6 +4159,32 @@ svg path:hover {
     line-height: 22px;
   }
 }
+.message .modal-content .social {
+  padding-top: 10px;
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.message .modal-content .social a {
+  -webkit-box-shadow: 2px 2px 0 #0a1012;
+  box-shadow: 2px 2px 0 #0a1012;
+  display: inline-block;
+  -webkit-border-radius: 59px;
+  border-radius: 59px;
+  margin: 0 3px 15px;
+}
+.message .modal-content .social a:first-of-type {
+  width: 58px;
+  height: 59px;
+}
+.message .modal-content .social a:last-of-type {
+  width: 59px;
+  height: 58px;
+}
+.message .modal-content .social a svg {
+  height: 60px;
+  width: 60px;
+}
 .ps-scrollbar-y-rail {
   right: 10px !important;
   display: block !important;
@@ -4163,6 +4271,15 @@ svg path:hover {
     line-height: 26px;
   }
 }
+#modalInternship .row img {
+  max-width: 100%;
+}
+#modalInternship .row svg {
+  float: right;
+  width: 280px;
+  margin-right: -10px;
+  max-height: 548px;
+}
 #modalInternship .scroll {
   margin-top: 0px;
   height: 520px;
@@ -4173,6 +4290,12 @@ svg path:hover {
 }
 #modalInternship .ps-scrollbar-y-rail .ps-scrollbar-y {
   background: #2b9ac4 !important;
+}
+#modalInternship .violet .ps-scrollbar-y-rail {
+  background: #e2a0e5 !important;
+}
+#modalInternship .violet .ps-scrollbar-y-rail .ps-scrollbar-y {
+  background: #aa42b0 !important;
 }
 #modalInternship h2 {
   text-transform: uppercase;
@@ -4213,6 +4336,9 @@ svg path:hover {
   float: left;
   clear: left;
   padding: 3px 10px 0;
+}
+#modalInternship h3.blue {
+  color: #339bc2;
 }
 #modalInternship .block {
   font-weight: 500;

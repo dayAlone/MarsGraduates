@@ -47,6 +47,7 @@
 	  "CACHE_TYPE"           => "A",
 	  "DISPLAY_PANEL"        => "N",
 	  "DISPLAY_TOP_PAGER"    => "N",
+	  "CACHE_FILTER"         => "Y",
 	  "DISPLAY_BOTTOM_PAGER" => "N",
 	  "SET_TITLE"            => "N"
 	     ),

@@ -19,6 +19,15 @@
         <span>Поздравляем!</span>
       </h1>
       <p>Вы успешно зарегистрировались<br>на мероприятие</p>
+      <div class="social">
+      	  <?$url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();?>
+          <a href="http://vkontakte.ru/share.php?url=<?=$url?>" target="_blank">
+            <?=svg('vk')?>
+          </a>
+          <a href="http://www.facebook.com/sharer/sharer.php?u=<?=$url?>" target="_blank">
+            <?=svg('fb')?>
+          </a>
+        <p>Расскажите друзьям о ваших планах.<br>Вместе веселее!</p>
     </div>
   </div>
 </div>

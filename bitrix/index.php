@@ -32,6 +32,7 @@ $APPLICATION->SetPageProperty('body_class', "index");
 					"DETAIL_URL"           => "/career/#go-#ELEMENT_CODE#",
 					"CACHE_TYPE"           => "A",
 					"DISPLAY_PANEL"        => "N",
+
 					"DISPLAY_TOP_PAGER"    => "N",
 					"DISPLAY_BOTTOM_PAGER" => "N",
           "SET_TITLE"            => "N"
@@ -45,20 +46,40 @@ $APPLICATION->SetPageProperty('body_class', "index");
         <div class="title"><a href="/academy/">Mars academy</a></div>
         <div class="content">
 	        <a href="/academy/#go-conference" class="big"><span>Конференции</span></a>
-          <a href="/events/fmcgsecrets/" class="big no">
-            <span class="flag">
-              <span>Внимание, открыта<br> регистрация!</span>
-              <?=svg('flag')?>
-            </span>
-          </a>
+          <?php
+              global $event_filter1;
+              $event_filter1 = array('=PROPERTY_TYPE'=>6, ">=PROPERTY_DATE" => date('Y-m-d')." 00:00:00", "!PROPERTY_OPEN"=>"7");
+              $APPLICATION->IncludeComponent("bitrix:news.list", "open_flag", 
+              array(
+              "IBLOCK_ID"            => 1,
+              "NEWS_COUNT"           => "10",
+              "FILTER_NAME"          => "event_filter1",
+              "DETAIL_URL"           => "/events/#ELEMENT_CODE#/",
+              "CACHE_TYPE"           => "A",
+              "SET_TITLE"            => "N",
+              "CACHE_FILTER"         => "Y"
+               ),
+               false
+            );
+          ?>
 	        <a href="/academy/#go-lectures" class="big"><span>Лекции и мастер-классы</span>
           </a>
-          <a href="/academy/#go-lectures" class="big no">
-            <span class="flag">
-              <span>Внимание, открыта<br> регистрация!</span>
-              <?=svg('flag')?>
-            </span>
-          </a>
+          <?php
+              global $event_filter2;
+              $event_filter2 = array('!PROPERTY_TYPE'=>6, ">=PROPERTY_DATE" => date('Y-m-d')." 00:00:00", "!PROPERTY_OPEN"=>"7");
+              $APPLICATION->IncludeComponent("bitrix:news.list", "open_flag", 
+              array(
+              "IBLOCK_ID"            => 1,
+              "NEWS_COUNT"           => "1",
+              "FILTER_NAME"          => "event_filter2",
+              "DETAIL_URL"           => "/events/",
+              "CACHE_TYPE"           => "A",
+              "CACHE_FILTER"         => "Y",
+              "SET_TITLE"            => "N"
+               ),
+               false
+            );
+          ?>
 	        <a href="/academy/#go-games" class="big"><span>Бизнес-игры <br>и кейс-чемпионаты</span></a>
         </div>
       </div>

@@ -10,6 +10,12 @@
 			case 'SHEDULE':
 				$prop[$item["CODE"]] = $item["VALUE"];
 				break;
+			case 'LAST_YEAR':
+				$prop[$item["CODE"]] = html_entity_decode($item["VALUE"]["TEXT"]);
+				break;
+			case 'OPEN':
+				$prop[$item["CODE"]] = $item["VALUE_XML_ID"];
+				break;
 			case 'TYPE':
 			case 'CITY':
 				$res = CIBlockElement::GetByID($item["VALUE"]);
@@ -49,8 +55,11 @@
 		}
 	}
 	global $APPLICATION;
-	$APPLICATION->SetTitle($prop['TYPE'].": «".$arResult["NAME"]."»");
+
+	$arUsers = CGroup::GetGroupUser($prop['GROUP']);
+
 	$APPLICATION->SetPageProperty('day', $prop['DATE']);
+	$APPLICATION->SetPageProperty('count', count($arUsers));
 	if(isset($prop['DIRECTION'])){
 		$APPLICATION->SetPageProperty('og:image', $prop['DIRECTION']['TITLE_IMAGE']);
 	}

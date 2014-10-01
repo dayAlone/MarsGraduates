@@ -38,6 +38,13 @@ size = ()->
 		.height $('#page.about .scheme svg').height()
 		.css 'line-height', $('#page.about .scheme svg').height() + 'px'
 	###
+	
+	$('a.video-replace').click (e)->
+		height = $(this).find('img').height()
+		width = $(this).find('img').width()
+		$(this)
+			.html "<iframe width='#{width}' height='#{height}' src='//www.youtube.com/embed/#{$(this).data('code')}?autoplay=1' frameborder='0' allowfullscreen></iframe>"
+		e.preventDefault()
 
 	$('#page.academy .items').css 'min-height', $("#page .item:visible").height()
 
@@ -164,6 +171,35 @@ initDay = ()->
 		e.preventDefault()
 
 $(document).ready ->
+
+	$('.slide__trigger').click (e)->
+		parent = $(this).parents('.slide')
+		content = parent.find('.slide__content')
+		if !parent.hasClass 'slide--open'
+			parent.addClass 'slide--open'
+			parent.css 'min-height', $(this).height()+content.height()
+			content.velocity
+					properties: "transition.slideDownIn"
+					options:
+						duration: 300
+		else
+			parent.css 'min-height', $(this).height()
+			content.velocity
+				properties: "transition.slideUpOut"
+				options:
+					duration: 300
+					complete: ()->
+						parent.removeClass 'slide--open'
+		e.preventDefault()
+
+	if $('#event').length > 0
+		$(window).scroll ()->
+			g = $('#page').offset()
+			b = $('#cal-day .counter').offset().top + $('#cal-day .counter').height()
+			if b > g.top
+				$('#cal-day .counter').addClass 'blue'
+			else
+				$('#cal-day .counter').removeClass 'blue'
 
 	shown = false
 	side = (id)->
@@ -322,8 +358,22 @@ $(document).ready ->
 		e.preventDefault()
 
 
+	options =  
+		onKeyPress: (cep, x) ->
+			cep = cep.split('+7 (').join('').split('8 (').join('')
+			console.log cep[0]
+			masks = ['+7 (000) 000 00 00', '8 (000) 000 00 00'];
+			if cep[0] == '8'
+				mask = masks[1]
+			else
+				mask = masks[0];
+			$('input[name="PERSONAL_MOBILE"]').mask(mask, this);
+	
 
-	$('input[name="PERSONAL_MOBILE"]').mask('+7 (000) 000 00 00');
+	$('input[name="PERSONAL_MOBILE"]')
+		.mask('+7 (000) 000 00 00', options)
+		.on 'focus', ()->
+			$(this).val('+7 (')
 
 	$('input[name="PERSONAL_BIRTHDAY"]').mask('00.00.0000');
 	

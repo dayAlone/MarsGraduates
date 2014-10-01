@@ -38,6 +38,7 @@
         "DISPLAY_PANEL"        => "N",
         "DISPLAY_TOP_PAGER"    => "N",
         "DISPLAY_BOTTOM_PAGER" => "N",
+        "CACHE_FILTER"         => "Y",
         "SET_TITLE"            => "N"
            ),
         false

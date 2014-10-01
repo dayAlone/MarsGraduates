@@ -14,6 +14,7 @@
 		$raw_data = $raw->Fetch();
 		$item['DIRECTION'] = $raw_data['VALUE_XML_ID'];
 		
+		$item['OPEN'] = $item['PROPERTIES']['OPEN']['VALUE_XML_ID'];
 
 		# Тип мероприятия
 		$raw = CIBlockElement::GetByID($item['PROPERTIES']['TYPE']['VALUE']);

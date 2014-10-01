@@ -7,10 +7,10 @@ $APPLICATION->IncludeComponent("bitrix:news.detail","event",Array(
     "IBLOCK_TYPE"    => "events",
     "ELEMENT_CODE"  => $_REQUEST["ELEMENT_CODE"],
     "CHECK_DATES"   => "N",
-    "CACHE_TYPE"           => "N",
+    "CACHE_TYPE"    => "A",
     "FIELD_CODE"    => Array("ID", "PREVIEW_PICTURE", "DETAIL_PICTURE"),
     "SET_TITLE"     => "N",
-    "PROPERTY_CODE" => Array("CITY", "DATE", "DIRECTION","DIRECTION.NAME", "SPEAKERS", "TYPE", "GROUP", "ADDRESS", "SHEDULE", "IMAGE"),
+    "PROPERTY_CODE" => Array("CITY", "LAST_YEAR", "DATE", "DIRECTION","DIRECTION.NAME", "SPEAKERS", "TYPE", "GROUP", "ADDRESS", "SHEDULE", "IMAGE", "OPEN"),
 )
 );
 
