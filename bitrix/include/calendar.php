@@ -1,7 +1,6 @@
 <?require_once ($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/main/include.php");?>
 <div id="cal-day">
   <?
-    $count = str_split($APPLICATION->GetPageProperty('count'));
     if($_REQUEST['date']):
       $date = strtotime($_REQUEST['date']);
     elseif($APPLICATION->GetPageProperty('day')):
@@ -104,14 +103,16 @@
     	<div class="text">ВИКТОРИНА <br>С СУПЕР-ПРИЗОМ!</div>
     </a>
     */?>
-    <? if(count($count)>0):?>
+    <? if(intval($APPLICATION->GetPageProperty('count'))>0):
+      $count = str_split($APPLICATION->GetPageProperty('count'));
+    ?>
       <div class="counter center">
         <?foreach ($count as $n) {
           echo svg($n);
         }?><br>
         зарегистрировались
       </div>
-    <? endif;?>
+    <?endif;?>
 
 
 </div>

@@ -90,12 +90,21 @@ $APPLICATION->SetPageProperty('body_class', "color career");
       <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><title>close</title><desc>Created with Sketch.</desc><path d="M7.914 6.5l4.793 4.793-1.414 1.414-4.793-4.793-4.793 4.793-1.414-1.414 4.793-4.793-4.793-4.793 1.414-1.414 4.793 4.793 4.793-4.793 1.414 1.414-4.793 4.793z" sketch:type="MSShapeGroup" fill="#fff" fill-rule="evenodd"/></svg>
       </button>
       <h1>Mars Internship Program</h1>
+      <?
+        $arSelect = Array("ID", "PROPERTY_OPEN", "PROPERTY_DATES");
+        $arFilter = Array("IBLOCK_ID"=>7, "CODE"=>"internship");
+        $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>5), $arSelect);
+        $item = $res->Fetch();
+        if($item['PROPERTY_OPEN_VALUE']=="Да"):
+      ?>
+        <div class="dates">Даты приема: <?=$item['PROPERTY_DATES_VALUE']?>.</div>
+      <?endif;?>
       <div class="row">
         <?
           CModule::IncludeModule("iblock");
           $arSelect = Array("ID", "NAME");
           $arFilter = Array("IBLOCK_ID"=>8);
-          $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>50), $arSelect);
+          $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>5), $arSelect);
         ?>
         <div class="<?=($res->NavRecordCount>0?'col-md-8 col-xs-7':'col-xs-12')?>">
           <div class="scroll violet">
@@ -174,6 +183,15 @@ $APPLICATION->SetPageProperty('body_class', "color career");
       <button type="button" data-dismiss="modal" aria-hidden="true" class="close"><svg width="14" height="14" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><title>close</title><desc>Created with Sketch.</desc><path d="M7.914 6.5l4.793 4.793-1.414 1.414-4.793-4.793-4.793 4.793-1.414-1.414 4.793-4.793-4.793-4.793 1.414-1.414 4.793 4.793 4.793-4.793 1.414 1.414-4.793 4.793z" sketch:type="MSShapeGroup" fill="#fff" fill-rule="evenodd"/></svg>
       </button>
       <h1>Leadership Development Program</h1>
+      <?
+        $arSelect = Array("ID", "PROPERTY_OPEN", "PROPERTY_DATES");
+        $arFilter = Array("IBLOCK_ID"=>7, "CODE"=>"leadership");
+        $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>5), $arSelect);
+        $item = $res->Fetch();
+        if($item['PROPERTY_OPEN_VALUE']=="Да"):
+      ?>
+        <div class="dates">Даты приема: <?=$item['PROPERTY_DATES_VALUE']?>.</div>
+      <?endif;?>
       <div class="row">
         <div class="col-md-8 col-xs-7">
           <div class="scroll">
@@ -265,7 +283,7 @@ $APPLICATION->SetPageProperty('body_class', "color career");
               </div>
               <h3>Истории успеха участников Leadership Development Program:</h3>
               <div class="row">
-                <div class="col-md-4 right"><a href="https://vk.com/doc-25625432_209635496" target="_blank"><img src="/layout/images/leader-1.png"></a></div>
+                <div class="col-md-4 right"><a href="http://vk.com/doc-25625432_248826094" target="_blank"><img src="/layout/images/leader-1.png"></a></div>
                 <div class="col-md-4 center"><a href="https://vk.com/doc-25625432_269909622" target="_blank"><img src="/layout/images/leader-2.png"></a></div>
                 <div class="col-md-4"><a href="https://vk.com/doc-25625432_212658406" target="_blank"><img src="/layout/images/leader-3.png"></a></div>
               </div>

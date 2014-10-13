@@ -3,7 +3,7 @@ $this->setFrameMode(true);
 $prop = &$arResult["PROPS"];
 $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
 ?>
-<div id="event" style="background-image: url(/layout/images/event.jpg)">
+<div id="event" class="<?=$prop['DIRECTION']['CODE']?>" style="background-image: url(/layout/images/event.jpg)">
   <? if(isset($prop['DIRECTION'])):?>
     <img src="<?=$prop['DIRECTION']['IMAGE']?>" alt="" class="image">
   <?else:?>
@@ -14,11 +14,11 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
       <? if(isset($prop['DIRECTION'])):?>
         <div class="section <?=$prop['DIRECTION']['COLOR']?>"><?=$prop['DIRECTION']['NAME']?></div>
       <? endif;?>
-      <div class="type"><?=$prop['TYPE']?></div>
+      <div class="type"><?=$prop['TYPE']['name']?></div>
       <div class="name">«<?=$arResult['NAME']?>»</div>
       <div class="description">
         <?=(date('H:i', strtotime($prop['DATE']))!='00:00'?"Время: ".date('H:i', strtotime($prop['DATE']))."<br>":"")?>
-        Место: <?=$prop['ADDRESS']." / "?><strong><?=$prop['CITY']?></strong>
+        Место: <?=$prop['ADDRESS']." / "?><strong><?=$prop['CITY']['name']?></strong>
       </div>
       <div class="tools">
         <div class="row">
@@ -291,7 +291,7 @@ $url = 'http://'.$_SERVER['SERVER_NAME'].$APPLICATION->GetCurPage();
             <p>Регистрируясь на это событие, вы принимаете <a href="#">Пользовательское соглашение</a> и подтверждаете ваше согласие на <a href="#">обработку персональных данных</a>.</p>
           </form>
         </div>
-        <?else:?>
+        <?elseif($prop['DIRECTION']['CODE']!='partners'):?>
         <div class="col-md-6">
           <h2>К сожалению, регистрация на данное мероприятие закрыта.</h2>
           <p>Ждем вас на других мероприятиях!</p>

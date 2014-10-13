@@ -20,7 +20,7 @@
 			case 'CITY':
 				$res = CIBlockElement::GetByID($item["VALUE"]);
 				if($ar_res = $res->GetNext())
-				  $prop[$item["CODE"]] = $ar_res['NAME'];
+				  $prop[$item["CODE"]] = array('name'=>$ar_res['NAME'], 'code'=>$ar_res['CODE']);
 				break;
 			case 'IMAGE':
 				$prop["IMAGE"] = CFile::GetPath($$item);
@@ -33,6 +33,7 @@
     			  $color = $res3->Fetch();
 				  $prop[$item["CODE"]] = array(
 						"NAME"        => $ar_res['NAME'],
+						"CODE"        => $ar_res['CODE'],
 						"IMAGE"       => CFile::GetPath($ar_res['DETAIL_PICTURE']),
 						"TITLE_IMAGE" => CFile::GetPath($image["VALUE"]),
 						"COLOR"       => $color['VALUE_XML_ID']

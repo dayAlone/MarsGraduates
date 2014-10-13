@@ -40,6 +40,8 @@ b(name=null, position=null, color=null, size=null)
 	&__content
 		display none
 		padding-bottom 20px
+		img
+			max-width 100%
 	&__trigger
 		font-weight bold
 		padding-left 38px
@@ -573,6 +575,8 @@ a, svg g, svg path
 						background #4ea648
 					&.orange
 						background #e46143
+					&.pink
+						background #f3178c
 				&.star
 					full-width()
 					font-weight bold
@@ -798,6 +802,8 @@ a, svg g, svg path
 	margin-top 151px
 	position relative
 	overflow hidden
+	&.partners
+		background-image: url(/layout/images/event2.jpg) !important
 	.image
 		position absolute
 		max-width 625px
@@ -827,6 +833,8 @@ a, svg g, svg path
 				background #46a73e
 			&.violet
 				background #963085
+			&.pink
+				background #f3178c
 			&.yellow
 				background #f09746
 		.tools
@@ -1452,30 +1460,35 @@ a, svg g, svg path
 					&.active
 						opacity 1
 			a
-				margin 0 30px
+				margin 0 17px
 				display inline-block
 				position relative
-				&:first-of-type
+				&[href*="marketing"]
+					margin-right 30px
 					span
 						background #e6603c
 					svg
 						right -40px
 						top -5px
-				&:nth-child(2)
+				&[href*="finans"]
 					span
 						background #4aa743
-				&:nth-child(3)
+				&[href*="tech"]
 					span
 						background #943283
-				&:nth-child(4)
+				&[href*="razvitie-liderstva"]
 					span
 						background #f2983b
+				&[href*="partners"]
+					span
+						background #e63087
 				span
 					float left
 					padding 4px 5px 1px 16px
 					clear left
 					color white
-					line-height 14px
+					line-height 10px
+					font-size 12px
 				svg
 					right -10px
 					top -10px
@@ -1574,6 +1587,15 @@ a, svg g, svg path
 							background #943283
 							.type, .city
 								color #de42c1
+				&.pink
+					h3
+						background-color #f3178c
+					.events
+						.event
+							background #f3178c
+							.type, .city
+								color white
+								opacity .8
 				&.yellow
 					h3
 						background-color #f2983c
@@ -1805,6 +1827,8 @@ a, svg g, svg path
 					color #e6633d
 				&.blue
 					color #339bc2
+				&.pink
+					color #f3178c
 			p
 				width 85%
 				font-weight 500
@@ -2166,6 +2190,10 @@ a, svg g, svg path
 							background #952e84
 							.city, .type, .more
 								color #f45ed9
+						&.pink
+							background #f3178c
+							.city, .type, .more
+								color #78084e
 						&.orange
 							background #e46143
 							.city, .type, .more
@@ -2202,6 +2230,9 @@ a, svg g, svg path
 					&.yellow
 						.city, .type, .more
 							color #f09746
+					&.pink
+						.city, .type, .more
+							color #63003a
 					.city
 						font-weight bold
 						font-size 18px
@@ -3003,6 +3034,12 @@ a, svg g, svg path
 
 .modal
 	color black
+	.dates
+		text-transform uppercase
+		font-weight bold
+		color #efc351
+		margin -8px 0 10px 0
+		font-size 20px
 	.scroll
 		float left
 		width 97%
@@ -3133,6 +3170,7 @@ a, svg g, svg path
 				width 100%
 
 #modalLeadership
+	
 	.modal-content
 		padding-bottom 10px
 
@@ -3286,6 +3324,9 @@ a, svg g, svg path
 		&.yellow
 			.city, .type
 				color #f09746
+		&.pink
+			.city, .type
+				color #f3178c
 
 .slick-loading .slick-list 
 	background none

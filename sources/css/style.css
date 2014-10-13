@@ -41,6 +41,9 @@
   display: none;
   padding-bottom: 20px;
 }
+.slide__content img {
+  max-width: 100%;
+}
 .slide__trigger {
   font-weight: bold;
   padding-left: 38px;
@@ -859,6 +862,10 @@ svg path:hover {
 #cal-day a.event.orange {
   background: #e46143;
 }
+#main .col .content a.event.pink,
+#cal-day a.event.pink {
+  background: #f3178c;
+}
 #main .col .content a.star,
 #cal-day a.star {
   float: left;
@@ -1194,6 +1201,9 @@ svg path:hover {
   position: relative;
   overflow: hidden;
 }
+#event.partners {
+  background-image: url("/layout/images/event2.jpg") !important;
+}
 #event .image {
   position: absolute;
   max-width: 625px;
@@ -1228,6 +1238,9 @@ svg path:hover {
 }
 #event .content .section.violet {
   background: #963085;
+}
+#event .content .section.pink {
+  background: #f3178c;
 }
 #event .content .section.yellow {
   background: #f09746;
@@ -2063,32 +2076,39 @@ svg path:hover {
   filter: none;
 }
 #page.academy .parts a {
-  margin: 0 30px;
+  margin: 0 17px;
   display: inline-block;
   position: relative;
 }
-#page.academy .parts a:first-of-type span {
+#page.academy .parts a[href*="marketing"] {
+  margin-right: 30px;
+}
+#page.academy .parts a[href*="marketing"] span {
   background: #e6603c;
 }
-#page.academy .parts a:first-of-type svg {
+#page.academy .parts a[href*="marketing"] svg {
   right: -40px;
   top: -5px;
 }
-#page.academy .parts a:nth-child(2) span {
+#page.academy .parts a[href*="finans"] span {
   background: #4aa743;
 }
-#page.academy .parts a:nth-child(3) span {
+#page.academy .parts a[href*="tech"] span {
   background: #943283;
 }
-#page.academy .parts a:nth-child(4) span {
+#page.academy .parts a[href*="razvitie-liderstva"] span {
   background: #f2983b;
+}
+#page.academy .parts a[href*="partners"] span {
+  background: #e63087;
 }
 #page.academy .parts a span {
   float: left;
   padding: 4px 5px 1px 16px;
   clear: left;
   color: #fff;
-  line-height: 14px;
+  line-height: 10px;
+  font-size: 12px;
 }
 #page.academy .parts a svg {
   right: -10px;
@@ -2221,6 +2241,19 @@ svg path:hover {
 #page.academy .items > .item.violet .events .event .type,
 #page.academy .items > .item.violet .events .event .city {
   color: #de42c1;
+}
+#page.academy .items > .item.pink h3 {
+  background-color: #f3178c;
+}
+#page.academy .items > .item.pink .events .event {
+  background: #f3178c;
+}
+#page.academy .items > .item.pink .events .event .type,
+#page.academy .items > .item.pink .events .event .city {
+  color: #fff;
+  opacity: 0.8;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
 }
 #page.academy .items > .item.yellow h3 {
   background-color: #f2983c;
@@ -2529,6 +2562,9 @@ svg path:hover {
 }
 #page.about .principles h3.blue {
   color: #339bc2;
+}
+#page.about .principles h3.pink {
+  color: #f3178c;
 }
 #page.about .principles p {
   width: 85%;
@@ -3096,6 +3132,14 @@ svg path:hover {
 #page.month .table .cell:hover .event.violet .more {
   color: #f45ed9;
 }
+#page.month .table .cell:hover .event.pink {
+  background: #f3178c;
+}
+#page.month .table .cell:hover .event.pink .city,
+#page.month .table .cell:hover .event.pink .type,
+#page.month .table .cell:hover .event.pink .more {
+  color: #78084e;
+}
 #page.month .table .cell:hover .event.orange {
   background: #e46143;
 }
@@ -3163,6 +3207,11 @@ svg path:hover {
 #page.month .table .cell .event.yellow .type,
 #page.month .table .cell .event.yellow .more {
   color: #f09746;
+}
+#page.month .table .cell .event.pink .city,
+#page.month .table .cell .event.pink .type,
+#page.month .table .cell .event.pink .more {
+  color: #63003a;
 }
 #page.month .table .cell .event .city {
   font-weight: bold;
@@ -4205,6 +4254,13 @@ svg path:hover {
 .modal {
   color: #000;
 }
+.modal .dates {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #efc351;
+  margin: -8px 0 10px 0;
+  font-size: 20px;
+}
 .modal .scroll {
   float: left;
   width: 97%;
@@ -4574,6 +4630,10 @@ svg path:hover {
 #day_events .item.yellow .city,
 #day_events .item.yellow .type {
   color: #f09746;
+}
+#day_events .item.pink .city,
+#day_events .item.pink .type {
+  color: #f3178c;
 }
 .slick-loading .slick-list {
   background: none;
